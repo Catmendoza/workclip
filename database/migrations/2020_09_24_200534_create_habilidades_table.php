@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsuariosPerfilTable extends Migration
+class CreateHabilidadesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,13 @@ class CreateUsuariosPerfilTable extends Migration
      * @return void
      */
     public function up()
-
-    { Schema::create('usuarios-perfil', function (Blueprint $table) {
-        $table->id();
-        $table->integer('id_usuario');
-        $table->string('imagen');
-        $table->text('texto_quiensoy');
-        $table->timestamps();
-    });
-    
+    {
+        Schema::create('habilidades', function (Blueprint $table) {
+            $table->id();
+            $table->integer('id_perfil');
+            $table->text('principal_texto');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -30,6 +28,6 @@ class CreateUsuariosPerfilTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios-perfil');
+        Schema::dropIfExists('habilidades');
     }
 }
