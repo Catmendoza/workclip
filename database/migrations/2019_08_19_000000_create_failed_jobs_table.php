@@ -9,6 +9,8 @@ class CreateFailedJobsTable extends Migration
     /**
      * Run the migrations.
      *
+     * php artisan make:migration create_nombre_table*/
+    /** php artisan migrate
      * @return void
      */
     public function up()
