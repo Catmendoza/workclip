@@ -14,10 +14,10 @@ class CreateComentariosTable extends Migration
     public function up()
     {
         Schema::create('comentarios', function (Blueprint $table) {
-            $table->id('id_comentarios');
-            $table->foreignld('id_producto');
-            $table->foreignld('id_proyecto');
-            $table->foreignld('id_usuario');
+            $table->id();
+            $table->integer('id_producto');
+            $table->integer('id_proyecto');
+            $table->integer('id_usuario');
             $table->text('contenido');
             $table->date('fecha_publi');
 

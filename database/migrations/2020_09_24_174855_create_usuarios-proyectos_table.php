@@ -14,8 +14,8 @@ class CreateUsuariosProyectosTable extends Migration
     public function up()
 
     { Schema::create('usuarios-proyectos', function (Blueprint $table) {
-        $table->id('id_proyecto');
-        $table->foreignld('id_perfil');
+        $table->id();
+        $table->integer('id_perfil');
         $table->string('imagen');
         $table->string('nombre_proyecto');
         $table->text('descripcion');
@@ -24,7 +24,7 @@ class CreateUsuariosProyectosTable extends Migration
         $table->date('fecha_publi');
 
 
-        $table->timestamp();
+        $table->timestamps();
     });
     
     }

@@ -14,13 +14,13 @@ class CreateUsuariosHobbysTable extends Migration
     public function up()
 
     { Schema::create('usuarios-hobbys', function (Blueprint $table) {
-        $table->id('id_hobby');
-        $table->foreignld('id_perfil');
+        $table->id();
+        $table->integer('id_perfil');
         $table->string('cultura');
         $table->string('deporte');
         $table->string('comida');
 
-        $table->timestamp();
+        $table->timestamps();
     });
     
     }

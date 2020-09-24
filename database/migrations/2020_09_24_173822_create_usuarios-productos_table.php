@@ -14,8 +14,8 @@ class CreateUsuariosProductosTable extends Migration
     public function up()
 
     { Schema::create('usuarios-productos', function (Blueprint $table) {
-        $table->id('id_producto');
-        $table->foreignld('id_perfil');
+        $table->id();
+        $table->integer('id_perfil');
         $table->string('imagen');
         $table->string('nombre_producto');
         $table->text('descripcion');
@@ -23,7 +23,7 @@ class CreateUsuariosProductosTable extends Migration
         $table->date('fecha_publi');
 
 
-        $table->timestamp();
+        $table->timestamps();
     });
     
     }

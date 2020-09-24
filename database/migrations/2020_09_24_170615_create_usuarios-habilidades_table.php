@@ -14,10 +14,10 @@ class CreateUsuariosHabilidadesTable extends Migration
     public function up()
 
     { Schema::create('usuarios-habilidades', function (Blueprint $table) {
-        $table->id('id_habilidades');
-        $table->foreignld('id_perfil');
+        $table->id();
+        $table->integer('id_perfil');
         $table->text('texto_principal');
-        $table->timestamp();
+        $table->timestamps();
     });
     
     }

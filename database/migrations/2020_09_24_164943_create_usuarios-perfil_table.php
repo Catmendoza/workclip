@@ -14,11 +14,11 @@ class CreateUsuariosPerfilTable extends Migration
     public function up()
 
     { Schema::create('usuarios-perfil', function (Blueprint $table) {
-        $table->id('id_perfil');
-        $table->foreignld('id_usuario');
+        $table->id();
+        $table->integer('id_usuario');
         $table->string('imagen');
         $table->text('texto_quiensoy');
-        $table->timestamp();
+        $table->timestamps();
     });
     
     }
