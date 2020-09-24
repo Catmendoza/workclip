@@ -16,9 +16,9 @@ class CreateUsuariosHobbysTable extends Migration
     { Schema::create('usuarios-hobbys', function (Blueprint $table) {
         $table->id('id_hobby');
         $table->foreignld('id_perfil');
-        $table->String('cultura');
-        $table->String('deporte');
-        $table->String('comida');
+        $table->string('cultura');
+        $table->string('deporte');
+        $table->string('comida');
 
         $table->timestamp();
     });
