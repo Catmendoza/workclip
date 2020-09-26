@@ -1,0 +1,174 @@
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.modal-public-main {
+    position: fixed;
+    /* Stay in place */
+    z-index: 102;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: -3em;
+    width: 100%;
+    /* Full width */
+    height: 100vmax;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    display: none;
+}
+
+.modal-public-content {
+    max-height: 550px;
+    min-height: 550px;
+    max-width: 800px;
+    min-width: 500px;
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    width: 50%;
+    height: 85%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 0.7em;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-modal {
+    width: 100%;
+    border-radius: .5em .5em 0 0;
+    background: #1c2347;
+}
+
+.header-modal>h4 {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-left: 10px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 30%;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+}
+
+.close-modal-public > a {
+    cursor: pointer;
+    font-size: 1em;
+    position: absolute;
+    top: -5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 2em;
+    background: #1c2347;
+    right: -5px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    transition: ease-in-out 0.2s;
+}
+
+.close-modal-public .fa-times{
+	color: #fff;
+	transition: ease-in-out .3s;
+}
+
+.close-modal-public > a:hover{
+	background: #fff;
+	transition: ease-in-out .3s;
+}
+
+.close-modal-public > a:hover .fa-times{
+	color: tomato ;
+	transition: ease-in-out .3s;
+}
+
+.modal-public-content>h4 {
+    padding: 20px 0;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    color: #1c2347;
+    font-size: 1.2rem;
+}
+
+.select-modal-public {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.select-modal-public:nth-child(4) {
+    align-items: baseline;
+}
+
+.select-box {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+    height: 100%;
+}
+
+.select-box>a {
+    background: #1c2347;
+    color: #fff;
+    width: 50%;
+    height: 60%;
+    font-size: 4rem;
+
+    border-radius: 0.2em;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+.select-box>a:hover {
+    background: #323f7e;
+    transition: ease-in-out 0.3s;
+}
+
+.select-box>h4 {
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    color: #1c2347;
+    font-size: 1.2rem;
+}

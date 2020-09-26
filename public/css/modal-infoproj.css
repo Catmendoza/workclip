@@ -1,0 +1,169 @@
+
+
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+
+.modal-infoproj{
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 102; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      
+  }
+  
+  .modal-info-content{
+
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    width: 60%;
+    max-width:600px;
+   
+    min-width: 600px; 
+    min-height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 0.7em;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .header-modal-info{
+        width: 100%;
+        
+  }
+
+  .header-modal-info > h3{
+
+      font-size: 1rem;
+      text-align: left;
+      margin-left: 10px;
+      line-height: 40px;
+      height: 30%;
+  }
+
+  .close label{
+	cursor: pointer;
+	font-size: .8em;
+	position: absolute;
+	top: 0px;
+	right: 5px;
+	font-family: sans-serif;
+	font-weight: bold;
+	color: #000000;
+	text-align: center;
+}
+
+  .body-modal-info{
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+  }
+
+  .img-project{
+      width: 100%;
+      
+  }
+
+  .img-project > img{
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      object-fit: cover;
+      border-radius: 1em;
+      min-width: 200px ;
+      min-height: 100px;
+      max-height: 250px;
+  }
+  
+.descript-project{
+    padding: 0 10px;
+}
+
+.social-media-project i{
+    font-size:22px;
+    font-weight: 100px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    line-height: 38px;
+   
+ 
+    color:#1c2347;
+    text-align:center;
+    margin-left: 20px;
+    margin-right: 5px;
+    margin-top: 20px;
+    transition: all .3s ease-in-out;
+    cursor:pointer;
+}
+
+.social-media-project i:hover{
+    color: #4455a7;
+    
+}
+
+.footer-modal-info{
+    width: 100%;
+    flex: 1;
+    display: flex; 
+   
+}
+
+.progress-bar-modal{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.progress-bar-modal > p{
+    text-align: center;
+    font-weight: bold;
+}
+
+.progress{
+    width: 80%;
+    
+}
+
+.buttons-modal-info{
+    display: flex;
+    align-items: center; 
+    width: 100%;
+    justify-content: center;
+}
+
+.buttons-modal-info > a{
+    background: #0275d8;
+    padding: 10px;
+    width: 25%;
+    font-size: .8rem;
+    margin-left: 2em;
+    text-align: center;
+    color: white;
+    border-radius: .3em;
+    text-decoration: none;
+}

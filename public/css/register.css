@@ -1,0 +1,65 @@
+/*cata*/
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-container > div {
+    background-color: white;
+    width: 50%;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+    font-family: "Poppins", sans-serif;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+    text-align: center;
+    margin: 50px;
+}
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    font-family: "Poppins", sans-serif;
+    color: #aaa;
+}
+
+.imgpeque {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+}
+
+.textWhite {
+    color: white;
+    text-align: left;
+    font-family: "Poppins", sans-serif;
+}
+
+.imgProyectos {
+    width: 200px;
+    height: 250px;
+    margin: 10px;
+}
