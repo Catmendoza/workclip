@@ -447,6 +447,10 @@ nav {
         font-size: 45px;
     }
 
+    h1{
+        margin-bottom:0;
+    }
+
     .content-about-us {
         margin-bottom: 100px;
         flex-direction: column;

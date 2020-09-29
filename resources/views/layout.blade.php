@@ -3,15 +3,9 @@
 
 <head>
     <meta charset="UTF-8" />
+    @yield('css')
+   
 
-    <link rel="stylesheet" href="{{ asset('css/cssindex.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/register.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/modal-public.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/user.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/modal-publish-job.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/modal-publish-project.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/modal-infoproj.css') }}" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@600&display=swap"

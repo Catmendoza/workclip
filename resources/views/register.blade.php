@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-  <link rel="stylesheet" href="{{ asset('css/cssindex.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/cssindex.css') }}" />
    <link rel="stylesheet" href="{{ asset('css/register.css') }}" /> 
 
 

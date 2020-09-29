@@ -1,5 +1,13 @@
 @extends('layout')
 
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/cssindex.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/user.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/modal-infoproj.css') }}" type="text/css" />
+@endsection
+
 @section('content')
     <div class="data-section">
 

@@ -1,5 +1,10 @@
 @extends('layout')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/cssindex.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
+@endsection
+
 @section('content')
     <section class="about-us-section">
         <div class="container about-us">
