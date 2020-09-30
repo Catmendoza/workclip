@@ -2,8 +2,8 @@
 
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/register.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
      <link rel="stylesheet" href="{{ asset('css/cssindex.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-public.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-publish-job.css') }}" />
@@ -14,243 +14,267 @@
 
 @section('content')
 
-    <section>
-        <div class="flex">
-            <div style="width:100%;">
-                <div class="navbar navbar-expand-lg navbar-light  lighten-5  " style="background-color: white">
-                    <form class=" form-inline">
-                        <div class="form-group has-search" style="margin-left: 30%">
-                            <i class="fa fa-search form-control-feedback"></i>
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                    </form>
+<section class="nav-bar-main">
+    <div class="navbar navbar-expand-lg navbar-light  lighten-5  " style="background-color: white">
 
-                    <div style="margin-left: 20%">
-                        <div>
-                            <button class="btn btn-lg" style="background-color:transparent;">
-                                <i class="fas fa-home"></i>
-                                <h6>Inicio</h6>
-                            </button>
-                            <button class="btn btn-lg" style="background-color:transparent;">
-                                <i class="fa fa-user-plus"></i>
-                                <h6>Buscar perfil</h6>
-                            </button>
-
-                            <button class="btn btn-lg " type="button" id="btn-public">
-                                <i class="fa fa-plus-circle"></i>
-                                <h6>Añadir publicación</h6>
-                            </button>
-                        </div>
+        <div class="container-nav-bar">
+            <div class="form-nav-bar">
+                <form class="form-inline">
+                    <div class="form-group has-search">
+                        <i class="fa fa-search form-control-feedback"></i>
+                        <input type="text" class="form-control" placeholder="Search">
                     </div>
-                </div>
-
+                </form>
             </div>
-            <div class="row" style="background-color:  #e0e0e0; margin-right:0;">
-                <div class="col-md-7" style=" align-items: stretch;margin-left: 100px; margin-top: 30px;">
-                    <div class="flex-container">
-                        <div style="width: 100%; border-radius: 10px; background-color: #1a2243">
-                            <img src=".\img\cata.png" alt="" class="rounded-circle float-left imgpeque">
-                            <h4 class="textWhite" style="margin-top: 20px;">Catalina Mendoza Alvarez</h4>
-                            <h6 class="textWhite">Tec.Sistemas</h6>
-                        </div>
 
-                        <div
-                            style="margin-top: 10px; width: 100%; border-radius: 10px; margin-bottom: 20px; background-color: white">
+            <div  class="buttons-nav-bar">
+                <button class="btn btn-lg">
+                    <i class="fas fa-home"></i>
+                    <h6>Inicio</h6>
+                </button>
+            </div> 
 
-                            <h6 style="text-align: left; margin: 5px; margin-left:20px; color:#979797">Proyecto name</h6>
-                            <hr>
-                            <div>
-                                <img src=".\img\descarga.png" alt="" class=" float-left imgProyectos">
-                                <div style="margin-left:25px; text-align: left">
-                                    <h4 style="margin-top: 20px; color: #515151">Descripción</h4>
-                                    <div style="margin-right: 100px; color:#504d4d">
-                                        <p>
-                                        <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                            consequat.</h6>
-                                        </p>
-                                        <a class="btn-floating btn-tw" type="button" role="button"><i class="fab fa-twitter"
-                                                style="color: #504d4d"></i></a>
-                                        <a class="btn-floating btn-tw" type="button" role="button"><i
-                                                class="fab fa-instagram" style="color: #504d4d"></i></a>
-                                        <a class="btn-floating btn-tw" type="button" role="button"><i class="fab fa-github"
-                                                style="color: #504d4d"></i></a>
-                                    </div>
+            <div class="buttons-nav-bar">
+                <button class="btn btn-lg" >
+                    <i class="fa fa-user-plus"></i>
+                    <h6>Buscar perfil</h6>
+                </button>
+            </div>
 
-                                </div>
-                            </div>
-                            <div class="row" style=" margin-top:10%;margin-right:0;">
-                                <div class="text-left col-md-3 " style="font-size:15px; margin-left:10% ">
-                                    <p style="line-height: 20px; margin-top:20px">Estado del <br> proyecto </p>
+            <div class="buttons-nav-bar">
+                <button class="btn btn-lg" id="btn-public">
+                    <i class="fa fa-plus-circle"></i>
+                    <h6>Añadir publicación</h6>
+                </button>
+            </div>
+        </div>
+    </div>
 
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary btn-sm">Seguir</button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary btn-sm">Me interesa</button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary btn-sm">Postularme</button>
-                                </div>
-                            </div>
-                            <div>
-                                <div style="text-align: left;line-height:1px;font-size:15px; margin-left:8% ">
-                                    <p>25% completado</p>
+</section>
 
-                                </div>
-                                <div class="progress" style="width: 100px;margin-left:8%; margin-bottom: 10px ">
-                                    <div class="progress-bar" role="progressbar"
-                                        style="width: 25%; background-color: #5db660" aria-valuenow="25" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                </div>
+<section class="sect-content-post">
+    <div class="container-grid-post">
+        <div class="content-post-main">
+            <div class="col-md-7">
 
-                            </div>
+                <div class="header-box-main">
+                    <div class="img-user-header">
+                        <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
+                    </div>
+       
 
+                    <div class="name-user-box">
+                        <h4 class="textWhite">Catalina Mendoza Alvarez</h4>
+                        <h6 class="textWhite">Tec.Sistemas</h6>
+                    </div>
+
+                    <div class="fecha-box">
+                        <label>11 Jul</label>
+                    </div>
+
+                </div>
+
+                <div class="box-main-content">
+
+                    <div class="header-box-ppe">
+                        <h6 style="color:#979797">News</h6>
+                        <hr>
+                    </div>
+
+                    <div class="img-box-ppe">
+                        <img src="{{ asset('img/descarga.png') }}">
+                    </div>
+
+                    <div class="description-box">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet vel sapiente laboriosam rerum quibusdam culpa sunt saepe tenetur voluptatum deserunt.
+                  
+                  
+                        <div class="btn-read-more">
+                            <button>Leer Mas</button>
                         </div>
                     </div>
+
                 </div>
-                <!-- -->
-                <div class="col-md-3"
-                    style="margin-top: 30px; margin-left: 30px;height: 300px; width: 25%;border-radius: 10px; background-color: #1a2243">
+           
+            </div>
+
+            <!--Filtro-->
+            <div class="col-md-3"style="height: 300px; border-radius: 10px; background-color: #1a2243">
+                <div class="content-filter">
+
+                    <div class="header-filter-box">
+                        <div class="box-filter-title">
+                            <label>Filtro</label>
+                        </div>
+                 
+                    </div>
+
                     <h5 style="margin-top: 20px;margin-left: 20px; color: white;text-align: left">Categoria</h5>
                     <div class="checkbox " style="margin-left: 10px;line-height:10px">
                         <label style="color:white;font-size:20px; ">
                             <input type="checkbox">
                             Emprendimiento
                         </label>
-
+    
                     </div>
                     <div class="checkbox" style="margin-left: 10px; line-height:10px; ">
-
+    
                         <label style="color:white;font-size:20px">
                             <input type="checkbox">
                             Proyectos
                         </label>
                     </div>
                 </div>
-            </div>
-            <div class="row" style="background-color:  #e0e0e0 ; margin-right:0;">
-                <div class="col-md-7" style=" align-items: stretch;margin-left: 100px; margin-top: 30px;">
-                    <div class="flex-container">
-                        <div style="width: 100%; border-radius: 10px; background-color: #1a2243">
-                            <img src=".\img\cata.PNG" alt="" class="rounded-circle float-left imgpeque">
-                            <h4 class="textWhite" style="margin-top: 20px;">Catalina Mendoza Alvarez</h4>
-                            <h6 class="textWhite">Tec.Sistemas</h6>
-                        </div>
-
-                        <div
-                            style="margin-top: 10px; width: 100%; border-radius: 10px; margin-bottom: 20px; background-color: white">
-
-                            <h6 style="text-align: left; margin: 5px; margin-left:20px; color:#979797">Proyecto name</h6>
-                            <hr>
-                            <div>
-                                <img src=".\img\descarga.png" alt="" class=" float-left imgProyectos">
-                                <div style="margin-left:25px; text-align: left">
-                                    <h4 style="margin-top: 20px; color: #515151">Descripción</h4>
-                                    <div style="margin-right: 100px; color:#504d4d">
-                                        <p>
-                                        <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                            consequat.</h6>
-                                        </p>
-                                        <a class="btn-floating btn-tw" type="button" role="button"><i class="fab fa-twitter"
-                                                style="color: #504d4d"></i></a>
-                                        <a class="btn-floating btn-tw" type="button" role="button"><i
-                                                class="fab fa-instagram" style="color: #504d4d"></i></a>
-                                        <a class="btn-floating btn-tw" type="button" role="button"><i class="fab fa-github"
-                                                style="color: #504d4d"></i></a>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="row" style=" margin-top:10%; margin-right:0;">
-                                <div class="text-left col-md-3 " style="font-size:15px; margin-left:10% ">
-                                    <p style="line-height: 20px; margin-top:20px">Estado del <br> proyecto </p>
-
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary btn-sm">Seguir</button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary btn-sm">Me interesa</button>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary btn-sm">Postularme</button>
-                                </div>
-                            </div>
-                            <div>
-                                <div style="text-align: left;line-height:1px;font-size:15px; margin-left:8% ">
-                                    <p>25% completado</p>
-
-                                </div>
-                                <div class="progress" style="width: 100px;margin-left:8%; margin-bottom: 10px ">
-                                    <div class="progress-bar" role="progressbar"
-                                        style="width: 25%; background-color: #5db660" aria-valuenow="25" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row" style="background-color:  #e0e0e0 ;margin-right:0;">
-                <div class="col-md-7" style=" align-items: stretch;margin-left: 100px; margin-top: 30px;">
-                    <div class="flex-container">
-                        <div style="width: 100%; border-radius: 10px; background-color: #1a2243">
-                            <img src=".\img\cata.PNG" alt="" class="rounded-circle float-left imgpeque">
-                            <h4 class="textWhite" style="margin-top: 20px;">Catalina Mendoza Alvarez</h4>
-                            <h6 class="textWhite">Tec.Sistemas</h6>
-                        </div>
-
-                        <div
-                            style="margin-top: 10px; width: 100%; border-radius: 10px; margin-bottom: 20px; background-color: white">
-
-                            <h6 style="text-align: left; margin: 5px; margin-left:20px; color:#979797">Producto name</h6>
-                            <hr>
-                            <div>
-                                <img src=".\img\descarga.png" alt="" class=" float-left imgProyectos">
-                                <div style="margin-left:25px; text-align: left">
-                                    <h4 style="margin-top: 20px; color: #515151">Descripción</h4>
-                                    <div style="margin-right: 100px; color:#504d4d">
-                                        <p>
-                                        <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                            consequat.</h6>
-                                        </p>
-                                        <a class="btn-floating btn-tw" type="button" role="button"><i class="fab fa-twitter"
-                                                style="color: #504d4d"></i></a>
-                                        <a class="btn-floating btn-tw" type="button" role="button"><i
-                                                class="fab fa-instagram" style="color: #504d4d"></i></a>
-                                        <a class="btn-floating btn-tw" type="button" role="button"><i class="fab fa-github"
-                                                style="color: #504d4d"></i></a>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="row" style=" margin-top:5px;margin-right:0; ">
-
-                                <div class="col-md-2">
-                                    <button type="button" class="btn btn-primary btn-sm"><i
-                                            class="fa fa-heart"></i></button>
-                                </div>
-
-                                <div class="col-md-10">
-                                    <button type="button" class="btn btn-primary btn-sm">Comprar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
+    </div>
+
+</section>
+
+<section class="sect-content-post">
+    <div class="container-grid-post">
+        <div class="content-post-main">
+            <div class="col-md-7">
+
+                <div class="header-box-main">
+                    <div class="img-user-header">
+                        <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
+                    </div>
+       
+
+                    <div class="name-user-box">
+                        <h4 class="textWhite">Catalina Mendoza Alvarez</h4>
+                        <h6 class="textWhite">Tec.Sistemas</h6>
+                    </div>
+
+                    <div class="fecha-box">
+                        <label>11 Jul</label>
+                    </div>
+
+                </div>
+
+                <div class="box-main-content">
+
+                    <div class="header-box-ppe">
+                        <h6 style="color:#979797">News</h6>
+                        <hr>
+                    </div>
+
+                    <div class="img-box-ppe">
+                        <img src="{{ asset('img/descarga.png') }}">
+                    </div>
+
+                    <div class="description-box">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet vel sapiente laboriosam rerum quibusdam culpa sunt saepe tenetur voluptatum deserunt.
+                  
+                  
+                        <div class="btn-read-more">
+                            <button>Leer Mas</button>
+                        </div>
+                    </div>
+
+                </div>
+           
+            </div>
+
+</section>
+
+<section class="sect-content-post">
+    <div class="container-grid-post">
+        <div class="content-post-main">
+            <div class="col-md-7">
+
+                <div class="header-box-main">
+                    <div class="img-user-header">
+                        <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
+                    </div>
+       
+
+                    <div class="name-user-box">
+                        <h4 class="textWhite">Catalina Mendoza Alvarez</h4>
+                        <h6 class="textWhite">Tec.Sistemas</h6>
+                    </div>
+
+                    <div class="fecha-box">
+                        <label>11 Jul</label>
+                    </div>
+
+                </div>
+
+                <div class="box-main-content">
+
+                    <div class="header-box-ppe">
+                        <h6 style="color:#979797">News</h6>
+                        <hr>
+                    </div>
+
+                    <div class="img-box-ppe">
+                        <img src="{{ asset('img/descarga.png') }}">
+                    </div>
+
+                    <div class="description-box">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet vel sapiente laboriosam rerum quibusdam culpa sunt saepe tenetur voluptatum deserunt.
+                  
+                  
+                        <div class="btn-read-more">
+                            <button>Leer Mas</button>
+                        </div>
+                    </div>
+
+                </div>
+           
+            </div>
+
+</section>
+
+<section class="sect-content-post">
+    <div class="container-grid-post">
+        <div class="content-post-main">
+            <div class="col-md-7">
+
+                <div class="header-box-main">
+                    <div class="img-user-header">
+                        <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
+                    </div>
+       
+
+                    <div class="name-user-box">
+                        <h4 class="textWhite">Catalina Mendoza Alvarez</h4>
+                        <h6 class="textWhite">Tec.Sistemas</h6>
+                    </div>
+
+                    <div class="fecha-box">
+                        <label>11 Jul</label>
+                    </div>
+
+                </div>
+
+                <div class="box-main-content">
+
+                    <div class="header-box-ppe">
+                        <h6 style="color:#979797">News</h6>
+                        <hr>
+                    </div>
+
+                    <div class="img-box-ppe">
+                        <img src="{{ asset('img/descarga.png') }}">
+                    </div>
+
+                    <div class="description-box">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet vel sapiente laboriosam rerum quibusdam culpa sunt saepe tenetur voluptatum deserunt.
+                  
+                  
+                        <div class="btn-read-more">
+                            <button>Leer Mas</button>
+                        </div>
+                    </div>
+
+                </div>
+           
+            </div>
+
+</section>
 
         <div id="publicModal" class="modal-public-main">
             <div class="modal-public-content">

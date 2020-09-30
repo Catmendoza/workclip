@@ -1,0 +1,245 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins';
+    font-weight: Normal;
+}
+
+.container-nav-bar{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 31% 12% 14% 12% 31%;
+    grid-template-rows: 100%;
+
+}
+
+.navbar{
+    height: 80px;
+    box-shadow: 0 1px 10px 1px rgb(0, 0, 0,.2);
+}
+
+.buttons-nav-bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+   width: 100%;
+    height: 100%;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-lg:focus{
+    color: #2b8eff;
+}
+
+.form-nav-bar{
+
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.form-control{
+    box-shadow: none !important;
+    outline: none !important;
+    margin-left: 10px;
+
+}
+
+/* Section Post */
+
+.sect-content-post{
+    width: 100%;
+    background-color: #e0e0e0;
+}
+
+.container-grid-post{
+    width: 100%;
+    max-width: 1200px;
+    overflow: hidden;
+    margin: auto;
+
+}
+
+.content-post-main{
+    display: grid;
+    grid-template-columns: 75% 25%;
+    
+
+}
+
+.col-md-7{
+    max-width: 100% !important;
+    margin: 40px auto;
+    height: 450px;
+}
+
+.col-md-3{
+    margin: 40px auto;
+    max-width: 100% !important;
+    border-radius: .4em !important;
+    padding: 0;
+    box-shadow: 0px 1px 1px 1px rgb(0, 0, 0,.2);
+}
+
+.imgpeque {
+    width: 50px;
+    height: 50px;
+   
+}
+
+.textWhite {
+    color: white;
+    font-size: .9rem;
+
+}
+
+.imgProyectos {
+    width: 200px;
+    height: 250px;
+    margin: 10px;
+}
+
+.box-main-content{
+    width: 90%;
+    height: 350px;
+    margin: 20px auto;
+    background: #fff;
+    box-shadow: 0 1px 10px 1px rgba(0, 0, 0,.2);
+    border-radius: .4em;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 10% 90%;
+}
+.header-box-main{
+
+    display: grid;
+    grid-template-columns: 10% 60% 30%;
+    grid-template-rows: 100%;
+    width: 90%;
+    height: 15%;
+    margin: auto;
+    background:  #1c2347;
+    box-shadow: 0 1px 10px 1px rgba(0, 0, 0,.2);
+    border-radius: .4em;
+}
+
+.img-user-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.name-user-box{
+    padding-left: 20px;
+    padding-top: 10px;
+    display: flex;
+    text-align: left !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.fecha-box{
+    margin: auto;
+    background: #fff;
+    width: 45%;
+    height: 90px;
+    margin-top: -8px;
+    border-radius: .5em;
+    box-shadow: 0 1px 1px 1px rgb(0, 0, 0,.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fecha-box > label{
+    font-size: 1.3rem;
+    color:#1c2347;
+    font-weight: bolder;
+}
+
+.content-filter{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.header-filter-box{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.box-filter-title{
+    border-radius: .4em;
+    height: 70px;
+    width: 35%;
+    background: #fff;
+    margin-right: 30px;
+    margin-top: -30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   box-shadow: 0 1px 2px 1px rgb(0, 0, 0,.2);
+}
+.box-filter-title > label{
+    font-size:1.4rem;
+    color:#1c2347;
+    font-weight: bolder;
+}
+
+.header-box-ppe{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-box-ppe{
+    grid-column-start: 1;
+    grid-row-start: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.img-box-ppe > img{
+    border-radius: .4em;
+    width: 90%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.description-box{
+    margin: 20px;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.btn-read-more > button{
+
+    border-radius: .3em;
+    width: 20%;
+    height: 40px;
+    background: #3b67e0;
+    color: #fff;
+    outline: none;
+    border: 0;
+}
