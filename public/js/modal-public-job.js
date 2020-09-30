@@ -4,7 +4,7 @@ var modalPublicJob = document.getElementById("publicJobModal");
 // Get the button that opens the modal
 var btnPublicJob = document.getElementById("btn-publicJob");
 // Get the <span> element that closes the modal
-var spanPublicJob = document.getElementsByClassName("close-modal-publicJob")[0];
+var spanPublicJob = document.getElementsByClassName("close-modal-pj")[0];
 
 // When the user clicks the button, open the modal
 btnPublicJob.onclick = function() {

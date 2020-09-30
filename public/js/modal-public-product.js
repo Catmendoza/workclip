@@ -1,10 +1,10 @@
 // Get the modal
-var modalPublic = document.getElementById("publicModal");
+var modalPublic = document.getElementById("publicProduct");
 
 // Get the button that opens the modal
-var btnPublic = document.getElementById("btn-public");
+var btnPublic = document.getElementById("btn-publicProduct");
 // Get the <span> element that closes the modal
-var spanPublic = document.getElementsByClassName("close-modal-public")[0];
+var spanPublic = document.getElementsByClassName("close-public-product")[0];
 
 // When the user clicks the button, open the modal
 btnPublic.onclick = function() {

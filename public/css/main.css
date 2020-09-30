@@ -34,10 +34,19 @@ body{
     height: 100%;
     outline: none !important;
     box-shadow: none !important;
+
+}
+
+.btn > h6{
+    font-size:.9rem;
 }
 
 .btn-lg:focus{
-    color: #2b8eff;
+    color: #2b8eff !important;
+}
+
+.btn-lg:hover{
+    color: #212529;
 }
 
 .form-nav-bar{
@@ -157,7 +166,7 @@ body{
     background: #fff;
     width: 45%;
     height: 90px;
-    margin-top: -8px;
+    margin-top: -12px;
     border-radius: .5em;
     box-shadow: 0 1px 1px 1px rgb(0, 0, 0,.2);
     display: flex;
@@ -197,7 +206,8 @@ body{
 .box-filter-title > label{
     font-size:1.4rem;
     color:#1c2347;
-    font-weight: bolder;
+
+    font-weight: 900;
 }
 
 .header-box-ppe{
@@ -242,4 +252,13 @@ body{
     color: #fff;
     outline: none;
     border: 0;
+    transition: all ease-in-out .3s;
+}
+
+.btn-read-more > button:focus{
+    outline: none;
+}
+.btn-read-more > button:hover{
+    background: #4172f7;
+
 }

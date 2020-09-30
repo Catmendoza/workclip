@@ -1,11 +1,11 @@
 // Get the modal
-var modalPublicProejct = document.getElementById("publicProjectModal");
+var modalPublicProject = document.getElementById("publicModal");
 
 // Get the button that opens the modal
-var btnPublicProject = document.getElementById("btn-publicProject");
+var btnPublicProject = document.getElementById("btn-public");
 // Get the <span> element that closes the modal
 var spanPublicProject = document.getElementsByClassName(
-    "close-modal-publicProject"
+    "close-modal-public"
 )[0];
 
 // When the user clicks the button, open the modal

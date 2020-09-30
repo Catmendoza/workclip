@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/modal-public.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-publish-job.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-publish-project.css') }}" />
-
+    <link rel="stylesheet" href="{{ asset('css/modal-publish-product.css') }}" />
     
 @endsection
 
@@ -294,7 +294,7 @@
                         <h4>Proyecto</h4>
                     </div>
                     <div class="select-box">
-                        <a><i class="fas fa-tags"></i></a>
+                        <a id="btn-publicProduct"><i class="fas fa-tags"></i></a>
                         <h4>Producto</h4>
                     </div>
 
@@ -310,7 +310,80 @@
 
 
         </div>
-        <div id="publicJobModa" class="modal-publish-job">
+
+        <div id="publicProduct" class="modal-publish-project">
+            <div class="modal-pp-content">
+                <div class="header-modal-pp">
+                    <h3>Publicar Producto</h3>
+                    <div class="close-public-product">
+                        <a><i class="fas fa-times"></i></a>
+                    </div>
+                </div>
+    
+                <div class="body-modal-pp">
+                    <div class="modal-side-left">
+    
+                        <div class="titles-box-pp">
+                            <h3>Titulo</h3>
+                        </div>
+    
+                        <div class="box-texts">
+                            <input type="text" name="" id="">
+                        </div>
+    
+                        <div class="titles-box-pp">
+                            <h3>Descripcion</h3>
+                        </div>
+    
+                        <div class="box-texts">
+                            <textarea type="text" maxlength="200"></textarea>
+                        </div>
+    
+                        <div class="titles-box-pp">
+                            <h3>Estado</h3>
+                        </div>
+                        
+                        <div class="box-select left">
+                            <input type="range" name="rango" max="100" min="0" >
+                        
+                        </div>
+    
+                    </div>
+    
+                    <div class="modal-side-right">
+    
+                        <div class="titles-box-pp">
+                            <h3>Adjuntar imagen</h3>
+                        </div>
+    
+                        <div class="box-file">
+    
+                            <input type="file" name="" id="">
+                        </div>
+    
+                        <div class="titles-box-pp">
+                            <h3>Finalidad</h3>
+                        </div>
+    
+                        <div class="box-select right">
+                            <select name="" id="">
+                                <option value="">1</option>
+                            </select>
+                        </div>
+                        <div class="btn-submit-pp">
+                            <button type="submit">Publicar</button>
+                        </div>
+      
+    
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+
+
+
+        <div id="publicJobModal" class="modal-publish-job">
             <div class="modal-pj-content">
                 <div class="header-modal-pj">
                     <h3>Publicar empleo</h3>

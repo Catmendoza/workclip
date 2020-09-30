@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     @yield('css')
    
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@600&display=swap"
@@ -99,11 +99,11 @@
         </form>
     </div>
 
-    <script type="text/javascript" src="{{ asset('js/modal.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/modal2.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/modal3.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/modal4.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/modal5.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/modal-login.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/modal-public-project.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/modal-public-job.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/modal-public-product.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/modalpublic.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
