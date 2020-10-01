@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     @yield('css')
-   
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
@@ -26,22 +26,44 @@
                 <div class="logo">
                     <h1>WORKCLIP</h1>
                 </div>
+                @guest
 
-                <div class="container-btns-nav">
-                    <div class="login-btn-nav">
-                        <button id="btn-login">Iniciar Sesion</a>
+
+                    <div class="container-btns-nav">
+                        <div class="login-btn-nav">
+                            <button id="btn-login">Iniciar Sesion</a>
+                        </div>
+                        @if (Route::has('register'))
+                            <div class="register-btn-nav">
+                                <a href="{{ url('/usuario/create') }}">Registrarme</a>
+                            </div>
+                        @endif
                     </div>
 
-                    <div class="register-btn-nav">
-                        <a href="{{ url('/usuario/create') }}">Registrarme</a>
+                    <div class="hamburguer">
+                        <i class="fas fa-bars"></i>
                     </div>
+                @else
 
-                </div>
 
-                <div class="hamburguer">
-                    <i class="fas fa-bars"></i>
-                </div>
+                    <div class="container-btns-nav">
+                        <div class="login-btn-nav">
+                            <button id="btn-login"> {{ Auth::user()->nombre }} </a>
+                        </div>
 
+                        <div class="register-btn-nav">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+
+                    </div>
+                @endguest
             </div>
         </nav>
 
