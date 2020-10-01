@@ -53,17 +53,30 @@
 
                         <div class="register-btn-nav">
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                                                    document.getElementById('logout-form').submit();">
+                                {{ __('Cerrar Sesión') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
                         </div>
+                        <div class="login-btn-nav">
+                            <button id="btn-login"> {{ Auth::user()->rol == 1 ? 'Estudiante' : 'Empresario' }}</a>
+                        </div>
+                        @if (Auth::user()->rol == 1)
 
+                        @else
+
+                        @endif
                     </div>
+
                 @endguest
+                @php
+                // $cantidad = DB::table('users')->count();
+                // {{ $cantidad }} -- esto va afuera
+                @endphp
+
             </div>
         </nav>
 
@@ -93,7 +106,7 @@
     </footer>
 
     <div id="loginModal" class="modal-login">
-        <form action="" method="post">
+        <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="modal-login-content">
                 <div class="title-modal-login">
@@ -105,13 +118,27 @@
                 </div>
 
                 <div class="texts-modal-login">
-                    <p>¿No tienes cuenta?<a href="">¡Da click aqui!</a> </p>
+                    <p>¿No tienes cuenta?<a href="{{ url('/usuario/create') }}">¡Da click aqui!</a> </p>
                     <p>Registrate gratis en WorkClip</p>
                 </div>
 
                 <div class="inputs-modal-login">
-                    <label>Usuario</label><input name="nombre" placeholder="Nombre de usuario">
-                    <label>Contraseña</label><input name="contrasenia" placeholder="Contraseña">
+                    <label>Email</label><input id="email" type="email"
+                        class="form-control @error('email') is-invalid @enderror" name="email"
+                        value="{{ old('email') }}" required autocomplete="email" placeholder="Email" autofocus>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    <label>Contraseña</label><input id="password" type="password"
+                        class="form-control @error('password') is-invalid @enderror" name="password" required
+                        autocomplete="current-password" placeholder="Contraseña">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
 
                 <div class="button-modal-login">
