@@ -21,7 +21,6 @@ class CreateProyectosTable extends Migration
             $table->string('descripcion');
             $table->string('estado_proyecto');
             $table->integer('finalidad_proyecto');
-            $table->date('fecha_publi');
             $table->timestamps();
         });
     }

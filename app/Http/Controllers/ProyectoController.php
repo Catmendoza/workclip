@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Proyecto;
 
-class ProjectController extends Controller
+
+class ProyectoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +16,11 @@ class ProjectController extends Controller
     public function index()
     {
         //
+
+
+       
+
+    
     }
 
     /**
@@ -24,6 +31,8 @@ class ProjectController extends Controller
     public function create()
     {
         //
+
+        return view("main");
     }
 
     /**
@@ -35,6 +44,19 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         //
+
+        $proyecto = new Proyecto();
+        $proyecto->id_perfil = Auth::user()->id;
+        $proyecto->imagen = request('imagen');
+        $proyecto->nombre_proyecto = request('nombre_proyecto');
+        $proyecto->descripcion =request('descripcion');
+        $proyecto->estado_proyecto = request('estado_proyecto');
+        $proyecto->finalidad_proyecto = 1;
+
+        $proyecto->save();
+
+        return redirect()->back();
+
     }
 
     /**
