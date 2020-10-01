@@ -26,6 +26,8 @@ Route::get('/user',function(){
     return view('user');
 });
 
+Route::resource('/usuario', 'UserController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
