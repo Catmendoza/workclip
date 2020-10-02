@@ -17,7 +17,7 @@
                 <div class="container-grid-profile">
                     <div class="card-portada">
                         <div class="img-box-user">
-                            <img src="./img/cata.png" alt="">
+                            <img src="./img/Profile2.jpg" alt="">
                         </div>
                         <div class="texts-box-portada">
                             <label>¿Quien Soy?</label>
@@ -31,7 +31,31 @@
                     </div>
 
                     <div class="data-info-user">
+                        <div class="content-margin-profile">
+                            <div class="header-titles-profile">
+                                <label>CATALINA MENDONZA</label>
+                                <h6>Trabajando</h6>
+                                <hr>
+                            </div>
+                            <div class="container-data-profile">
+                                <label style="font-weight: bold">Carrera</label>
+                                <label style="grid-row-start: 2; font-weight: bold">Cel</label>
+                                <label style="grid-row-start: 3; font-weight: bold;">Email</label>
+                                <label style="grid-row-start: 4; font-weight: bold">Edad</label>
+                                <label style="grid-row-start: 5; font-weight: bold">Ciudad Actual</label>
 
+                                <label>Tecnologia en Sistemas</label>
+                                <label>3183565999</label>
+                                <label>catalina.mendo@hotm.com</label>
+                                <label>19</label>
+                                <label>Cali</label>
+                            </div>
+                            <div class="footer-profile">
+                                <button class="btn-footer contact">Contacta me</button>
+                                <button class="btn-footer cv">Descargar CV</button>
+                                <button class="btn-footer edit" style="float:right; background:#5cb85c">Editar</button>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
