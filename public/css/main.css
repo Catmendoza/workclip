@@ -77,14 +77,21 @@ body{
     max-width: 1200px;
     overflow: hidden;
     margin: auto;
+    display: flex;
 
 }
 
 .content-post-main{
+    width: 75%;
     display: grid;
-    grid-template-columns: 75% 25%;
-    
+    grid-template-columns: 100%;
 
+}
+
+.content-filter-post{
+    width: 25%;
+    display: grid;
+    grid-template-columns: 100%;
 }
 
 .col-md-7{

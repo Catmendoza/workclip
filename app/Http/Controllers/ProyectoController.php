@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Proyecto;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\SubirProyectosRequest;
+
 
 
 class ProyectoController extends Controller
@@ -20,8 +22,13 @@ class ProyectoController extends Controller
         //
 
         
+    $proyecto = Proyecto::all();
 
-        $proyecto = Proyecto::all();
+    //$proyecto = Proyecto::all();
+//        $proyecto = DB::table("proyectos")->paginate(3);
+  
+
+        
 
         return view("main",["proyectos"=> $proyecto]);
 
@@ -48,21 +55,27 @@ class ProyectoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SubirProyectosRequest $request)
     {
         //
 
         $proyecto = new Proyecto();
         $proyecto->id_perfil = Auth::user()->id;
-        $proyecto->imagen = request('imagen');
+      
         $proyecto->nombre_proyecto = request('nombre_proyecto');
         $proyecto->descripcion =request('descripcion');
         $proyecto->estado_proyecto = request('estado_proyecto');
         $proyecto->finalidad_proyecto = 1;
 
+        $archivo = $request->file("imagen");
+        $destino = "imagenes_usuarios/";
+        $nombre = strtotime(date("Y-m-d-H:isa")).$archivo->getClientOriginalName();
+        $archivo->move($destino,$nombre);
+
+        $proyecto->imagen = $destino.$nombre;
         $proyecto->save();
 
-        return redirect("main");
+        return redirect("/proyecto");
 
     }
 

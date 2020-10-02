@@ -52,92 +52,119 @@
 
     </section>
 
-    @foreach ($proyectos as $proyecto)
+    
 
 
-        <section class="sect-content-post">
-            <div class="container-grid-post">
-                <div class="content-post-main">
 
-                    <div class="col-md-7">
+          
+    <section class="sect-content-post">
+        <div class="container-grid-post">
+    
+            <div class="content-post-main">
 
-                        <div class="header-box-main">
-                            <div class="img-user-header">
-                                <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
-                            </div>
+            @foreach ($proyectos->reverse() as $proyecto)
+                <div class="col-md-7">
 
-
-                            <div class="name-user-box">
-                                <h4 class="textWhite">Catalina</h4>
-                                <h6 class="textWhite">Tec.Sistemas</h6>
-                            </div>
-
-                            <div class="fecha-box">
-                                <label>11 Jul</label>
-                            </div>
-
+                    <div class="header-box-main">
+                        <div class="img-user-header">
+                            <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
                         </div>
 
-                        <div class="box-main-content">
+                        @php
 
-                            <div class="header-box-ppe">
-                                <h6 style="color:#979797">{{ $proyecto->nombre_proyecto }}</h6>
-                                <hr>
-                            </div>
+                         $aux = DB::table('users')->find($proyecto->id_perfil);
+                         @endphp
+                        <div class="name-user-box">
+                            <h4 class="textWhite">{{$aux->nombre}}</h4>
+                            <h6 class="textWhite">{{$aux->programa}}</h6>
+                        </div>
 
-                            <div class="img-box-ppe">
-                                <img src="{{ asset('img/descarga.png') }}">
-                            </div>
-
-                            <div class="description-box">
-                                {{ $proyecto->descripcion }}
-
-
-                                <div class="btn-read-more">
-                                    <button>Leer Mas</button>
-                                </div>
-                            </div>
-
+                        <div class="fecha-box">
+                            <label>11 Jul</label>
                         </div>
 
                     </div>
 
-                    <!--Filtro-->
-                    <div class="col-md-3" style="height: 300px; border-radius: 10px; background-color: #1a2243">
-                        <div class="content-filter">
+                    <div class="box-main-content">
 
-                            <div class="header-filter-box">
-                                <div class="box-filter-title">
-                                    <label>Filtro</label>
-                                </div>
+                        <div class="header-box-ppe">
+                            <h6 style="color:#979797">{{ $proyecto->nombre_proyecto }}</h6>
+                            <hr>
+                        </div>
 
-                            </div>
+                        <div class="img-box-ppe">
+                            <img src="{{ asset($proyecto->imagen) }}">
+                        </div>
 
-                            <h5 style="margin-top: 20px;margin-left: 20px; color: white;text-align: left">Categoria</h5>
-                            <div class="checkbox " style="margin-left: 10px;line-height:10px">
-                                <label style="color:white;font-size:20px; ">
-                                    <input type="checkbox">
-                                    Emprendimiento
-                                </label>
+                        <div class="description-box">
+                            {{ $proyecto->descripcion }}
 
-                            </div>
-                            <div class="checkbox" style="margin-left: 10px; line-height:10px; ">
 
-                                <label style="color:white;font-size:20px">
-                                    <input type="checkbox">
-                                    Proyectos
-                                </label>
+                            <div class="btn-read-more">
+                                <button>Leer Mas</button>
                             </div>
                         </div>
 
                     </div>
+
                 </div>
+
+                @endforeach
+
+
+
+  
+  
+              
+</div>
+
+
+            <div class="content-filter-post">
+                              <!--Filtro-->
+                              <div class="col-md-3" style="height: 300px; border-radius: 10px; background-color: #1a2243">
+                                <div class="content-filter">
+            
+                                    <div class="header-filter-box">
+                                        <div class="box-filter-title">
+                                            <label>Filtro</label>
+                                        </div>
+            
+                                    </div>
+            
+                                    <h5 style="margin-top: 20px;margin-left: 20px; color: white;text-align: left">Categoria</h5>
+                                    <div class="checkbox " style="margin-left: 10px;line-height:10px">
+                                        <label style="color:white;font-size:20px; ">
+                                            <input type="checkbox">
+                                            Emprendimiento
+                                        </label>
+            
+                                    </div>
+                                    <div class="checkbox" style="margin-left: 10px; line-height:10px; ">
+            
+                                        <label style="color:white;font-size:20px">
+                                            <input type="checkbox">
+                                            Proyectos
+                                        </label>
+                                    </div>
+                                </div>
+            
+                            </div>
             </div>
 
-        </section>
+        </div>
 
-    @endforeach
+        
 
+    </section>
+
+
+
+    @php
+
+   // {{$proyectos->links()}}
+    @endphp
+
+   
 
     <div id="publicModal" class="modal-public-main">
         <div class="modal-public-content">
@@ -356,7 +383,7 @@
                 </div>
             </div>
 
-            <form class="body-modal-pp" action="/proyecto" method="POST">
+            <form class="body-modal-pp" action="/proyecto" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-side-left">
 
