@@ -18,9 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/main', function () {
-    return view('main');
-});
+
 //->middleware(("auth"))
 Route::get('/user',function(){
     return view('user');

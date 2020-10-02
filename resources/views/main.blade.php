@@ -52,233 +52,92 @@
 
     </section>
 
-    <section class="sect-content-post">
-        <div class="container-grid-post">
-            <div class="content-post-main">
-                <div class="col-md-7">
-
-                    <div class="header-box-main">
-                        <div class="img-user-header">
-                            <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
-                        </div>
+    @foreach ($proyectos as $proyecto)
 
 
-                        <div class="name-user-box">
-                            <h4 class="textWhite">Catalina Mendoza Alvarez</h4>
-                            <h6 class="textWhite">Tec.Sistemas</h6>
-                        </div>
+        <section class="sect-content-post">
+            <div class="container-grid-post">
+                <div class="content-post-main">
 
-                        <div class="fecha-box">
-                            <label>11 Jul</label>
-                        </div>
+                    <div class="col-md-7">
 
-                    </div>
-
-                    <div class="box-main-content">
-
-                        <div class="header-box-ppe">
-                            <h6 style="color:#979797">News</h6>
-                            <hr>
-                        </div>
-
-                        <div class="img-box-ppe">
-                            <img src="{{ asset('img/descarga.png') }}">
-                        </div>
-
-                        <div class="description-box">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet vel sapiente laboriosam rerum
-                            quibusdam culpa sunt saepe tenetur voluptatum deserunt.
-
-
-                            <div class="btn-read-more">
-                                <button>Leer Mas</button>
+                        <div class="header-box-main">
+                            <div class="img-user-header">
+                                <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
                             </div>
-                        </div>
 
-                    </div>
 
-                </div>
+                            <div class="name-user-box">
+                                <h4 class="textWhite">Catalina</h4>
+                                <h6 class="textWhite">Tec.Sistemas</h6>
+                            </div>
 
-                <!--Filtro-->
-                <div class="col-md-3" style="height: 300px; border-radius: 10px; background-color: #1a2243">
-                    <div class="content-filter">
-
-                        <div class="header-filter-box">
-                            <div class="box-filter-title">
-                                <label>Filtro</label>
+                            <div class="fecha-box">
+                                <label>11 Jul</label>
                             </div>
 
                         </div>
 
-                        <h5 style="margin-top: 20px;margin-left: 20px; color: white;text-align: left">Categoria</h5>
-                        <div class="checkbox " style="margin-left: 10px;line-height:10px">
-                            <label style="color:white;font-size:20px; ">
-                                <input type="checkbox">
-                                Emprendimiento
-                            </label>
+                        <div class="box-main-content">
+
+                            <div class="header-box-ppe">
+                                <h6 style="color:#979797">{{ $proyecto->nombre_proyecto }}</h6>
+                                <hr>
+                            </div>
+
+                            <div class="img-box-ppe">
+                                <img src="{{ asset('img/descarga.png') }}">
+                            </div>
+
+                            <div class="description-box">
+                                {{ $proyecto->descripcion }}
+
+
+                                <div class="btn-read-more">
+                                    <button>Leer Mas</button>
+                                </div>
+                            </div>
 
                         </div>
-                        <div class="checkbox" style="margin-left: 10px; line-height:10px; ">
 
-                            <label style="color:white;font-size:20px">
-                                <input type="checkbox">
-                                Proyectos
-                            </label>
-                        </div>
                     </div>
 
+                    <!--Filtro-->
+                    <div class="col-md-3" style="height: 300px; border-radius: 10px; background-color: #1a2243">
+                        <div class="content-filter">
+
+                            <div class="header-filter-box">
+                                <div class="box-filter-title">
+                                    <label>Filtro</label>
+                                </div>
+
+                            </div>
+
+                            <h5 style="margin-top: 20px;margin-left: 20px; color: white;text-align: left">Categoria</h5>
+                            <div class="checkbox " style="margin-left: 10px;line-height:10px">
+                                <label style="color:white;font-size:20px; ">
+                                    <input type="checkbox">
+                                    Emprendimiento
+                                </label>
+
+                            </div>
+                            <div class="checkbox" style="margin-left: 10px; line-height:10px; ">
+
+                                <label style="color:white;font-size:20px">
+                                    <input type="checkbox">
+                                    Proyectos
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </section>
+        </section>
 
-    <section class="sect-content-post">
-        <div class="container-grid-post">
-            <div class="content-post-main">
-                <div class="col-md-7">
+    @endforeach
 
-                    <div class="header-box-main">
-                        <div class="img-user-header">
-                            <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
-                        </div>
-
-
-                        <div class="name-user-box">
-                            <h4 class="textWhite">Catalina Mendoza Alvarez</h4>
-                            <h6 class="textWhite">Tec.Sistemas</h6>
-                        </div>
-
-                        <div class="fecha-box">
-                            <label>11 Jul</label>
-                        </div>
-
-                    </div>
-
-                    <div class="box-main-content">
-
-                        <div class="header-box-ppe">
-                            <h6 style="color:#979797">News</h6>
-                            <hr>
-                        </div>
-
-                        <div class="img-box-ppe">
-                            <img src="{{ asset('img/descarga.png') }}">
-                        </div>
-
-                        <div class="description-box">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet vel sapiente laboriosam rerum
-                            quibusdam culpa sunt saepe tenetur voluptatum deserunt.
-
-
-                            <div class="btn-read-more">
-                                <button>Leer Mas</button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-    </section>
-
-    <section class="sect-content-post">
-        <div class="container-grid-post">
-            <div class="content-post-main">
-                <div class="col-md-7">
-
-                    <div class="header-box-main">
-                        <div class="img-user-header">
-                            <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
-                        </div>
-
-
-                        <div class="name-user-box">
-                            <h4 class="textWhite">Catalina Mendoza Alvarez</h4>
-                            <h6 class="textWhite">Tec.Sistemas</h6>
-                        </div>
-
-                        <div class="fecha-box">
-                            <label>11 Jul</label>
-                        </div>
-
-                    </div>
-
-                    <div class="box-main-content">
-
-                        <div class="header-box-ppe">
-                            <h6 style="color:#979797">News</h6>
-                            <hr>
-                        </div>
-
-                        <div class="img-box-ppe">
-                            <img src="{{ asset('img/descarga.png') }}">
-                        </div>
-
-                        <div class="description-box">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet vel sapiente laboriosam rerum
-                            quibusdam culpa sunt saepe tenetur voluptatum deserunt.
-
-
-                            <div class="btn-read-more">
-                                <button>Leer Mas</button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-    </section>
-
-    <section class="sect-content-post">
-        <div class="container-grid-post">
-            <div class="content-post-main">
-                <div class="col-md-7">
-
-                    <div class="header-box-main">
-                        <div class="img-user-header">
-                            <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
-                        </div>
-
-
-                        <div class="name-user-box">
-                            <h4 class="textWhite">Catalina Mendoza Alvarez</h4>
-                            <h6 class="textWhite">Tec.Sistemas</h6>
-                        </div>
-
-                        <div class="fecha-box">
-                            <label>11 Jul</label>
-                        </div>
-
-                    </div>
-
-                    <div class="box-main-content">
-
-                        <div class="header-box-ppe">
-                            <h6 style="color:#979797">News</h6>
-                            <hr>
-                        </div>
-
-                        <div class="img-box-ppe">
-                            <img src="{{ asset('img/descarga.png') }}">
-                        </div>
-
-                        <div class="description-box">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet vel sapiente laboriosam rerum
-                            quibusdam culpa sunt saepe tenetur voluptatum deserunt.
-
-
-                            <div class="btn-read-more">
-                                <button>Leer Mas</button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-    </section>
 
     <div id="publicModal" class="modal-public-main">
         <div class="modal-public-content">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Proyecto;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 
 class ProyectoController extends Controller
@@ -17,6 +19,11 @@ class ProyectoController extends Controller
     {
         //
 
+        
+
+        $proyecto = Proyecto::all();
+
+        return view("main",["proyectos"=> $proyecto]);
 
        
 
@@ -55,7 +62,7 @@ class ProyectoController extends Controller
 
         $proyecto->save();
 
-        return redirect()->back();
+        return redirect("main");
 
     }
 
