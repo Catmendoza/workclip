@@ -34,7 +34,7 @@ header::before {
     display: block;
 }
 
-nav {
+.nav-bar-principal {
     height: 100px;
     width: 100%;
     background: #1c2347;
@@ -359,6 +359,7 @@ nav {
 /* Footer */
 
 .footerWC {
+    width: 100%;
     background: #181e3b;
     overflow: hidden;
     padding: 60px 0;

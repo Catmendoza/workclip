@@ -19,7 +19,7 @@
 
 <body>
     <header>
-        <nav>
+        <nav class="nav-bar-principal">
 
             <div class="container nav">
 

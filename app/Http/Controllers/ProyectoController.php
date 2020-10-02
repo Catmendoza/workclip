@@ -22,7 +22,7 @@ class ProyectoController extends Controller
         //
 
         
-    $proyecto = Proyecto::all();
+    $proyecto = Proyecto::paginate(3);
 
     //$proyecto = Proyecto::all();
 //        $proyecto = DB::table("proyectos")->paginate(3);

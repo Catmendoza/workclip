@@ -62,7 +62,7 @@
     
             <div class="content-post-main">
 
-            @foreach ($proyectos->reverse() as $proyecto)
+             @foreach ($proyectos->reverse() as $proyecto)
                 <div class="col-md-7">
 
                     <div class="header-box-main">
@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="description-box">
-                            {{ $proyecto->descripcion }}
+                           <p>{{ $proyecto->descripcion }}</p>
 
 
                             <div class="btn-read-more">
@@ -113,42 +113,42 @@
 
 
 
-  
+                {{$proyectos->links()}}
   
               
-</div>
+            </div>
 
 
             <div class="content-filter-post">
-                              <!--Filtro-->
-                              <div class="col-md-3" style="height: 300px; border-radius: 10px; background-color: #1a2243">
-                                <div class="content-filter">
-            
-                                    <div class="header-filter-box">
-                                        <div class="box-filter-title">
-                                            <label>Filtro</label>
-                                        </div>
-            
-                                    </div>
-            
-                                    <h5 style="margin-top: 20px;margin-left: 20px; color: white;text-align: left">Categoria</h5>
-                                    <div class="checkbox " style="margin-left: 10px;line-height:10px">
-                                        <label style="color:white;font-size:20px; ">
-                                            <input type="checkbox">
-                                            Emprendimiento
-                                        </label>
-            
-                                    </div>
-                                    <div class="checkbox" style="margin-left: 10px; line-height:10px; ">
-            
-                                        <label style="color:white;font-size:20px">
-                                            <input type="checkbox">
-                                            Proyectos
-                                        </label>
-                                    </div>
-                                </div>
-            
+                <!--Filtro-->
+                <div class="col-md-3" style="height: 300px; border-radius: 10px; background-color: #1a2243">
+                    <div class="content-filter">
+
+                        <div class="header-filter-box">
+                            <div class="box-filter-title">
+                                <label>Filtro</label>
                             </div>
+
+                        </div>
+
+                        <h5 style="margin-top: 20px;margin-left: 20px; color: white;text-align: left">Categoria</h5>
+                        <div class="checkbox " style="margin-left: 10px;line-height:10px">
+                            <label style="color:white;font-size:20px; ">
+                                <input type="checkbox">
+                                Emprendimiento
+                            </label>
+
+                        </div>
+                        <div class="checkbox" style="margin-left: 10px; line-height:10px; ">
+
+                            <label style="color:white;font-size:20px">
+                                <input type="checkbox">
+                                Proyectos
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
         </div>
@@ -161,7 +161,7 @@
 
     @php
 
-   // {{$proyectos->links()}}
+
     @endphp
 
    
