@@ -14,67 +14,24 @@
         <section class="personal contenedor">
             <div class="contenido-data">
 
-                <div class="container-boxs data">
-                    <div class="box-name">
-                        <h1>Giovani Jaramillo</h1>
-                    </div>
-
-                    <div class="box-data">
-                        <div class="box-skill-data">
-                            <h2>Carrera</h2>
-                            <h4>Ingenieria Sistemas</h4>
+                <div class="container-grid-profile">
+                    <div class="card-portada">
+                        <div class="img-box-user">
+                            <img src="./img/cata.png" alt="">
                         </div>
-                        <div class="box-skill-data">
-                            <h2>Contacto</h2>
-                            <h4>3155995556</h4>
+                        <div class="texts-box-portada">
+                            <label>¿Quien Soy?</label>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio mollitia, veniam enim fugit deleniti sapiente rerum dignissimos aliquam?</p>
                         </div>
-                        <div class="box-skill-data">
-                            <h2>Correo</h2>
-                            <h4>gio.si@usc.edu.co</h4>
-                        </div>
-                        <div class="box-skill-data">
-                            <h2>Edad</h2>
-                            <h4>20</h4>
-                        </div>
-
-                        <div class="btn-profile">
-
-                            <a href="#"><i class="fas fa-download"></i></a>
-                            <a href="#"><i class="fas fa-file-alt"></i></a>
-
-                            <button class="btn-edit-profile"><i class="fas fa-user-edit"></i>
-                                <h4>Editar</h4>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="container-boxs portada">
-
-                    <div class="portada-img">
-                        <img src=".\img\modoserio.jpg" alt="">
-                        <div class="who-i">
-                            <div class="title-who-i">
-                                <label>¿Quien soy?</label>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, a libero necessitatibus
-                                beatae ipsa quibusdam ipsam neque quae vero voluptatem!
-                            </p>
-                        </div>
-                        <div class="social-media">
+                        <div class="social-media-port">
                             <i class="fab fa-instagram"></i>
                             <i class="fab fa-facebook-f"></i>
                             <i class="fab fa-github"></i>
                         </div>
                     </div>
 
-                    <div class="cajas">
-                        <div class="clip-path-wrap">
-                            <div class="clip-path">
+                    <div class="data-info-user">
 
-                            </div>
-                        </div>
                     </div>
 
                 </div>
