@@ -59,8 +59,56 @@
                     </div>
 
                 </div>
-
             </div>
+
+
+            <div class="contenido-data">
+                <div class="container-grid-more">
+                    <div class="content-more-data">
+                        <div class="title-more-data">
+                            <label for="">MÁS SOBRE MI</label>
+                        </div>
+                        <div class="nav-tabs-container">
+                            <div class="tab-header">
+
+                                <ul class="tabs-ul">
+                                    <li class="tabs-li active">Sueño</li>
+                                    <li class="tabs-li">Actitud</li>
+                                    <li class="tabs-li">Meta</li>
+                                </ul>
+                                
+                            </div>
+                            <div class="tab-indicator">
+
+                            </div>
+                            <div class="tab-body">
+                                <div class="tab-box active">
+                                    <i class="fas fa-rocket"></i>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde eum error saepe iure quasi exercitationem nostrum, explicabo eaque qui doloremque doloribus mollitia iusto maiores ducimus.</p>
+                                </div>
+                                <div class="tab-box">
+                                    <i class="fas fa-bolt"></i>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, cumque! Asperiores autem, laboriosam harum atque fugit veniam aut, vel quos ducimus, aspernatur eveniet quo sed!</p>
+                                </div>
+                                <div class="tab-box">
+                                    <i class="fas fa-meteor"></i>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione iusto maxime deserunt minus incidunt soluta reiciendis, recusandae, fuga sit fugit necessitatibus iste quasi, accusantium facere.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-portada-more">
+
+                        <div class="box-container-img">
+                            <div class="img-box-more">
+                                <img src="./img/Profile2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </section>
 
         <svg class="divider datas-bottom" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
