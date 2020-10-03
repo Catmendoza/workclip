@@ -73,14 +73,70 @@
                         @php
 
                          $aux = DB::table('users')->find($proyecto->id_perfil);
+                         $mes = $proyecto->created_at->format('m');
+                         $mesD;
+                         switch($mes){
+                             case 1:
+                             $mesD = "ENE";
+
+                             break;
+
+                             case 2:
+                             $mesD = "FEB";
+                             break;
+
+                             case 3:
+                             $mesD = "MAR";
+                             break;
+
+                             case 4:
+                             $mesD = "ABR";
+                             break;
+                             
+                             case 5:
+                             $mesD ="MAY";
+                             break;
+                             
+                             case 6:
+                             $mesD = "JUN";
+                             break;
+
+                             case 7:
+                             $mesD = "JUL";
+                             break;
+
+                             case 8:
+                             $mesD = "AGO";
+                             break;
+
+                             case 9:
+                             $mesD = "SEP";
+                             break;
+
+                             case 10:
+                             $mesD = "OCT";
+                             break;
+
+                             case 11:
+                             $mesD = "NOV";
+                             break;
+
+                             case 12:
+                             $mesD ="DIC";
+                             break;
+
+                             
+                         }
+                      
                          @endphp
+
                         <div class="name-user-box">
                             <h4 class="textWhite">{{$aux->nombre}}</h4>
                             <h6 class="textWhite">{{$aux->programa}}</h6>
                         </div>
 
                         <div class="fecha-box">
-                            <label>11 Jul</label>
+                            <label>{{$proyecto->created_at->format('d')}}{{"  ".$mesD}}</label>
                         </div>
 
                     </div>

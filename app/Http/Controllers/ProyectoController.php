@@ -10,6 +10,7 @@ use App\Http\Requests\SubirProyectosRequest;
 
 
 
+
 class ProyectoController extends Controller
 {
     /**
@@ -22,7 +23,7 @@ class ProyectoController extends Controller
         //
 
         
-    $proyecto = Proyecto::paginate(3);
+    $proyecto = Proyecto::paginate(5);
 
     //$proyecto = Proyecto::all();
 //        $proyecto = DB::table("proyectos")->paginate(3);
@@ -72,6 +73,8 @@ class ProyectoController extends Controller
         $nombre = strtotime(date("Y-m-d-H:isa")).$archivo->getClientOriginalName();
         $archivo->move($destino,$nombre);
 
+
+       
         $proyecto->imagen = $destino.$nombre;
         $proyecto->save();
 
