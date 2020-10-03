@@ -439,7 +439,7 @@
                 </div>
             </div>
 
-            <form class="body-modal-pp" action="/proyecto" method="POST" enctype="multipart/form-data">
+            <form class="body-modal-pp" action="./proyecto" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-side-left">
 

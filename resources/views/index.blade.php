@@ -58,7 +58,7 @@
                     </div>
                     <div class="cont_imagen">
                         <img class="imgC" src=".\img\select-projects.svg" alt="">
-                        <a href="/proyecto" class="btn-selects">IR</a>
+                        <a href="./proyecto" class="btn-selects">IR</a>
                     </div>
                 </div>
 
