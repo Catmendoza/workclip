@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Producto;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ProductoRequest;
 
 class ProductController extends Controller
 {
@@ -13,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $producto = Producto::All();
+        return view("main",["productos"=>$producto]);
     }
 
     /**
@@ -23,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view("main");
     }
 
     /**
@@ -32,9 +37,25 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductoRequest $request)
     {
-        //
+        $producto = new Producto();
+        $producto->id_perfil = Auth::user()->id;
+
+        $producto->nombre_producto = request('nombre_producto');
+        $producto->descripcion = request('descripcion');
+        $producto->precio = request('precio');
+        $producto->fecha_publi = date("Y-m-d");
+
+        $archivo = $request->file("imagen");
+        $destino = "imagenes_productos/";
+        $nombre = strtotime(date("Y-m-d-H:isa")).$archivo->getClientOriginalName();
+        $archivo->move($destino,$nombre);
+
+        $producto->imagen = $destino.$nombre;
+        $producto->save();
+
+        return redirect("/producto");
     }
 
     /**
