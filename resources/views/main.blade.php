@@ -161,7 +161,24 @@
                             </div>
                         </div>
 
+                        
                     </div>
+                    <form action="./comentario" method="POST" >
+                       @csrf
+
+                       <div>
+                       <input type="hidden" name="id_proyecto" value="{{$proyecto->id}}">
+                       <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
+                       <label>{{Auth::user()->nombre}}</label>
+                       <input type="text" name="contenido_texto">
+                       <button type="submit">Publicar</button>
+                       </div>
+
+                       
+
+                     </form>  
+
+         
 
                 </div>
 
