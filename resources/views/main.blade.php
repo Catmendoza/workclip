@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/modal-publish-job.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-publish-project.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-publish-product.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/modal-comentarios.css') }}" />
 
 @endsection
 
@@ -27,6 +28,11 @@
                     </form>
                 </div>
 
+                @guest
+                    @if (Route::has('register'))
+                            
+                   
+
                 <div class="buttons-nav-bar">
                     <button class="btn btn-lg">
                         <i class="fas fa-home"></i>
@@ -40,6 +46,9 @@
                         <h6>Buscar perfil</h6>
                     </button>
                 </div>
+                @endif
+
+                @else
 
                 <div class="buttons-nav-bar">
                     <button class="btn btn-lg" id="btn-public">
@@ -47,6 +56,8 @@
                         <h6>Añadir publicación</h6>
                     </button>
                 </div>
+
+                @endguest
             </div>
         </div>
 
@@ -157,39 +168,17 @@
 
                             <div class="btn-read-more">
                                 <button>Leer Mas</button>
+                                
                             </div>
+                            @php
+                            $cant_C = DB::table('comentarios')->count();
+                            @endphp
+                            <button id="modal-abrir">Comentarios  {{$cant_C}}</button>
+                            
                         </div>
 
                         
                     </div>
-                  
-                    <form action="./comentario" method="POST" >
-                       @csrf
-
-                       <div>
-                       <input type="hidden" name="id_proyecto" value="{{$proyecto->id}}">
-                       <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
-                       <label>{{Auth::user()->nombre}}</label>
-                       <input type="text" name="contenido_texto">
-                       <button type="submit">Publicar</button>
-                       </div>
-
-                       
-
-                     </form>  
-                     <h1>COMENTARIOS:</h1>
-                     @foreach ($comentarios as $comentario)
-                     @if($comentario->id_proyecto == $proyecto->id)
-                     <div>
-                     @php
-                     $aux2 = DB::table('users')->find($comentario->id_usuario);
-                     @endphp
-                     <label>[{{$aux2->nombre  }}]---->  {{$comentario->contenido_texto}}</label>
-                     </div>
-                     @endif
-                     @endforeach
-                   
-                     
 
                  <div>
              
@@ -463,6 +452,63 @@
         </div>
     </div>
 
+    
+    <div id="modalcomentarios" class="modalcomentarios">
+        <div class="modal-pp-contentC">
+            <div class="header-modal-ppC">
+
+                <h3>Comentarios</h3>
+                <div class="close-modal-pp2">
+                    <a><i class="fas fa-times"></i></a>
+                </div>
+            </div>
+
+            <div class="body-modal-ppC">
+                
+          <div class="caja_comentarios">
+
+          @foreach ($comentarios as $comentario)
+             @if($comentario->id_proyecto == $proyecto->id)
+                @php
+                $aux2 = DB::table('users')->find($comentario->id_usuario);
+                @endphp
+          <div class="caja_comentario">
+            <div class="caja_fotoComentario">
+                <img src="03102020.PNG">
+            </div>
+
+            <div class="caja_textoComentario">
+                <label>{{$aux2->nombre}}</label>
+                <p>{{$comentario->contenido_texto}}</p>
+            </div>
+
+
+        </div>
+        @endif
+        @endforeach
+     
+
+        <form action="./comentario" method="POST" class="caja_comentar">
+         @csrf
+            <div class="caja_fotoComentar">
+                <img src="031020201.PNG">
+                <label>{{Auth::user()->nombre}}</label>
+            </div>
+            <input type="hidden" name="id_proyecto" value="{{$proyecto->id}}">
+            <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
+             <input class="input_comentar" type="text" name="contenido_texto">
+             <button type="submit">Publicar</button>
+            
+        </form>
+    </div>
+
+              
+            </div>
+
+        </div>
+    </div>
+  
+
     <div id="publicProjectModal" class="modal-publish-project">
         <div class="modal-pp-content">
             <div class="header-modal-pp">
@@ -536,7 +582,7 @@
 
         </div>
     </div>
-    </section>
+   
 @endsection
 
 @section('scripts')
