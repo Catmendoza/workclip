@@ -186,6 +186,10 @@
 	  padding: 10px;
 	  border-radius: .3em;
   }
+
+  .col-md-7{
+	  height:100% !important;
+  }
   
   
   

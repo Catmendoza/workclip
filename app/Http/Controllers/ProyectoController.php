@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Proyecto;
 use App\User;
+use App\Comentario;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SubirProyectosRequest;
 
@@ -24,6 +25,7 @@ class ProyectoController extends Controller
 
         
     $proyecto = Proyecto::paginate(5);
+    $comentario = Comentario::all();
 
     //$proyecto = Proyecto::all();
 //        $proyecto = DB::table("proyectos")->paginate(3);
@@ -31,7 +33,7 @@ class ProyectoController extends Controller
 
         
 
-        return view("main",["proyectos"=> $proyecto]);
+        return view("main",["proyectos"=> $proyecto],["comentarios"=>$comentario]);
 
        
 

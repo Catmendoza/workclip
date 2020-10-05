@@ -14,9 +14,12 @@ class ComentarioController extends Controller
      */
     public function index()
     {
-        //
+        //   return view("main",["proyectos"=> $proyecto]);
 
-        return redirect("/proyecto");
+        $comentario = Comentario::all();
+
+
+        return redirect("/proyecto",["comentarios"=>$comentario]);
     }
 
     /**

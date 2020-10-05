@@ -71,9 +71,8 @@
                         </div>
 
                         @php
-
-                         $aux = DB::table('users')->find($proyecto->id_perfil);
-                         $mes = $proyecto->created_at->format('m');
+                        $aux = DB::table('users')->find($proyecto->id_perfil);
+                        $mes = $proyecto->created_at->format('m');
                          $mesD;
                          switch($mes){
                              case 1:
@@ -163,6 +162,7 @@
 
                         
                     </div>
+                  
                     <form action="./comentario" method="POST" >
                        @csrf
 
@@ -177,6 +177,23 @@
                        
 
                      </form>  
+                     <h1>COMENTARIOS:</h1>
+                     @foreach ($comentarios as $comentario)
+                     @if($comentario->id_proyecto == $proyecto->id)
+                     <div>
+                     @php
+                     $aux2 = DB::table('users')->find($comentario->id_usuario);
+                     @endphp
+                     <label>[{{$aux2->nombre  }}]---->  {{$comentario->contenido_texto}}</label>
+                     </div>
+                     @endif
+                     @endforeach
+                   
+                     
+
+                 <div>
+             
+                 </div>
 
          
 
