@@ -50,6 +50,19 @@
                 @endif
 
                 @else
+                <div class="buttons-nav-bar">
+                    <button class="btn btn-lg">
+                        <i class="fas fa-home"></i>
+                        <h6>Inicio</h6>
+                    </button>
+                </div>
+
+                <div class="buttons-nav-bar">
+                    <button class="btn btn-lg">
+                        <i class="fa fa-user-plus"></i>
+                        <h6>Buscar perfil</h6>
+                    </button>
+                </div>
 
                 <div class="buttons-nav-bar">
                     <button class="btn btn-lg" id="btn-public">
@@ -216,27 +229,31 @@
 
 
 
+@guest
 
- <form action="./comentario" method="POST" class="caja_comentar">
+@if (Route::has('register'))
+
+  @endif
+
+  @else
+  <form action="./comentario" method="POST" class="caja_comentar">
 @csrf
   <div class="caja_fotoComentar">
      <!-- <img src="031020201.PNG">-->
      <i class="fas fa-user"></i>
-     <!-- <label>{{Auth::user()->nombre}}</label>-->
-  </div>
-  @php
-  $prueba = DB::table('proyectos')->count();
-  @endphp
+     
     
-  @if ($prueba != 0)
+  </div>
+
    <input type="hidden" name="id_proyecto" value="{{$proyecto->id}}">
    <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
-  @endif
     <input class="input_comentar" type="text" name="contenido_texto">
     <button type="submit">Publicar</button>
    
   
   </form>
+
+  @endguest
 </div>
 
                         </div>
