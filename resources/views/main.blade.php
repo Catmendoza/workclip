@@ -15,6 +15,7 @@
 
 @section('content')
 
+
     <section class="nav-bar-main">
         <div class="navbar navbar-expand-lg navbar-light  lighten-5  " style="background-color: white">
 
@@ -73,7 +74,7 @@
     
             <div class="content-post-main">
 
-             @foreach ($proyectos->reverse() as $proyecto)
+              @foreach ($proyectos->reverse() as $proyecto)
                 <div class="col-md-7">
 
                     <div class="header-box-main">
@@ -170,20 +171,80 @@
                                 <button>Leer Mas</button>
                                 
                             </div>
-                            @php
-                            $cant_C = DB::table('comentarios')->count();
-                            @endphp
-                            <button id="modal-abrir">Comentarios  {{$cant_C}}</button>
+               
                             
                         </div>
 
+
+                   
+                         
+                        
+
                         
                     </div>
+                    @php
+                    $contComents=DB::table('comentarios')->where('id_proyecto','=',$proyecto->id)->count();
+                    @endphp
+                    <button class="accordion" >Comentarios {{$contComents}}</button>
+                      
+                    <div class="panel">
+                    <div class="caja_comentarios">
 
+@foreach ($comentarios as $comentario)
+@if($comentario->id_proyecto == $proyecto->id)
+         
+      @php
+      
+      $aux2 = DB::table('users')->find($comentario->id_usuario);
+      @endphp
+<div class="caja_comentario">
+  <div class="caja_fotoComentario">
+      <!--<img src="03102020.PNG">-->
+      <i class="fas fa-user"></i>
+  </div>
+
+  <div class="caja_textoComentario">
+      <label>{{$aux2->nombre}}</label>
+      <p>{{$comentario->contenido_texto}}</p>
+  </div>
+
+
+ </div>
+ @endif
+
+@endforeach
+
+
+
+
+ <form action="./comentario" method="POST" class="caja_comentar">
+@csrf
+  <div class="caja_fotoComentar">
+     <!-- <img src="031020201.PNG">-->
+     <i class="fas fa-user"></i>
+     <!-- <label>{{Auth::user()->nombre}}</label>-->
+  </div>
+  @php
+  $prueba = DB::table('proyectos')->count();
+  @endphp
+    
+  @if ($prueba != 0)
+   <input type="hidden" name="id_proyecto" value="{{$proyecto->id}}">
+   <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
+  @endif
+    <input class="input_comentar" type="text" name="contenido_texto">
+    <button type="submit">Publicar</button>
+   
+  
+  </form>
+</div>
+
+                        </div>
                  <div>
              
                  </div>
 
+                 
          
 
                 </div>
@@ -230,7 +291,12 @@
                 </div>
             </div>
 
+
+            
+
         </div>
+
+        
 
         
 
@@ -452,61 +518,6 @@
         </div>
     </div>
 
-    
-    <div id="modalcomentarios" class="modalcomentarios">
-        <div class="modal-pp-contentC">
-            <div class="header-modal-ppC">
-
-                <h3>Comentarios</h3>
-                <div class="close-modal-pp2">
-                    <a><i class="fas fa-times"></i></a>
-                </div>
-            </div>
-
-            <div class="body-modal-ppC">
-                
-          <div class="caja_comentarios">
-
-          @foreach ($comentarios as $comentario)
-             @if($comentario->id_proyecto == $proyecto->id)
-                @php
-                $aux2 = DB::table('users')->find($comentario->id_usuario);
-                @endphp
-          <div class="caja_comentario">
-            <div class="caja_fotoComentario">
-                <img src="03102020.PNG">
-            </div>
-
-            <div class="caja_textoComentario">
-                <label>{{$aux2->nombre}}</label>
-                <p>{{$comentario->contenido_texto}}</p>
-            </div>
-
-
-        </div>
-        @endif
-        @endforeach
-     
-
-        <form action="./comentario" method="POST" class="caja_comentar">
-         @csrf
-            <div class="caja_fotoComentar">
-                <img src="031020201.PNG">
-                <label>{{Auth::user()->nombre}}</label>
-            </div>
-            <input type="hidden" name="id_proyecto" value="{{$proyecto->id}}">
-            <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
-             <input class="input_comentar" type="text" name="contenido_texto">
-             <button type="submit">Publicar</button>
-            
-        </form>
-    </div>
-
-              
-            </div>
-
-        </div>
-    </div>
   
 
     <div id="publicProjectModal" class="modal-publish-project">
@@ -592,6 +603,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
     </script>
+
+    
     <script src="https://kit.fontawesome.com/f579ace1fb.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ 
 @endsection
+
