@@ -17,8 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $producto = Producto::All();
-        return view("main",["productos"=>$producto]);
+        //
     }
 
     /**

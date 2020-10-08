@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Producto;
+//use App\Proyecto;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,11 @@ Route::get('/', function () {
 
 
 Route::get('/main', function () {
-    return view('main');
+    $producto = Producto::All();
+    //$proyecto = Proyecto::All();
+    return view("main",["productos"=>$producto]);
+    //return view("main",["productos"=>$producto,"proyectos"=>$proyecto]);
+    
 });
 //->middleware(("auth"))
 Route::get('/user',function(){
