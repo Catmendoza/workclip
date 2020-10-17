@@ -101,6 +101,8 @@ body{
 .col-md-7{
     max-width: 100% !important;
     margin: 40px auto;
+    text-align:center;
+    margin-bottom:100px;
     height: 450px;
 }
 
@@ -256,6 +258,7 @@ body{
     margin: 20px;
     grid-column-start: 2;
     grid-row-start: 2;
+    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

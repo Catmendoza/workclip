@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="{{ asset('css/modal-publish-job.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-publish-project.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-publish-product.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/modal-comentarios.css') }}" />
 
 @endsection
 
 @section('content')
+
 
     <section class="nav-bar-main">
         <div class="navbar navbar-expand-lg navbar-light  lighten-5  " style="background-color: white">
@@ -27,6 +29,27 @@
                     </form>
                 </div>
 
+                @guest
+                    @if (Route::has('register'))
+                            
+                   
+
+                <div class="buttons-nav-bar">
+                    <button class="btn btn-lg">
+                        <i class="fas fa-home"></i>
+                        <h6>Inicio</h6>
+                    </button>
+                </div>
+
+                <div class="buttons-nav-bar">
+                    <button class="btn btn-lg">
+                        <i class="fa fa-user-plus"></i>
+                        <h6>Buscar perfil</h6>
+                    </button>
+                </div>
+                @endif
+
+                @else
                 <div class="buttons-nav-bar">
                     <button class="btn btn-lg">
                         <i class="fas fa-home"></i>
@@ -47,6 +70,8 @@
                         <h6>Añadir publicación</h6>
                     </button>
                 </div>
+
+                @endguest
             </div>
         </div>
 
@@ -62,7 +87,7 @@
     
             <div class="content-post-main">
 
-             @foreach ($proyectos->reverse() as $proyecto)
+              @foreach ($proyectos->reverse() as $proyecto)
                 <div class="col-md-7">
 
                     <div class="header-box-main">
@@ -157,44 +182,86 @@
 
                             <div class="btn-read-more">
                                 <button>Leer Mas</button>
+                                
                             </div>
+               
+                            
                         </div>
+
+
+                   
+                         
+                        
 
                         
                     </div>
-                  
-                    <form action="./comentario" method="POST" >
-                       @csrf
+                    @php
+                    $contComents=DB::table('comentarios')->where('id_proyecto','=',$proyecto->id)->count();
+                    @endphp
+                    <button class="accordion" >Comentarios {{$contComents}}</button>
+                      
+                    <div class="panel">
+                    <div class="caja_comentarios">
 
-                       <div>
-                       <input type="hidden" name="id_proyecto" value="{{$proyecto->id}}">
-                       <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
-                       <label>{{Auth::user()->nombre}}</label>
-                       <input type="text" name="contenido_texto">
-                       <button type="submit">Publicar</button>
-                       </div>
+@foreach ($comentarios as $comentario)
+@if($comentario->id_proyecto == $proyecto->id)
+         
+      @php
+      
+      $aux2 = DB::table('users')->find($comentario->id_usuario);
+      @endphp
+<div class="caja_comentario">
+  <div class="caja_fotoComentario">
+      <!--<img src="03102020.PNG">-->
+      <i class="fas fa-user"></i>
+  </div>
 
-                       
+  <div class="caja_textoComentario">
+      <label>{{$aux2->nombre}}</label>
+      <p>{{$comentario->contenido_texto}}</p>
+  </div>
 
-                     </form>  
-                     <h1>COMENTARIOS:</h1>
-                     @foreach ($comentarios as $comentario)
-                     @if($comentario->id_proyecto == $proyecto->id)
-                     <div>
-                     @php
-                     $aux2 = DB::table('users')->find($comentario->id_usuario);
-                     @endphp
-                     <label>[{{$aux2->nombre  }}]---->  {{$comentario->contenido_texto}}</label>
-                     </div>
-                     @endif
-                     @endforeach
-                   
-                     
 
+ </div>
+ @endif
+
+@endforeach
+
+
+
+@guest
+
+@if (Route::has('register'))
+
+  @endif
+
+  @else
+  <form action="./comentario" method="POST" class="caja_comentar">
+@csrf
+  <div class="caja_fotoComentar">
+     <!-- <img src="031020201.PNG">-->
+     <i class="fas fa-user"></i>
+     
+    
+  </div>
+
+   <input type="hidden" name="id_proyecto" value="{{$proyecto->id}}">
+   <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
+    <input class="input_comentar" type="text" name="contenido_texto">
+    <button type="submit">Publicar</button>
+   
+  
+  </form>
+
+  @endguest
+</div>
+
+                        </div>
                  <div>
              
                  </div>
 
+                 
          
 
                 </div>
@@ -241,7 +308,12 @@
                 </div>
             </div>
 
+
+            
+
         </div>
+
+        
 
         
 
@@ -463,6 +535,8 @@
         </div>
     </div>
 
+  
+
     <div id="publicProjectModal" class="modal-publish-project">
         <div class="modal-pp-content">
             <div class="header-modal-pp">
@@ -536,7 +610,7 @@
 
         </div>
     </div>
-    </section>
+   
 @endsection
 
 @section('scripts')
@@ -546,6 +620,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
     </script>
+
+    
     <script src="https://kit.fontawesome.com/f579ace1fb.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ 
 @endsection
+
