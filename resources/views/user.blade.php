@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="{{ asset('css/cssindex.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/user.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-infoproj.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('css/edit-profile.css') }}">
 @endsection
+
 
 @section('content')
 <div class="data-section">
@@ -42,18 +44,18 @@
                             <label style="grid-row-start: 2; font-weight: bold">Cel</label>
                             <label style="grid-row-start: 3; font-weight: bold;">Email</label>
                             <label style="grid-row-start: 4; font-weight: bold">Edad</label>
-                            <label style="grid-row-start: 5; font-weight: bold">Ciudad Actual</label>
+                  
 
                             <label>Tecnologia en Sistemas</label>
                             <label>3183565999</label>
                             <label>catalina.mendo@hotm.com</label>
                             <label>19</label>
-                            <label>Cali</label>
+         
                         </div>
                         <div class="footer-profile">
                             <button class="btn-footer contact">Contacta me</button>
                             <button class="btn-footer cv">Descargar CV</button>
-                            <button class="btn-footer edit" style="float:right; background:#5cb85c">Editar</button>
+                            <button id="btnEditModal" class="btn-footer edit" style="float:right; background:#5cb85c" >Editar</button>
                         </div>
                     </div>
                 </div>
@@ -392,4 +394,79 @@
         </div>
 
     </div>
+
+    <div id="EditProfileModal" class="modal-editProfile">
+
+        <div class="modal-editp-content">
+
+            <div class="header-modal-editp">
+
+                <label>WORKCLIP</label>
+
+            </div>
+
+            <div class="body-editp-grid">
+
+                <div class="boxgray update-profile">
+                    <div class="grid-content-update">
+                        <div class="img-update-user">
+
+                            <form class="image-user-form" action="" method="post" enctype="multipart/form-data">
+                                <input id="avatar-2" name="avatar-2" type="file" required>
+                            </form>
+
+                        </div>
+                        <div class="data-info-user-profile">
+                            <label for="">Nombre</label>
+                            <input type="text" name="inputname" value="Catalina Mendoza">
+                            <input class="state" type="text" spellcheck="false" value="Hi! this is my state">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="boxgray who-im">
+                    <label for="">Quien eres</label>
+                    <textarea id="description-who-im" style="resize: none;"></textarea>
+                </div>
+                <div class="boxgray social-networks-user">
+                    <div class="icons-social">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="inputs-social">
+                        <input type="text" name="" id="">
+
+                        <input type="text" name="" id="">
+
+                        <input type="text" name="" id="">
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="footer-modal-editp">
+                <div class="button-modal-profile">
+                    <button class="btn btn-danger" id="cancelBtnProfile">Cancelar</button>
+                    <button class="btn btn-success">Guardar</button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+    <script>
+
+    </script>
+
+@endsection
+
+@section('sc')
+<script type="text/javascript" src="{{ asset('js/modal-login.js') }}"></script>    
+<script type="text/javascript" src="{{ asset('js/modal-edit-profile.js') }}"></script>
 @endsection
