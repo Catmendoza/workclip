@@ -148,12 +148,11 @@
         </form>
     </div>
 
-    <script type="text/javascript" src="{{ asset('js/modal-login.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/modal-public-project.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/modal-public-job.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/modal-public-product.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/modalpublic.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/acordion.js') }}"></script>
+    @yield('sc')
+
+
+ 
+    
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

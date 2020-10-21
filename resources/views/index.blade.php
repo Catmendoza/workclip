@@ -130,3 +130,8 @@
         </div>
     </section>
 @endsection
+
+
+@section('sc')
+<script type="text/javascript" src="{{ asset('js/modal-login.js') }}"></script>
+@endsection
