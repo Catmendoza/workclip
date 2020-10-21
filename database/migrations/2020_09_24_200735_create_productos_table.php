@@ -20,7 +20,7 @@ class CreateProductosTable extends Migration
             $table->string('nombre_producto');
             $table->text('descripcion');
             $table->float('precio');
-            $table->date('fecha_publi');
+
             $table->timestamps();
         });
     }

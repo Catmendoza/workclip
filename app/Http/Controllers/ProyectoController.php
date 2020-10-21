@@ -35,7 +35,7 @@ class ProyectoController extends Controller
 
         
 
-        return view("main",["proyectos"=> $proyecto],["comentarios"=>$comentario],["productos"=>$producto]);
+        return view("main")->with('proyectos',$proyecto)->with('productos',$producto)->with('comentarios',$comentario);
 
        
 
@@ -49,9 +49,20 @@ class ProyectoController extends Controller
      */
     public function create()
     {
-        //
-
-        return view("main");
+        $proyecto = Proyecto::paginate(5);
+        $producto = Producto::all();
+        $comentario = Comentario::all();
+    
+        //$proyecto = Proyecto::all();
+    //        $proyecto = DB::table("proyectos")->paginate(3);
+      
+    
+            
+    
+            return view("main",["proyectos"=> $proyecto],["comentarios"=>$comentario],["productos"=>$producto]);
+    
+           
+    
     }
 
     /**

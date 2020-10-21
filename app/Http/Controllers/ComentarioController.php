@@ -7,7 +7,7 @@ use App\Comentario;
 
 class ComentarioController extends Controller
 {
-    /**e
+    /**ee
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -42,10 +42,11 @@ class ComentarioController extends Controller
      */
     public function store(Request $request)
     {
+        set_time_limit(0);
         $comentario = new Comentario();
         
         $comentario->id_proyecto = request('id_proyecto');
-        $comentario->id_producto=1;
+        $comentario->id_producto=request('id_producto');
         $comentario->fecha_publi="2020-10-04";
         $comentario->id_usuario = request('id_usuario');
         $comentario->contenido_texto = request('contenido_texto');

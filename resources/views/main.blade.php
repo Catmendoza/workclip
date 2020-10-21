@@ -278,6 +278,194 @@
 
 <!--Productos-->
 
+@foreach ($productos->reverse() as $producto)
+                <div class="col-md-7">
+
+                    <div class="header-box-main">
+                        <div class="img-user-header">
+                            <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
+                        </div>
+
+                        @php
+                        $aux = DB::table('users')->find($producto->id_perfil);
+                        $mes = $producto->created_at->format('m');
+                         $mesD;
+                         switch($mes){
+                             case 1:
+                             $mesD = "ENE";
+
+                             break;
+
+                             case 2:
+                             $mesD = "FEB";
+                             break;
+
+                             case 3:
+                             $mesD = "MAR";
+                             break;
+
+                             case 4:
+                             $mesD = "ABR";
+                             break;
+                             
+                             case 5:
+                             $mesD ="MAY";
+                             break;
+                             
+                             case 6:
+                             $mesD = "JUN";
+                             break;
+
+                             case 7:
+                             $mesD = "JUL";
+                             break;
+
+                             case 8:
+                             $mesD = "AGO";
+                             break;
+
+                             case 9:
+                             $mesD = "SEP";
+                             break;
+
+                             case 10:
+                             $mesD = "OCT";
+                             break;
+
+                             case 11:
+                             $mesD = "NOV";
+                             break;
+
+                             case 12:
+                             $mesD ="DIC";
+                             break;
+
+                             
+                         }
+                      
+                         @endphp
+
+                        <div class="name-user-box">
+                            <h4 class="textWhite">{{$aux->nombre}}</h4>
+                            <h6 class="textWhite">{{$aux->programa}}</h6>
+                        </div>
+
+                        <div class="fecha-box">
+                            <label>{{$producto->created_at->format('d')}}{{"  ".$mesD}}</label>
+                        </div>
+
+                    </div>
+
+                    <div class="box-main-content">
+
+                        <div class="header-box-ppe">
+                            <h6 style="color:#979797">{{ $producto->nombre_proyecto }}</h6>
+                            <hr>
+                        </div>
+
+                        <div class="img-box-ppe">
+                            <img src="{{ asset($proyecto->imagen) }}">
+                        </div>
+
+                        <div class="description-box">
+                           <p>{{$producto->descripcion }}</p>
+
+
+                            <div class="btn-read-more">
+                                <button>Leer Mas</button>
+                                
+                            </div>
+               
+                            
+                        </div>
+
+
+                   
+                         
+                        
+
+                        
+                    </div>
+                    @php
+                    $contComents=DB::table('comentarios')->where('id_producto','=',$producto->id)->count();
+                    @endphp
+                    <button class="accordion" >Comentarios {{$contComents}}</button>
+                      
+                    <div class="panel">
+                    <div class="caja_comentarios">
+
+@foreach ($comentarios as $comentario)
+@if($comentario->id_producto == $producto->id)
+         
+      @php
+      
+      $aux2 = DB::table('users')->find($comentario->id_usuario);
+      @endphp
+<div class="caja_comentario">
+  <div class="caja_fotoComentario">
+      <!--<img src="03102020.PNG">-->
+      <i class="fas fa-user"></i>
+  </div>
+
+  <div class="caja_textoComentario">
+      <label>{{$aux2->nombre}}</label>
+      <p>{{$comentario->contenido_texto}}</p>
+  </div>
+
+
+ </div>
+ @endif
+
+@endforeach
+
+
+
+@guest
+
+@if (Route::has('register'))
+
+  @endif
+
+  @else
+  <form action="./comentario" method="POST" class="caja_comentar">
+@csrf
+  <div class="caja_fotoComentar">
+     <!-- <img src="031020201.PNG">-->
+     <i class="fas fa-user"></i>
+     
+    
+  </div>
+
+   <input type="hidden" name="id_producto" value="{{$producto->id}}">
+   <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
+    <input class="input_comentar" type="text" name="contenido_texto">
+    <button type="submit">Publicar</button>
+   
+  
+  </form>
+
+  @endguest
+</div>
+
+                        </div>
+                 <div>
+             
+                 </div>
+
+                 
+         
+
+                </div>
+
+                @endforeach
+
+
+
+              
+
+
+
+
 
 
                 
@@ -407,7 +595,7 @@
                     </div>
 
                     <div class="box-select left">
-                        <input type="number" name="precio" max="100" min="0">
+                        <input type="number" name="precio"  min="200">
 
                     </div>
 
