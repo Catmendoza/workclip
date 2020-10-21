@@ -9,78 +9,108 @@
 @endsection
 
 @section('content')
-    <div class="data-section">
+<div class="data-section">
 
-        <section class="personal contenedor">
-            <div class="contenido-data">
+    <section class="personal contenedor">
+        <div class="contenido-data">
 
-                <div class="container-boxs data">
-                    <div class="box-name">
-                        <h1>Giovani Jaramillo</h1>
+            <div class="container-grid-profile">
+                <div class="card-portada">
+                    <div class="img-box-user">
+                        <img src="./img/Profile2.jpg" alt="">
                     </div>
-
-                    <div class="box-data">
-                        <div class="box-skill-data">
-                            <h2>Carrera</h2>
-                            <h4>Ingenieria Sistemas</h4>
-                        </div>
-                        <div class="box-skill-data">
-                            <h2>Contacto</h2>
-                            <h4>3155995556</h4>
-                        </div>
-                        <div class="box-skill-data">
-                            <h2>Correo</h2>
-                            <h4>gio.si@usc.edu.co</h4>
-                        </div>
-                        <div class="box-skill-data">
-                            <h2>Edad</h2>
-                            <h4>20</h4>
-                        </div>
-
-                        <div class="btn-profile">
-
-                            <a href="#"><i class="fas fa-download"></i></a>
-                            <a href="#"><i class="fas fa-file-alt"></i></a>
-
-                            <button class="btn-edit-profile"><i class="fas fa-user-edit"></i>
-                                <h4>Editar</h4>
-                            </button>
-                        </div>
+                    <div class="texts-box-portada">
+                        <label>¿Quien Soy?</label>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio mollitia, veniam enim fugit deleniti sapiente rerum dignissimos aliquam?</p>
                     </div>
-
+                    <div class="social-media-port">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-github"></i>
+                    </div>
                 </div>
 
-                <div class="container-boxs portada">
-
-                    <div class="portada-img">
-                        <img src=".\img\modoserio.jpg" alt="">
-                        <div class="who-i">
-                            <div class="title-who-i">
-                                <label>¿Quien soy?</label>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, a libero necessitatibus
-                                beatae ipsa quibusdam ipsam neque quae vero voluptatem!
-                            </p>
+                <div class="data-info-user">
+                    <div class="content-margin-profile">
+                        <div class="header-titles-profile">
+                            <label>CATALINA MENDONZA</label>
+                            <h6>Trabajando</h6>
+                            <hr>
                         </div>
-                        <div class="social-media">
-                            <i class="fab fa-instagram"></i>
-                            <i class="fab fa-facebook-f"></i>
-                            <i class="fab fa-github"></i>
+                        <div class="container-data-profile">
+                            <label style="font-weight: bold">Carrera</label>
+                            <label style="grid-row-start: 2; font-weight: bold">Cel</label>
+                            <label style="grid-row-start: 3; font-weight: bold;">Email</label>
+                            <label style="grid-row-start: 4; font-weight: bold">Edad</label>
+                            <label style="grid-row-start: 5; font-weight: bold">Ciudad Actual</label>
+
+                            <label>Tecnologia en Sistemas</label>
+                            <label>3183565999</label>
+                            <label>catalina.mendo@hotm.com</label>
+                            <label>19</label>
+                            <label>Cali</label>
+                        </div>
+                        <div class="footer-profile">
+                            <button class="btn-footer contact">Contacta me</button>
+                            <button class="btn-footer cv">Descargar CV</button>
+                            <button class="btn-footer edit" style="float:right; background:#5cb85c">Editar</button>
                         </div>
                     </div>
-
-                    <div class="cajas">
-                        <div class="clip-path-wrap">
-                            <div class="clip-path">
-
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
             </div>
-        </section>
+        </div>
+
+
+        <div class="contenido-data">
+            <div class="container-grid-more">
+                <div class="content-more-data">
+                    <div class="title-more-data">
+                        <label for="">MÁS SOBRE MI</label>
+                    </div>
+                    <div class="nav-tabs-container">
+                        <div class="tab-header">
+
+                            <ul class="tabs-ul">
+                                <li class="tabs-li active">Sueño</li>
+                                <li class="tabs-li">Actitud</li>
+                                <li class="tabs-li">Meta</li>
+                            </ul>
+                            
+                        </div>
+                        <div class="tab-indicator">
+
+                        </div>
+                        <div class="tab-body">
+                            <div class="tab-box active">
+                                <i class="fas fa-rocket"></i>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde eum error saepe iure quasi exercitationem nostrum, explicabo eaque qui doloremque doloribus mollitia iusto maiores ducimus.</p>
+                            </div>
+                            <div class="tab-box">
+                                <i class="fas fa-bolt"></i>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, cumque! Asperiores autem, laboriosam harum atque fugit veniam aut, vel quos ducimus, aspernatur eveniet quo sed!</p>
+                            </div>
+                            <div class="tab-box">
+                                <i class="fas fa-meteor"></i>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione iusto maxime deserunt minus incidunt soluta reiciendis, recusandae, fuga sit fugit necessitatibus iste quasi, accusantium facere.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-portada-more">
+
+                    <div class="box-container-img">
+                        <div class="img-box-more">
+                            <img src="./img/Profile2.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
 
         <svg class="divider datas-bottom" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1366 112"
