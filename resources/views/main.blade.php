@@ -270,7 +270,17 @@
 
 
 
-                {{$proyectos->links()}}
+              
+
+
+
+
+
+<!--Productos-->
+
+
+
+                
   
               
             </div>
@@ -372,7 +382,8 @@
                 </div>
             </div>
 
-            <div class="body-modal-pp">
+            <form class="body-modal-pp" action="./producto" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="modal-side-left">
 
                     <div class="titles-box-pp">
@@ -380,7 +391,7 @@
                     </div>
 
                     <div class="box-texts">
-                        <input type="text" name="" id="">
+                        <input type="text" name="nombre_producto" id="">
                     </div>
 
                     <div class="titles-box-pp">
@@ -388,15 +399,15 @@
                     </div>
 
                     <div class="box-texts">
-                        <textarea type="text" maxlength="200"></textarea>
+                        <textarea type="text" name ="descripcion"maxlength="200"></textarea>
                     </div>
 
                     <div class="titles-box-pp">
-                        <h3>Estado</h3>
+                        <h3>Precio</h3>
                     </div>
 
                     <div class="box-select left">
-                        <input type="range" name="rango" max="100" min="0">
+                        <input type="number" name="precio" max="100" min="0">
 
                     </div>
 
@@ -410,25 +421,16 @@
 
                     <div class="box-file">
 
-                        <input type="file" name="" id="">
+                        <input type="file" name="imagen" id="">
                     </div>
 
-                    <div class="titles-box-pp">
-                        <h3>Finalidad</h3>
-                    </div>
-
-                    <div class="box-select right">
-                        <select name="" id="">
-                            <option value="">1</option>
-                        </select>
-                    </div>
                     <div class="btn-submit-pp">
                         <button type="submit">Publicar</button>
                     </div>
 
 
                 </div>
-            </div>
+            </form>
 
         </div>
     </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Proyecto;
 use App\User;
 use App\Comentario;
+use App\Producto;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SubirProyectosRequest;
 
@@ -25,6 +26,7 @@ class ProyectoController extends Controller
 
         
     $proyecto = Proyecto::paginate(5);
+    $producto = Producto::all();
     $comentario = Comentario::all();
 
     //$proyecto = Proyecto::all();
@@ -33,7 +35,7 @@ class ProyectoController extends Controller
 
         
 
-        return view("main",["proyectos"=> $proyecto],["comentarios"=>$comentario]);
+        return view("main",["proyectos"=> $proyecto],["comentarios"=>$comentario],["productos"=>$producto]);
 
        
 
