@@ -153,12 +153,13 @@
                         <h1 style="color: #ffdb56">¡Elige tu rol en la página!</h1>
                     </div>
                     <div class="option-rols">
-                        <input class="btn btn-default btn-circle btn-xl" name="roles" type="radio"
+                     
+                        <input class="btn btn-default btn-circle btn-xl"  value="1"name="rol" type="radio"
                             style="background-color: white">
 
+                        
 
-                        <input class="btn btn-default btn-circle btn-xl" type="radio" name="roles"
-                            style="background-color: white">
+                        <input class="btn btn-default btn-circle btn-xl"  value="0"type="radio"  name="rol"style="background-color: white">
 
 
                     </div>
@@ -256,7 +257,16 @@
     </footer>
 
 
-
+    <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function()
+            {
+            $("#boton").click(function () {	 
+                alert($('input:radio[name=rol]:checked').val());
+                $("#formulario").submit();
+                });
+             });
+    </script>
 </body>
 
 </html>

@@ -81,7 +81,7 @@ class ProyectoController extends Controller
         $proyecto->nombre_proyecto = request('nombre_proyecto');
         $proyecto->descripcion =request('descripcion');
         $proyecto->estado_proyecto = request('estado_proyecto');
-        $proyecto->finalidad_proyecto = 1;
+        $proyecto->finalidad_proyecto = 0;
 
         $archivo = $request->file("imagen");
         $destino = "imagenes_usuarios/";
