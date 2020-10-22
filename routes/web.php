@@ -28,6 +28,7 @@ Route::resource('/usuario', 'UserController');
 Route::resource('/proyecto', 'ProyectoController');
 Route::resource('/comentario', 'ComentarioController');
 Route::resource('/producto','ProductoController');
+Route::resource('/perfil','PerfilController');
 
 Auth::routes();
 

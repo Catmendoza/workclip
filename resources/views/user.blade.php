@@ -33,10 +33,24 @@
                 </div>
 
                 <div class="data-info-user">
+
+                   @foreach($usuarios  as $usuario)
+
+                    @if ($usuario->id == Auth::user()->id)
+
                     <div class="content-margin-profile">
                         <div class="header-titles-profile">
-                            <label>CATALINA MENDONZA</label>
-                            <h6>Trabajando</h6>
+                            <label>{{$usuario->nombre }}</label>
+                            @php 
+                            $aux;
+                            
+                            if ($usuario->rol == 0){
+                                $aux="Empresario";
+                            }else{
+                                $aux="Estudiante";
+                            }
+                            @endphp
+                                <p>{{$aux}}</p>
                             <hr>
                         </div>
                         <div class="container-data-profile">
@@ -46,10 +60,10 @@
                             <label style="grid-row-start: 4; font-weight: bold">Edad</label>
                   
 
-                            <label>Tecnologia en Sistemas</label>
-                            <label>3183565999</label>
-                            <label>catalina.mendo@hotm.com</label>
-                            <label>19</label>
+                            <label>{{$usuario->programa}}</label>
+                            <label>{{$usuario->contacto}}</label>
+                            <label>{{$usuario->email}}</label>
+                            <label>{{$usuario->edad}}</label>
          
                         </div>
                         <div class="footer-profile">
@@ -58,6 +72,11 @@
                             <button id="btnEditModal" class="btn-footer edit" style="float:right; background:#5cb85c" >Editar</button>
                         </div>
                     </div>
+
+                    @endif
+                    
+
+                @endforeach
                 </div>
 
             </div>
@@ -397,8 +416,10 @@
 
     <div id="EditProfileModal" class="modal-editProfile">
 
-        <div class="modal-editp-content">
+        <form class="modal-editp-content" action="./perfil" method="POST" enctype="multipart/form-data">
 
+
+         @csrf
             <div class="header-modal-editp">
 
                 <label>WORKCLIP</label>
@@ -411,14 +432,14 @@
                     <div class="grid-content-update">
                         <div class="img-update-user">
 
-                            <form class="image-user-form" action="" method="post" enctype="multipart/form-data">
-                                <input id="avatar-2" name="avatar-2" type="file" required>
-                            </form>
+                            <div class="image-user-form" action="" method="post" enctype="multipart/form-data">
+                                <input id="avatar-2" name="imagen" type="file" required>
+                            </div>
 
                         </div>
                         <div class="data-info-user-profile">
                             <label for="">Nombre</label>
-                            <input type="text" name="inputname" value="Catalina Mendoza">
+                            <input type="text" name="" value="{{Auth::user()->nombre}}">
                             <input class="state" type="text" spellcheck="false" value="Hi! this is my state">
                         </div>
 
@@ -426,7 +447,7 @@
                 </div>
                 <div class="boxgray who-im">
                     <label for="">Quien eres</label>
-                    <textarea id="description-who-im" style="resize: none;"></textarea>
+                    <textarea id="description-who-im" style="resize: none;" name="texto_quiensoy"></textarea>
                 </div>
                 <div class="boxgray social-networks-user">
                     <div class="icons-social">
@@ -435,11 +456,11 @@
                         <i class="fab fa-github"></i>
                     </div>
                     <div class="inputs-social">
-                        <input type="text" name="" id="">
+                        <input type="text" name="instagram" id="">
 
-                        <input type="text" name="" id="">
+                        <input type="text" name="facebook" id="">
 
-                        <input type="text" name="" id="">
+                        <input type="text" name="github" id="">
                     </div>
 
 
@@ -449,13 +470,13 @@
             <div class="footer-modal-editp">
                 <div class="button-modal-profile">
                     <button class="btn btn-danger" id="cancelBtnProfile">Cancelar</button>
-                    <button class="btn btn-success">Guardar</button>
+                    <button type="submit" class="btn btn-success">Guardar</button>
                 </div>
             </div>
 
 
 
-        </div>
+        </form>
 
 
     </div>

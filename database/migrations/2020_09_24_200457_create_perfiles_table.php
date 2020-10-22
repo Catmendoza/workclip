@@ -18,7 +18,10 @@ class CreatePerfilesTable extends Migration
             $table->integer('id_usuario');
             $table->string('imagen');
             $table->text('texto_quiensoy');
-            $table->string('nombre_empresa');
+            $table->string('nombre_empresa')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('git')->nullable();
             $table->timestamps();
         });
     }
