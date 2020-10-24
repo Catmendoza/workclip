@@ -15,28 +15,29 @@
 
     <section class="personal contenedor">
         <div class="contenido-data">
+            
+            @foreach($usuarios  as $usuario)
+
+            @if ($usuario->id == Auth::user()->id)
 
             <div class="container-grid-profile">
                 <div class="card-portada">
                     <div class="img-box-user">
-                        <img src="./img/Profile2.jpg" alt="">
+                        <img src="{{$usuario->imagen}}" alt="">
                     </div>
                     <div class="texts-box-portada">
                         <label>¿Quien Soy?</label>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio mollitia, veniam enim fugit deleniti sapiente rerum dignissimos aliquam?</p>
+                        <p>{{$usuario->texto_quiensoy}}</p>
                     </div>
                     <div class="social-media-port">
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-github"></i>
+                    <a href="{{$usuario->instagram}}"><i class="fab fa-instagram"></i></a>
+                        <a href="{{$usuario->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                        <a href="{{$usuario->github}}"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
 
                 <div class="data-info-user">
 
-                   @foreach($usuarios  as $usuario)
-
-                    @if ($usuario->id == Auth::user()->id)
 
                     <div class="content-margin-profile">
                         <div class="header-titles-profile">
@@ -69,17 +70,19 @@
                         <div class="footer-profile">
                             <button class="btn-footer contact">Contacta me</button>
                             <button class="btn-footer cv">Descargar CV</button>
-                            <button id="btnEditModal" class="btn-footer edit" style="float:right; background:#5cb85c" >Editar</button>
+
+                        <a href="{{route('perfil.edit',$usuario->id)}}"style="background:red;" class="btn-footer edit">EDITALO</a>
                         </div>
                     </div>
 
                     @endif
                     
 
-                @endforeach
+              
                 </div>
 
             </div>
+            @endforeach
         </div>
 
 
@@ -414,72 +417,6 @@
 
     </div>
 
-    <div id="EditProfileModal" class="modal-editProfile">
-
-        <form class="modal-editp-content" action="./perfil" method="POST" enctype="multipart/form-data">
-
-
-         @csrf
-            <div class="header-modal-editp">
-
-                <label>WORKCLIP</label>
-
-            </div>
-
-            <div class="body-editp-grid">
-
-                <div class="boxgray update-profile">
-                    <div class="grid-content-update">
-                        <div class="img-update-user">
-
-                            <div class="image-user-form" action="" method="post" enctype="multipart/form-data">
-                                <input id="avatar-2" name="imagen" type="file" required>
-                            </div>
-
-                        </div>
-                        <div class="data-info-user-profile">
-                            <label for="">Nombre</label>
-                            <input type="text" name="" value="{{Auth::user()->nombre}}">
-                            <input class="state" type="text" spellcheck="false" value="Hi! this is my state">
-                        </div>
-
-                    </div>
-                </div>
-                <div class="boxgray who-im">
-                    <label for="">Quien eres</label>
-                    <textarea id="description-who-im" style="resize: none;" name="texto_quiensoy"></textarea>
-                </div>
-                <div class="boxgray social-networks-user">
-                    <div class="icons-social">
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div class="inputs-social">
-                        <input type="text" name="instagram" id="">
-
-                        <input type="text" name="facebook" id="">
-
-                        <input type="text" name="github" id="">
-                    </div>
-
-
-                </div>
-            </div>
-
-            <div class="footer-modal-editp">
-                <div class="button-modal-profile">
-                    <button class="btn btn-danger" id="cancelBtnProfile">Cancelar</button>
-                    <button type="submit" class="btn btn-success">Guardar</button>
-                </div>
-            </div>
-
-
-
-        </form>
-
-
-    </div>
 
     <script>
 
@@ -488,6 +425,5 @@
 @endsection
 
 @section('sc')
-<script type="text/javascript" src="{{ asset('js/modal-login.js') }}"></script>    
-<script type="text/javascript" src="{{ asset('js/modal-edit-profile.js') }}"></script>
+
 @endsection

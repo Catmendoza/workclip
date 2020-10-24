@@ -53,13 +53,18 @@ header::before {
     padding: 0 10px;
 }
 
-.nav .logo>h1 {
+.nav .logo>a {
     font-size: 35px;
+    cursor: pointer;
     font-family: "Fredoka One", cursive;
     color: #fff;
     transform: rotate(-3deg);
     font-weight: 300;
     vertical-align: center;
+}
+
+.nav .logo>a:hover{
+    color: #fff !important;
 }
 
 .container-btns-nav{

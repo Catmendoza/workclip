@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Perfil;
+use App\User;
 
 use Illuminate\Http\Request;
 
@@ -22,6 +23,15 @@ class PerfilController extends Controller
         return view("user")->with('usuarios',$usuario);
     }
 
+    public function perfiles(){
+        $usuario = User::paginate(4);
+
+
+
+        return view('profiles')->with('usuarios',$usuario);
+     
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,10 +39,7 @@ class PerfilController extends Controller
      */
     public function create()
     {
-        //
-        $usuario = Auth::all();
-
-        return view("user")->with('usuarios',$usuario);
+      
     }
 
     /**
@@ -45,27 +52,7 @@ class PerfilController extends Controller
     {
         //
 
-        $perfil = new Perfil();
-        $perfil->id_usuario = Auth::user()->id;
-      
-        $perfil->texto_quiensoy = request('texto_quiensoy');
-        $perfil->nombre_empresa =request('nombre_empresa');
-        $perfil->instagram = request('instagram');
-        $perfil->facebook = request('facebook');
-        $perfil->github = request('github');
         
-
-        $archivo = $request->file("imagen");
-        $destino = "imagenes_usuarios/";
-        $nombre = strtotime(date("Y-m-d-H:isa")).$archivo->getClientOriginalName();
-        $archivo->move($destino,$nombre);
-
-
-       
-        $perfil->imagen = $destino.$nombre;
-        $perfil->save();
-
-        return redirect("/perfil");
     }
 
     /**
@@ -77,6 +64,10 @@ class PerfilController extends Controller
     public function show($id)
     {
         //
+        $usuario = Auth::user()->all();
+        
+
+
     }
 
     /**
@@ -88,6 +79,9 @@ class PerfilController extends Controller
     public function edit($id)
     {
         //
+        $usuario = Auth::user()->all();
+
+        return view('useredit',['datos'=>User::findOrFail($id)])->with('usuarios',$usuario);
     }
 
     /**
@@ -100,6 +94,27 @@ class PerfilController extends Controller
     public function update(Request $request, $id)
     {
         //
+        
+        $perfil = User::findOrFail($id);
+        $perfil->nombre =$request->get('nombre');
+        $perfil->texto_quiensoy =$request->get('texto_quiensoy');
+        $perfil->instagram =$request->get('instagram');
+        $perfil->facebook =$request->get('facebook');
+        $perfil->git =$request->get('git');
+        
+
+        $archivo = $request->file("imagen");
+        $destino = "imagenes_usuarios/";
+        $nombre = strtotime(date("Y-m-d-H:isa")).$archivo->getClientOriginalName();
+        $archivo->move($destino,$nombre);
+
+
+       
+        $perfil->imagen = $destino.$nombre;
+
+        $perfil->update();
+        
+        return redirect('/perfil');
     }
 
     /**

@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     @yield('css')
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Roboto&display=swap" rel="stylesheet">
@@ -24,7 +25,7 @@
             <div class="container nav">
 
                 <div class="logo">
-                    <h1>WORKCLIP</h1>
+                    <a href="{{url('/proyecto')}}">WORKCLIP</a>
                 </div>
                 @guest
 
@@ -48,7 +49,7 @@
 
                     <div class="container-btns-nav">
                         <div class="login-btn-nav">
-                            <button id="btn-login"> {{ Auth::user()->nombre }} </a>
+                            <a href="/perfil"> {{ Auth::user()->usuario }} </a>
                         </div>
 
                         <div class="register-btn-nav">
@@ -62,13 +63,11 @@
                             </form>
                         </div>
                         <div class="login-btn-nav">
-                            <button id="btn-login"> {{ Auth::user()->rol == 1 ? 'Estudiante' : 'Empresario' }}</a>
+                            <button > {{ Auth::user()->rol == 1 ? 'Estudiante' : 'Empresario' }}</button>
                         </div>
-                        @if (Auth::user()->rol == 1)
+                      
 
-                        @else
-
-                        @endif
+                  
                     </div>
 
                 @endguest

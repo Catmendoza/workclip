@@ -223,6 +223,13 @@
                         <input name="edad" type="number" min="0" max="100" class="form-control" id="basic-url"
                             aria-describedby="basic-addon3" style="height: 30px; margin-top: 2.5px" />
                     </div>
+                    
+        <input type="hidden"value="/imagenes_usuarios/usuario.png"name="imagen">
+        <input type="hidden"value="Aqui debes poner  tu descripcion" name="texto_quiensoy">
+        <input type="hidden"value="Nombre de empresa" name="nombre_empresa">
+        <input type="hidden"value="#"name="instagram">
+        <input type="hidden"value="#" name="facebook">
+        <input type="hidden"value="#" name="git">
                     <div class="btn-register-submit" style="padding-top: 100px;">
                         <input class="btn btn-primary" type="submit" value="Registrarme" />
                     </div>

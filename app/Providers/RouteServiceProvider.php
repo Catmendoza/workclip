@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -15,6 +16,8 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'App\Http\Controllers';
+   
+ 
 
     /**
      * The path to the "home" route for your application.
@@ -23,7 +26,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = './proyecto';
     public const INDEX = './';
-    public const USER='./perfil';
+    public  const USER='./perfil';
 
     /**
      * Define your route model bindings, pattern filters, etc.

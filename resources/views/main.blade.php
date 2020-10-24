@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/cssindex.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
+
     <link rel="stylesheet" href="{{ asset('css/modal-public.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-publish-job.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-publish-project.css') }}" />
@@ -42,10 +44,10 @@
                 </div>
 
                 <div class="buttons-nav-bar">
-                    <button class="btn btn-lg">
+                    <a href="/perfiles" class="btn btn-lg">
                         <i class="fa fa-user-plus"></i>
                         <h6>Buscar perfil</h6>
-                    </button>
+                    </a>
                 </div>
                 @endif
 
@@ -58,10 +60,10 @@
                 </div>
 
                 <div class="buttons-nav-bar">
-                    <button class="btn btn-lg">
+                    <a href="/perfiles" class="btn btn-lg">
                         <i class="fa fa-user-plus"></i>
                         <h6>Buscar perfil</h6>
-                    </button>
+                    </a>
                 </div>
 
                 <div class="buttons-nav-bar">
@@ -807,6 +809,7 @@
 <script type="text/javascript" src="{{ asset('js/acordion.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/modal-public-project.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/modal-public-job.js') }}"></script>
+    
     <script type="text/javascript" src="{{ asset('js/modal-public-product.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/modalpublic.js') }}"></script>
 
@@ -820,6 +823,12 @@
     
     <script src="https://kit.fontawesome.com/f579ace1fb.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+
+
+    <script type="text/javascript" src="{{ asset('js/modal-login.js') }}"></script>
 
  
 @endsection

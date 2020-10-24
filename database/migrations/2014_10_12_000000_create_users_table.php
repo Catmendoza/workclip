@@ -26,6 +26,13 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('edad');
             $table->integer('rol');
+            $table->string('imagen');
+            $table->text('texto_quiensoy');
+            $table->string('nombre_empresa')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('git')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });

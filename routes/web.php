@@ -30,6 +30,8 @@ Route::resource('/comentario', 'ComentarioController');
 Route::resource('/producto','ProductoController');
 Route::resource('/perfil','PerfilController');
 
+Route::get('/perfiles','PerfilController@perfiles');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
