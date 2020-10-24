@@ -16,14 +16,12 @@
     <section class="personal contenedor">
         <div class="contenido-data">
             
-            @foreach($usuarios  as $usuario)
-
-            @if ($usuario->id == Auth::user()->id)
+     
 
             <div class="container-grid-profile">
                 <div class="card-portada">
                     <div class="img-box-user">
-                        <img src="{{$usuario->imagen}}" alt="">
+                        <img src="{{asset($usuario->imagen)}}" alt="">
                     </div>
                     <div class="texts-box-portada">
                         <label>¿Quien Soy?</label>
@@ -71,18 +69,18 @@
                             <button class="btn-footer contact">Contacta me</button>
                             <button class="btn-footer cv">Descargar CV</button>
 
-                        <a href="{{route('perfil.edit',$usuario->id)}}"style="background:red;" class="btn-footer edit">EDITALO</a>
+                      
                         </div>
                     </div>
 
-                    @endif
+            
                     
 
               
                 </div>
 
             </div>
-            @endforeach
+       
         </div>
 
 
@@ -214,7 +212,7 @@
                                     <div class="carrusel_itemsFlex">
 
                                         <div class="carrusel_cont_items-img">
-                                            <img class="carrusel_items-img" src=".\img\x.jpg" alt="">
+                                            <img class="carrusel_items-img" src="\img\x.jpg" alt="">
                                         </div>
 
                                         <div class="carrusel_item-content">
@@ -423,8 +421,5 @@
 @endsection
 
 @section('sc')
-
-
-<script type="text/javascript" src="{{ asset('js/modalpublic.js') }}"></script>
 
 @endsection

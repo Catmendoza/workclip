@@ -35,7 +35,7 @@
                             </div>
                             <div class="img-user">
 
-                                <img src="{{$usuario->imagen}}" style="width: 100%; height: 100%; ">
+                                <a href="{{route("perfil.show",$usuario->id)}}"><img src="{{$usuario->imagen}}" style="width: 100%; height: 100%; "></a>
                             </div>
                             <div class="name-user-label">
                                 <label>nombre</label>
@@ -53,7 +53,7 @@
                             </div>
 
                             <div class="name-user-text">
-                                <label for="">{{$usuario->nombre}}</label>
+                                <a href="{{route("perfil.show",$usuario->id)}}"><label for="">{{$usuario->nombre}}</label></a>
                                 <p>{{$usuario->texto_quiensoy}}</p>
                             </div>
 

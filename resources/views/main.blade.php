@@ -155,11 +155,11 @@
 
                     <div class="header-box-main">
                         <div class="img-user-header">
-                            <img src="{{ asset($aux->imagen) }}" alt="" class="rounded-circle float-left imgpeque">
+                            <a href="{{route("perfil.show",$aux->id)}}"><img  src="{{ asset($aux->imagen) }}" alt="" class="rounded-circle float-left imgpeque"></a>
                         </div>
 
                         <div class="name-user-box">
-                            <h4 class="textWhite">{{$aux->nombre}}</h4>
+                        <a   href="{{route("perfil.show",$aux->id)}}"style="color:white; cursor: pointer;"class="textWhite">{{$aux->nombre}}</a>
                             <h6 class="textWhite">{{$aux->programa}}</h6>
                         </div>
 

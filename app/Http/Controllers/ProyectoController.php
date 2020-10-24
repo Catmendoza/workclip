@@ -25,7 +25,7 @@ class ProyectoController extends Controller
         //
 
         
-    $proyecto = Proyecto::paginate(5);
+    $proyecto = Proyecto::all();
     $producto = Producto::all();
     $comentario = Comentario::all();
 
@@ -49,7 +49,7 @@ class ProyectoController extends Controller
      */
     public function create()
     {
-        $proyecto = Proyecto::paginate(5);
+        $proyecto = Proyecto::all();
         $producto = Producto::all();
         $comentario = Comentario::all();
     

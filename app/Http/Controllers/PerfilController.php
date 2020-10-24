@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Perfil;
 use App\User;
-
+use App\Proyecto;
 use Illuminate\Http\Request;
 
 class PerfilController extends Controller
@@ -19,12 +19,14 @@ class PerfilController extends Controller
         //
 
         $usuario = Auth::user()->all();
+        $proyecto = Proyecto::all()->where('id_perfil','=',Auth::user()->id);
 
-        return view("user")->with('usuarios',$usuario);
+        return view("user")->with('usuarios',$usuario)->with('proyectos',$proyecto);
     }
 
     public function perfiles(){
         $usuario = User::paginate(3);
+     
 
 
 
@@ -64,7 +66,10 @@ class PerfilController extends Controller
     public function show($id)
     {
         //
-        $usuario = Auth::user()->all();
+        $perfil = User::findOrFail($id);
+        $proyecto = Proyecto::all()->where('id_perfil','=',$perfil->id);
+
+        return view('users')->with('proyectos',$proyecto)->with('usuario',$perfil);
         
 
 
@@ -103,7 +108,7 @@ class PerfilController extends Controller
         $perfil->git =$request->get('git');
         
         if($request->file("imagen")==null){
-            $perfil->imagen ="/imagenes_usuarios/usuario.png";
+            $perfil->imagen = User::findOrFail($id)->imagen;
         
 
         }else{
