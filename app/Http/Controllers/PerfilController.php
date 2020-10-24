@@ -24,7 +24,7 @@ class PerfilController extends Controller
     }
 
     public function perfiles(){
-        $usuario = User::paginate(4);
+        $usuario = User::paginate(3);
 
 
 

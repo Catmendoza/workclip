@@ -92,69 +92,71 @@
               @foreach ($proyectos->reverse() as $proyecto)
                 <div class="col-md-7">
 
+                    
+                    @php
+                    $aux = DB::table('users')->find($proyecto->id_perfil);
+                    $mes = $proyecto->created_at->format('m');
+                     $mesD;
+                     switch($mes){
+                         case 1:
+                         $mesD = "ENE";
+
+                         break;
+
+                         case 2:
+                         $mesD = "FEB";
+                         break;
+
+                         case 3:
+                         $mesD = "MAR";
+                         break;
+
+                         case 4:
+                         $mesD = "ABR";
+                         break;
+                         
+                         case 5:
+                         $mesD ="MAY";
+                         break;
+                         
+                         case 6:
+                         $mesD = "JUN";
+                         break;
+
+                         case 7:
+                         $mesD = "JUL";
+                         break;
+
+                         case 8:
+                         $mesD = "AGO";
+                         break;
+
+                         case 9:
+                         $mesD = "SEP";
+                         break;
+
+                         case 10:
+                         $mesD = "OCT";
+                         break;
+
+                         case 11:
+                         $mesD = "NOV";
+                         break;
+
+                         case 12:
+                         $mesD ="DIC";
+                         break;
+
+                         
+                     }
+                  
+                     @endphp
+
+
                     <div class="header-box-main">
                         <div class="img-user-header">
-                            <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
+                            <img src="{{ asset($aux->imagen) }}" alt="" class="rounded-circle float-left imgpeque">
                         </div>
-
-                        @php
-                        $aux = DB::table('users')->find($proyecto->id_perfil);
-                        $mes = $proyecto->created_at->format('m');
-                         $mesD;
-                         switch($mes){
-                             case 1:
-                             $mesD = "ENE";
-
-                             break;
-
-                             case 2:
-                             $mesD = "FEB";
-                             break;
-
-                             case 3:
-                             $mesD = "MAR";
-                             break;
-
-                             case 4:
-                             $mesD = "ABR";
-                             break;
-                             
-                             case 5:
-                             $mesD ="MAY";
-                             break;
-                             
-                             case 6:
-                             $mesD = "JUN";
-                             break;
-
-                             case 7:
-                             $mesD = "JUL";
-                             break;
-
-                             case 8:
-                             $mesD = "AGO";
-                             break;
-
-                             case 9:
-                             $mesD = "SEP";
-                             break;
-
-                             case 10:
-                             $mesD = "OCT";
-                             break;
-
-                             case 11:
-                             $mesD = "NOV";
-                             break;
-
-                             case 12:
-                             $mesD ="DIC";
-                             break;
-
-                             
-                         }
-                      
-                         @endphp
 
                         <div class="name-user-box">
                             <h4 class="textWhite">{{$aux->nombre}}</h4>
@@ -214,8 +216,8 @@
       @endphp
 <div class="caja_comentario">
   <div class="caja_fotoComentario">
-      <!--<img src="03102020.PNG">-->
-      <i class="fas fa-user"></i>
+  <img src="{{$aux2->imagen}}">
+      
   </div>
 
   <div class="caja_textoComentario">
@@ -241,56 +243,9 @@
   <form action="./comentario" method="POST" class="caja_comentar">
 @csrf
   <div class="caja_fotoComentar">
-     <!-- <img src="031020201.PNG">-->
-     <i class="fas fa-user"></i>
-     
-    
-  </div>
-
-   <input type="hidden" name="id_proyecto" value="{{$proyecto->id}}">
-   <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
-    <input class="input_comentar" type="text" name="contenido_texto">
-    <button type="submit">Publicar</button>
-   
-  
-  </form>
-
-  @endguest
-</div>
-
-                        </div>
-                 <div>
-             
-                 </div>
-
-                 
-         
-
-                </div>
-
-                @endforeach
-
-
-
-              
-
-
-
-
-
-<!--Productos-->
-
-@foreach ($productos->reverse() as $producto)
-                <div class="col-md-7">
-
-                    <div class="header-box-main">
-                        <div class="img-user-header">
-                            <img src="{{ asset('img/cata.png') }}" alt="" class="rounded-circle float-left imgpeque">
-                        </div>
-
-                        @php
-                        $aux = DB::table('users')->find($producto->id_perfil);
-                        $mes = $producto->created_at->format('m');
+  @php
+                        $aux = DB::table('users')->find($proyecto->id_perfil);
+                        $mes = $proyecto->created_at->format('m');
                          $mesD;
                          switch($mes){
                              case 1:
@@ -346,6 +301,112 @@
                          }
                       
                          @endphp
+ 
+     
+    
+  </div>
+
+   <input type="hidden" name="id_proyecto" value="{{$proyecto->id}}">
+   <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
+    <input class="input_comentar" type="text" name="contenido_texto">
+    <button type="submit">Publicar</button>
+   
+  
+  </form>
+
+  @endguest
+</div>
+
+                        </div>
+                 <div>
+             
+                 </div>
+
+                 
+         
+
+                </div>
+
+                @endforeach
+
+
+
+              
+
+
+
+
+
+<!--Productos-->
+
+@foreach ($productos->reverse() as $producto)
+                <div class="col-md-7">
+
+                    @php
+                    $aux = DB::table('users')->find($producto->id_perfil);
+                    $mes = $producto->created_at->format('m');
+                     $mesD;
+                     switch($mes){
+                         case 1:
+                         $mesD = "ENE";
+
+                         break;
+
+                         case 2:
+                         $mesD = "FEB";
+                         break;
+
+                         case 3:
+                         $mesD = "MAR";
+                         break;
+
+                         case 4:
+                         $mesD = "ABR";
+                         break;
+                         
+                         case 5:
+                         $mesD ="MAY";
+                         break;
+                         
+                         case 6:
+                         $mesD = "JUN";
+                         break;
+
+                         case 7:
+                         $mesD = "JUL";
+                         break;
+
+                         case 8:
+                         $mesD = "AGO";
+                         break;
+
+                         case 9:
+                         $mesD = "SEP";
+                         break;
+
+                         case 10:
+                         $mesD = "OCT";
+                         break;
+
+                         case 11:
+                         $mesD = "NOV";
+                         break;
+
+                         case 12:
+                         $mesD ="DIC";
+                         break;
+
+                         
+                     }
+                  
+                     @endphp
+
+                    <div class="header-box-main">
+                        <div class="img-user-header">
+                            <img src="{{ asset($aux->imagen) }}" alt="" class="rounded-circle float-left imgpeque">
+                        </div>
+
+                      
 
                         <div class="name-user-box">
                             <h4 class="textWhite">{{$aux->nombre}}</h4>
@@ -366,11 +427,12 @@
                         </div>
 
                         <div class="img-box-ppe">
-                            <img src="{{ asset($proyecto->imagen) }}">
+                            <img src="{{ asset($producto->imagen) }}">
                         </div>
 
                         <div class="description-box">
-                           <p>{{$producto->descripcion }}</p>
+                           <p>{{$producto->descripcion}}</p>
+                           <p>${{$producto->precio}}</p>
 
 
                             <div class="btn-read-more">
