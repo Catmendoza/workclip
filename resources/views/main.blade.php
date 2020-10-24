@@ -243,6 +243,7 @@
   <form action="./comentario" method="POST" class="caja_comentar">
 @csrf
   <div class="caja_fotoComentar">
+ 
   @php
                         $aux = DB::table('users')->find($proyecto->id_perfil);
                         $mes = $proyecto->created_at->format('m');
@@ -302,7 +303,7 @@
                       
                          @endphp
  
-     
+                        <img src="{{asset(Auth::user()->imagen)}}">
     
   </div>
 
@@ -467,8 +468,8 @@
       @endphp
 <div class="caja_comentario">
   <div class="caja_fotoComentario">
-      <!--<img src="03102020.PNG">-->
-      <i class="fas fa-user"></i>
+      
+  <img src="{{asset($aux2->imagen)}}">
   </div>
 
   <div class="caja_textoComentario">
@@ -494,8 +495,8 @@
   <form action="./comentario" method="POST" class="caja_comentar">
 @csrf
   <div class="caja_fotoComentar">
-     <!-- <img src="031020201.PNG">-->
-     <i class="fas fa-user"></i>
+
+  <img src="{{asset(Auth::user()->imagen)}}">
      
     
   </div>
