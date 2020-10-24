@@ -102,15 +102,20 @@ class PerfilController extends Controller
         $perfil->facebook =$request->get('facebook');
         $perfil->git =$request->get('git');
         
+        if($request->file("imagen")==null){
+            $perfil->imagen ="/imagenes_usuarios/usuario.png";
+        
 
+        }else{
         $archivo = $request->file("imagen");
         $destino = "imagenes_usuarios/";
         $nombre = strtotime(date("Y-m-d-H:isa")).$archivo->getClientOriginalName();
         $archivo->move($destino,$nombre);
-
+        $perfil->imagen = $destino.$nombre;
+        }
 
        
-        $perfil->imagen = $destino.$nombre;
+
 
         $perfil->update();
         

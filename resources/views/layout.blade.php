@@ -49,7 +49,7 @@
 
                     <div class="container-btns-nav">
                         <div class="login-btn-nav">
-                            <a href="/perfil"> {{ Auth::user()->usuario }} </a>
+                            <a href="/perfil"> {{ Auth::user()->nombre }} </a>
                         </div>
 
                         <div class="register-btn-nav">
