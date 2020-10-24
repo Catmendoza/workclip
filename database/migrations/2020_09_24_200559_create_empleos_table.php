@@ -15,6 +15,7 @@ class CreateEmpleosTable extends Migration
     {
         Schema::create('empleos', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_perfil');
             $table->string('titulo_trabajo');
             $table->integer('tiempo_trabajo');
             $table->integer('tipo_empleo');

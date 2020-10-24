@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Producto;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,17 +18,17 @@ Route::get('/', function () {
     return view('index');
 });
 
-
 Route::get('/main', function () {
-    return view('main');
+    $producto = Producto::All();
+    //$proyecto = Proyecto::All();
+    return view("main",["productos"=>$producto]);
+    //return view("main",["productos"=>$producto,"proyectos"=>$proyecto]);
+    
 });
-//->middleware(("auth"))
-Route::get('/user',function(){
-    return view('user');
-});
-
 Route::resource('/usuario', 'UserController');
 Route::resource('/producto', 'ProductController');
+
+Route::resource('/empleo', 'EmpleoController');
 
 Auth::routes();
 

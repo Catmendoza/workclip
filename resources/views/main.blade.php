@@ -267,7 +267,8 @@
                 </div>
             </div>
 
-            <div class="body-modal-pj">
+            <form class="body-modal-pj" action="/empleo" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="titles-modal-pj">
                     <h3>Titulo del empleo</h3>
                 </div>
@@ -286,29 +287,29 @@
                 </div>
 
                 <div class="box-texts-pj">
-                    <input type="text" name="" id="" />
+                    <input type="text" name="titulo_trabajo" id="" />
                 </div>
 
                 <div class="radio-btns-pj">
-                    <input type="radio" name="time-job" id="" />
+                    <input type="radio" name="time-remoto" id="" />
                     <label>Remoto</label>
-                    <input type="radio" name="time-job" id="" />
+                    <input type="radio" name="time-presencial" id="" />
                     <label>Presencial</label>
                 </div>
 
                 <div class="radio-btns-pj">
-                    <input type="radio" name="job-type" id="" />
+                    <input type="radio" name="job-completo" id="1" />
                     <label>Tiempo completo</label>
-                    <input type="radio" name="job-type" id="" />
+                    <input type="radio" name="job-medio" id="2" />
                     <label>Medio tiempo</label>
-                    <input type="radio" name="job-type" id="" />
+                    <input type="radio" name="job-preferencia" id="3" />
                     <label>De preferencia</label>
                 </div>
 
                 <div class="box-select-pj">
-                    <select name="" id="">
-                        <option value="">Selecciona una opcion</option>
-                        <option value="">1</option>
+                    <select name="tipo_contrato" id="">
+                        <option value="" default>Selecciona una opcion</option>
+                        <option value="1">1</option>
                     </select>
                 </div>
 
@@ -316,11 +317,11 @@
                     <div class="range-salary">
                         <h4>$</h4>
                         <div class="range one">
-                            <input type="number" name="" placeholder=" ej: 700000" id="" />
+                            <input type="number" name="salarioi" placeholder=" ej: 700000" id="" />
                         </div>
                         <h4>a</h4>
                         <div class="range two">
-                            <input type="number" placeholder=" 900000" name="" id="" />
+                            <input type="number" name="salariof" placeholder=" 900000" id="" />
                         </div>
                     </div>
                 </div>
@@ -341,20 +342,20 @@
                 </div>
 
                 <div class="radio-btns-pj" style="grid-column-start: 4; grid-row-start: 2">
-                    <input type="radio" name="hv" id="" />
+                    <input type="radio" name="hv-si" id="" />
                     <label>Si</label>
-                    <input type="radio" name="hv" id="" />
+                    <input type="radio" name="hv-no" id="" />
                     <label>No</label>
                 </div>
 
                 <div class="box-texts-pj" style="grid-column-start: 4; grid-row-start: 3">
-                    <textarea type="text" maxlength="200"></textarea>
+                    <textarea type="text" name="descripcion_empleo" maxlength="200"></textarea>
                 </div>
 
                 <div class="btn-submit-pj">
                     <button type="submit">Publicar</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
