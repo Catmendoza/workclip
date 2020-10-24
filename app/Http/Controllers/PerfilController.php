@@ -28,7 +28,7 @@ class PerfilController extends Controller
 
 
 
-        return view('profiles')->with('usuarios',$usuario);
+        return view('searchprofiles')->with('usuarios',$usuario);
      
     }
 

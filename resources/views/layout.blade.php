@@ -25,11 +25,11 @@
             <div class="container nav">
 
                 <div class="logo">
-                    <a href="{{url('/proyecto')}}">WORKCLIP</a>
+                    <a href="{{ url('/proyecto') }}">WORKCLIP</a>
                 </div>
                 @guest
 
-    
+
                     <div class="container-btns-nav">
                         <div class="login-btn-nav">
                             <button id="btn-login">Iniciar Sesion</a>
@@ -46,29 +46,35 @@
                     </div>
                 @else
 
-
                     <div class="container-btns-nav">
-                        <div class="login-btn-nav">
-                            <a href="/perfil"> {{ Auth::user()->usuario }} </a>
+                        <div class="dropdown" style="z-index: 1">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->usuario }}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" type="button"> <a href="/perfil">Mi Perfil
+                                    </a></button>
+                                <label for="" style=""> {{ Auth::user()->rol == 1 ? 'Estudiante' : 'Empresario' }}</label>
+
+                                <button class="dropdown-item" type="button">
+                                    <a class="dropdown-item" style="color: red" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                        {{ __('Cerrar Sesión') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </button>
+                 
+                            </div>
                         </div>
 
-                        <div class="register-btn-nav">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                        document.getElementById('logout-form').submit();">
-                                {{ __('Cerrar Sesión') }}
-                            </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                        <div class="login-btn-nav">
-                            <button > {{ Auth::user()->rol == 1 ? 'Estudiante' : 'Empresario' }}</button>
-                        </div>
-                      
 
-                  
                     </div>
+
 
                 @endguest
                 @php
@@ -150,8 +156,8 @@
     @yield('sc')
 
 
- 
-    
+
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

@@ -14,17 +14,16 @@ body {
 .container {
     width: 100%;
     max-width: 1200px;
-    overflow: hidden;
     margin: auto;
 }
 
 .container2 {
     width: 100%;
     max-width: 1200px;
-    overflow: hidden;
     margin: auto;
     padding: 60px 0;
 }
+
 
 /* Header */
 
@@ -63,24 +62,23 @@ header::before {
     vertical-align: center;
 }
 
-.nav .logo>a:hover{
+.nav .logo>a:hover {
     color: #fff !important;
 }
 
-.container-btns-nav{
+.container-btns-nav {
     display: flex;
- 
     align-items: center;
 }
 
-.login-btn-nav>button:focus{
+.login-btn-nav>button:focus {
     outline: none;
 }
 
 .login-btn-nav>button {
     text-decoration: none;
     outline: none;
-    border:0;
+    border: 0;
     width: 140px;
     margin-left: 20px;
     padding: 10px 10px;
@@ -92,7 +90,7 @@ header::before {
     transition: all ease-in-out .3s;
 }
 
-.login-btn-nav>button:hover{
+.login-btn-nav>button:hover {
     color: #fff;
     background: #4254bb;
     transition: all ease-in-out .3s;
@@ -108,7 +106,8 @@ header::before {
     font-size: 17px;
     font-family: "Poppins", sans-serif;
 }
-.register-btn-nav>a:hover{
+
+.register-btn-nav>a:hover {
     color: #fff;
     text-decoration: none;
 }
@@ -116,6 +115,7 @@ header::before {
 .nav .hamburguer {
     display: none;
 }
+
 
 /* About Us */
 
@@ -130,7 +130,6 @@ header::before {
     justify-content: space-between;
     width: 100%;
     height: 500px;
-
     margin: 0px 3%;
 }
 
@@ -138,7 +137,6 @@ header::before {
     flex: 1;
     width: max-content;
     padding: 10%;
-
     position: relative;
 }
 
@@ -171,6 +169,7 @@ header::before {
     margin-top: 0px;
     filter: drop-shadow(-10px -10px 5px rgba(0, 0, 0, 0.2));
 }
+
 
 /* Select */
 
@@ -231,13 +230,14 @@ header::before {
 
 .imgC {
     width: 100%;
-
     height: 100%;
     border-radius: 4px;
     object-fit: cover;
 }
 
+
 /* Destados*/
+
 .divider {
     background-color: transparent;
     display: flex;
@@ -285,7 +285,6 @@ header::before {
 
 .carrusel-index .carrusel-index {
     overflow-x: scroll;
-
     text-align: center;
 }
 
@@ -303,7 +302,6 @@ header::before {
     height: 300px;
     text-align: end;
     font-family: "Poppins", sans-serif;
-
     border-radius: 15px;
     overflow: hidden;
     margin-right: 10px;
@@ -314,7 +312,9 @@ header::before {
     position: relative;
 }
 
+
 /* para que no aparesca nada y despues que se acerque si*/
+
 .button-carousel {
     background-color: #3a4aa3;
     text-decoration: none;
@@ -361,6 +361,7 @@ header::before {
     opacity: 1;
 }
 
+
 /* Footer */
 
 .footerWC {
@@ -395,7 +396,7 @@ header::before {
     font-family: "Fredoka One", cursive;
 }
 
-.footsects > a {
+.footsects>a {
     display: block;
     text-decoration: none;
     font-family: "Poppins", sans-serif;
@@ -406,12 +407,12 @@ header::before {
     transition: color 0.3s ease-in-out;
 }
 
-.footsects > a:hover {
+.footsects>a:hover {
     color: #8497f7;
     text-decoration: none;
 }
 
-.social-media-footer > i{
+.social-media-footer>i {
     font-size: 22px;
     font-weight: 100px;
     width: 40px;
@@ -429,9 +430,9 @@ header::before {
     cursor: pointer;
 }
 
-.social-media-footer > i:hover {
+.social-media-footer>i:hover {
     color: #1c2347;
-    background: #fff ;
+    background: #fff;
     border-color: #fff;
 }
 
@@ -439,84 +440,65 @@ header::before {
     .btn-boton {
         flex-direction: column;
     }
-
     .content-select {
         padding-top: 20px;
         flex-direction: column;
     }
-
     .box {
         margin-bottom: 20px;
     }
-
     .titulo h1 {
         font-size: 45px;
     }
-
-    h1{
-        margin-bottom:0;
+    h1 {
+        margin-bottom: 0;
     }
-
     .content-about-us {
         margin-bottom: 100px;
         flex-direction: column;
-
         margin: 0px;
     }
-
     .content-destacados {
         padding-top: 100px;
     }
-
     .cont_imagen {
         width: 100%;
     }
-
     .divider {
         display: none;
     }
-
     .btn-boton>a {
         width: 120px;
         padding: 4px 4px;
         text-align: center;
         font-size: 15px;
     }
-
     .register-btn>a {
         width: 120px;
         margin-left: 20px;
-
         text-align: center;
         padding: 4px 4px;
         font-size: 15px;
     }
-
     .nav .logo>h1 {
         font-size: 25px;
     }
-
     .footsect h1 {
         font-size: 30px;
     }
-
     .footsect h2 {
         font-size: 20px;
     }
-
     .footsect a {
         font-size: 12px;
     }
-
     .footsect:nth-child(2) {
         margin-top: 40px;
         margin-left: 5px;
     }
-
     .footsect:nth-child(1) {
         margin-top: 70px;
     }
-
     .social-media i {
         font-size: 12px;
     }

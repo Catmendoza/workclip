@@ -21,7 +21,10 @@
             <div class="bigbox-profiles">
                 <div class="box-grid-cards">
                     <div class="search-profile-user">
-                        <input type="text">
+                        <div class="form-group has-search">
+                            <i class="fa fa-search form-control-feedback"></i>
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
                     </div>
 
 
@@ -87,4 +90,8 @@
 
     </section>
 
+@endsection
+
+@section('sc')
+    <script type="text/javascript" src="{{ asset('js/modal-login.js') }}"></script>
 @endsection

@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/cssindex.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
+ 
 
     <link rel="stylesheet" href="{{ asset('css/modal-public.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-publish-job.css') }}" />
