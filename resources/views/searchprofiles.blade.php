@@ -17,13 +17,16 @@
 
 @section('content')
     <section class="profiles">
+        <div class="search-profile-user">
+            <div class="form-group has-search">
+                <i class="fa fa-search form-control-feedback"></i>
+                <input type="text" class="form-control" placeholder="Buscar Perfil">
+            </div>
+        </div>
         <div class="container">
+
             <div class="bigbox-profiles">
                 <div class="box-grid-cards">
-                    <div class="search-profile-user">
-                        <input type="text">
-                    </div>
-
 
                     @foreach($usuarios as $usuario)
                         
@@ -53,7 +56,7 @@
                             </div>
 
                             <div class="name-user-text">
-                                <a href="{{route("perfil.show",$usuario->id)}}"><label for="">{{$usuario->nombre}}</label></a>
+                                <a href="{{route("perfil.show",$usuario->id)}}">{{$usuario->nombre}}</a>
                                 <p>{{$usuario->texto_quiensoy}}</p>
                             </div>
 
