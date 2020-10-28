@@ -26,7 +26,7 @@
                     <form class="form-inline">
                         <div class="form-group has-search">
                             <i class="fa fa-search form-control-feedback"></i>
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input type="text" class="form-control" placeholder="Buscar">
                         </div>
                     </form>
                 </div>
@@ -37,39 +37,40 @@
                    
 
                 <div class="buttons-nav-bar">
-                    <button class="btn btn-lg">
+                    <a class="active" href="{{url("/proyecto")}}" class="btn btn-lg">
                         <i class="fas fa-home"></i>
-                        <h6>Inicio</h6>
-                    </button>
+                      
+                    </a>
+
                 </div>
 
                 <div class="buttons-nav-bar">
                     <a href="/perfiles" class="btn btn-lg">
                         <i class="fa fa-user-plus"></i>
-                        <h6>Buscar perfil</h6>
+                      
                     </a>
                 </div>
                 @endif
 
                 @else
                 <div class="buttons-nav-bar">
-                    <button class="btn btn-lg">
+                    <a class="active" href="{{url("/proyecto")}}" class="btn btn-lg">
                         <i class="fas fa-home"></i>
-                        <h6>Inicio</h6>
-                    </button>
+                     
+                    </a>
                 </div>
 
                 <div class="buttons-nav-bar">
                     <a href="/perfiles" class="btn btn-lg">
                         <i class="fa fa-user-plus"></i>
-                        <h6>Buscar perfil</h6>
+                      
                     </a>
                 </div>
 
                 <div class="buttons-nav-bar">
                     <button class="btn btn-lg" id="btn-public">
                         <i class="fa fa-plus-circle"></i>
-                        <h6>Añadir publicación</h6>
+                     
                     </button>
                 </div>
 
