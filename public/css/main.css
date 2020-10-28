@@ -30,7 +30,7 @@ body {
 
 .btn {
     width: 100%;
-    height: 100%;
+    height: 85%;
     outline: none !important;
     box-shadow: none !important;
 }
@@ -76,6 +76,8 @@ body {
     display: flex !important;
     justify-content: center;
     align-items: center;
+    border-radius: .4em !important;
+    margin: 5px 0;
 }
 
 .btn-lg:focus {
