@@ -24,13 +24,23 @@ class PerfilController extends Controller
         return view("user")->with('usuarios',$usuario)->with('proyectos',$proyecto);
     }
 
-    public function perfiles(){
-        $usuario = User::paginate(3);
+    public function perfiles( Request $request){
+
+ 
+        if ($request){
+            $query = trim($request->get('search'));
+            $usuario = User::where('nombre','LIKE','%'.$query.'%')->orderBy('id','asc')->paginate(3);
+
+       
+
+            
+        return view('searchprofiles',['usuarios'=>$usuario,'search'=>$query]);
+        }
+        
      
 
 
 
-        return view('searchprofiles')->with('usuarios',$usuario);
      
     }
 

@@ -6,6 +6,7 @@
 <link rel="shortcut icon" href="https://www.flaticon.es/svg/static/icons/svg/2905/2905064.svg">
 <link rel="stylesheet" href="{{ asset('css/cssindex.css') }}" />
 <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/main.css') }}" />
 
 <link rel="stylesheet" href="{{asset('css/searchprofile.css')}}">
 
@@ -16,16 +17,87 @@
 
 
 @section('content')
-    <section class="profiles">
-        <div class="search-profile-user">
-            <div class="form-group has-search">
-                <i class="fa fa-search form-control-feedback"></i>
-                <input type="text" class="form-control" placeholder="Buscar Perfil">
+
+
+
+<section class="nav-bar-main">
+    <div class="navbar navbar-expand-lg navbar-light  lighten-5  " style="background-color: white">
+
+        <div class="container-nav-bar">
+            <div class="form-nav-bar">
+                <form class="form-inline">
+                    <div class="form-group has-search">
+                        <i class="fa fa-search form-control-feedback"></i>
+                        <input type="text" class="form-control"  name="search"placeholder="Search">
+                    </div>
+                </form>
             </div>
+
+            @guest
+                @if (Route::has('register'))
+                        
+               
+
+            <div class="buttons-nav-bar">
+                <a href="{{url("/proyecto")}}" class="btn btn-lg">
+                    <i class="fas fa-home"></i>
+                    <h6>Inicio</h6>
+                </a>
+            </div>
+
+            <div class="buttons-nav-bar">
+                <a href="{{url("/perfiles")}}" class="btn btn-lg">
+                    <i class="fa fa-user-plus"></i>
+                    <h6>Buscar perfil</h6>
+                </a>
+            </div>
+            @endif
+
+            @else
+            <div class="buttons-nav-bar">
+                <button class="btn btn-lg">
+                    <i class="fas fa-home"></i>
+                    <h6>Inicio</h6>
+                </button>
+            </div>
+
+            <div class="buttons-nav-bar">
+                <a href="/perfiles" class="btn btn-lg">
+                    <i class="fa fa-user-plus"></i>
+                    <h6>Buscar perfil</h6>
+                </a>
+            </div>
+
+            <div class="buttons-nav-bar">
+                <button class="btn btn-lg" id="btn-public">
+                    <i class="fa fa-plus-circle"></i>
+                    <h6>Añadir publicación</h6>
+                </button>
+            </div>
+
+            @endguest
         </div>
+    </div>
+
+</section>
+
+    <section class="profiles">
+
+
+
+        
+   
         <div class="container">
 
             <div class="bigbox-profiles">
+
+                @if ($search)
+                <h6>
+                <div class="alert alert-primary" role="alert">
+                   Los resultados de tu busqueda '{{$search}}' son:
+                  </div>
+                </h6>
+                @endif
                 <div class="box-grid-cards">
 
                     @foreach($usuarios as $usuario)
