@@ -96,7 +96,7 @@ class PerfilController extends Controller
         //
         $usuario = Auth::user()->all();
 
-        return view('useredit',['datos'=>User::findOrFail($id)])->with('usuarios',$usuario);
+        return view('sidebar',['datos'=>User::findOrFail($id)])->with('usuarios',$usuario);
     }
 
     /**

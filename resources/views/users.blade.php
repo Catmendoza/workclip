@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Roboto&display=swap" rel="stylesheet">
+ 
 @endsection
 
 
@@ -52,17 +54,17 @@
                                 $aux="Estudiante";
                                 }
                                 @endphp
-                                <p>{{ $aux }}</p>
+                                <h6>{{ $aux }}</h6>
                                 <hr>
                             </div>
                             <div class="container-data-profile">
-                                <label style="font-weight: bold">Carrera</label>
-                                <label style="grid-row-start: 2; font-weight: bold">Cel</label>
-                                <label style="grid-row-start: 3; font-weight: bold;">Email</label>
-                                <label style="grid-row-start: 4; font-weight: bold">Edad</label>
+                                <label style="font-weight: 900; text-transform: uppercase">Carrera</label>
+                                <label style="grid-row-start: 2; font-weight: bolder; text-transform: uppercase">Cel</label>
+                                <label style="grid-row-start: 3; font-weight: bolder; text-transform: uppercase">Email</label>
+                                <label style="grid-row-start: 4; font-weight: bolder; text-transform: uppercase">Edad</label>
 
 
-                                <label>{{ $usuario->programa }}</label>
+                                <label style="text-transform: uppercase">{{ $usuario->programa }}</label>
                                 <label>{{ $usuario->contacto }}</label>
                                 <label>{{ $usuario->email }}</label>
                                 <label>{{ $usuario->edad }}</label>
@@ -130,7 +132,7 @@
 
                         <div class="box-container-img">
                             <div class="img-box-more">
-                                <img src="./img/Profile2.jpg" alt="">
+                                <img src="{{$usuario->imagen}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -428,4 +430,5 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ asset('js/tabs.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/modal-login.js') }}"></script>
 @endsection

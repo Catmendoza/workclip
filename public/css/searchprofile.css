@@ -76,6 +76,7 @@ section.profiles {
     grid-column-start: 1;
     grid-row-start: 2;
     margin: auto;
+    overflow: hidden;
 }
 
 .img-user>img {
