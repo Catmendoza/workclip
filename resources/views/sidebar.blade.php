@@ -36,16 +36,16 @@
                 <h1><a href="{{ url('/proyecto') }}" class="logo">WorkClip </a><span>Editar Perfil</span></h1>
                 <ul class="list-unstyled components mb-5">
                     <li class="active">
-                        <a href="./home.html"><span class="fa fa-home mr-3"></span> Home</a>
+                        <a href="./home.html"><span class="fa fa-home mr-3"></span> Mi Perfil</a>
                     </li>
                     <li>
-                        <a href="#about"><span class="fa fa-user mr-3"></span> About</a>
+                        <a href="#about"><span class="fa fa-user mr-3"></span> Datos personales</a>
                     </li>
                     <li>
-                        <a href="#"><span class="fa fa-briefcase mr-3"></span> Works</a>
+                        <a href="#"><span class="fa fa-briefcase mr-3"></span> Mis Habilidades</a>
                     </li>
                     <li>
-                        <a href="#"><span class="fa fa-sticky-note mr-3"></span> Blog</a>
+                        <a href="#"><span class="fa fa-sticky-note mr-3"></span> Mis Hobbys</a>
                     </li>
 
                 </ul>

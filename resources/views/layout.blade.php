@@ -12,14 +12,14 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     @section('css')
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-   
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     @endsection
- <title>WorkClip</title>
+    <title>WorkClip</title>
 </head>
 
 <body>
@@ -29,11 +29,11 @@
             <div class="container nav">
 
                 <div class="logo">
-                    <a href="{{url('/proyecto')}}">WORKCLIP</a>
+                    <a href="{{ url('/proyecto') }}">WORKCLIP</a>
                 </div>
                 @guest
 
-    
+
                     <div class="container-btns-nav">
                         <div class="login-btn-nav">
                             <button id="btn-login">Iniciar Sesion</a>
@@ -57,8 +57,9 @@
                         </div>
 
                         <div class="register-btn-nav">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                        document.getElementById('logout-form').submit();">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                                            document.getElementById('logout-form').submit();">
                                 {{ __('Cerrar Sesión') }}
                             </a>
 
@@ -67,12 +68,13 @@
                             </form>
                         </div>
                         <div class="login-btn-nav">
-                            <button > {{ Auth::user()->rol == 1 ? 'Estudiante' : 'Empresario' }}</button>
+                            <button> {{ Auth::user()->rol == 1 ? 'Estudiante' : 'Empresario' }}</button>
                         </div>
-                      
 
-                  
+
+
                     </div>
+                
 
                 @endguest
                 @php
@@ -154,20 +156,29 @@
     @yield('sc')
 
 
- 
-    
+
+
     @section('sc')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="{{ asset('js/index.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+        </script>
+        <script src="https://kit.fontawesome.com/f579ace1fb.js" crossorigin="anonymous"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+            document.querySelector(".right ul li").addEventListener("click", function() {
+                this.classList.toggle("active");
+            });
+
+        </script>
     @endsection
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
-    <script src="https://kit.fontawesome.com/f579ace1fb.js" crossorigin="anonymous"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    
-   
+
+
 </body>
 
 </html>

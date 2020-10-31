@@ -43,16 +43,15 @@ h4 {
 .contenido-data {
     display: flex;
     justify-content: space-evenly;
-    height: auto;
+    height: 700px;
     width: 100%;
-    padding: 120px 0;
 }
 
 .container-grid-profile {
     height: 450px;
     width: 70%;
     display: grid;
-    margin: auto;
+    margin: 5% auto;
     grid-template-columns: 38% 62%;
     grid-template-rows: 100%;
 }

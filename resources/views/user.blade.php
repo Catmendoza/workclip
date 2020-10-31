@@ -16,7 +16,7 @@
 <div class="data-section">
 
     <section class="personal contenedor">
-        <div class="contenido-data">
+
             
             @foreach($usuarios  as $usuario)
 
@@ -85,54 +85,59 @@
 
             </div>
             @endforeach
-        </div>
+     
 
 
-        <div class="contenido-data">
-            <div class="container-grid-more">
-                <div class="content-more-data">
-                    <div class="title-more-data">
-                        <label for="">MÁS SOBRE MI</label>
+            <div class="contenido-data">
+                <div class="container-grid-more">
+                    <div class="content-more-data">
+                        <div class="title-more-data">
+                            <label for="">MÁS SOBRE MI</label>
+                        </div>
+                        <div class="nav-tabs-container">
+                            <div class="tab-header">
+
+                                <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+                                    <li class="tab tabs-li"><a href="#tab1">Sueño</a></li>
+                                    <li class="tab tabs-li"><a class="active" href="#tab2">Actitud</a></li>
+                                    <li class="tab tabs-li"><a href="#tab3">Meta</a></li>
+                                </ul>
+
+                            </div>
+
+                            <div class="tab-body">
+                                <div class="tab-box" id="tab1">
+                                    <i class="fas fa-rocket"></i>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde eum error saepe iure
+                                        quasi exercitationem nostrum, explicabo eaque qui doloremque doloribus mollitia
+                                        iusto maiores ducimus.</p>
+                                </div>
+                                <div class="tab-box" id="tab2">
+                                    <i class="fas fa-bolt"></i>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, cumque! Asperiores
+                                        autem, laboriosam harum atque fugit veniam aut, vel quos ducimus, aspernatur eveniet
+                                        quo sed!</p>
+                                </div>
+                                <div class="tab-box" id="tab3">
+                                    <i class="fas fa-meteor center-align"></i>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione iusto maxime
+                                        deserunt minus incidunt soluta reiciendis, recusandae, fuga sit fugit necessitatibus
+                                        iste quasi, accusantium facere.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="nav-tabs-container">
-                        <div class="tab-header">
+                    <div class="card-portada-more">
 
-                            <ul class="tabs-ul">
-                                <li class="tabs-li active">Sueño</li>
-                                <li class="tabs-li">Actitud</li>
-                                <li class="tabs-li">Meta</li>
-                            </ul>
-                            
-                        </div>
-                        <div class="tab-indicator">
-
-                        </div>
-                        <div class="tab-body">
-                            <div class="tab-box active">
-                                <i class="fas fa-rocket"></i>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde eum error saepe iure quasi exercitationem nostrum, explicabo eaque qui doloremque doloribus mollitia iusto maiores ducimus.</p>
+                        <div class="box-container-img">
+                            <div class="img-box-more">
+                                <img src="{{ asset($usuario->imagen) }}" alt="">
                             </div>
-                            <div class="tab-box">
-                                <i class="fas fa-bolt"></i>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, cumque! Asperiores autem, laboriosam harum atque fugit veniam aut, vel quos ducimus, aspernatur eveniet quo sed!</p>
-                            </div>
-                            <div class="tab-box">
-                                <i class="fas fa-meteor"></i>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione iusto maxime deserunt minus incidunt soluta reiciendis, recusandae, fuga sit fugit necessitatibus iste quasi, accusantium facere.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-portada-more">
-
-                    <div class="box-container-img">
-                        <div class="img-box-more">
-                            <img src="{{$usuario->imagen}}" alt="">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
 
 
     </section>
@@ -426,7 +431,10 @@
 
 @section('sc')
 
-
-<script type="text/javascript" src="{{ asset('js/modalpublic.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="{{ asset('js/tabs.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/modal-login.js') }}">
+</script>
 
 @endsection
