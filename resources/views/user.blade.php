@@ -127,7 +127,7 @@
 
                     <div class="box-container-img">
                         <div class="img-box-more">
-                            <img src="./img/Profile2.jpg" alt="">
+                            <img src="{{$usuario->imagen}}" alt="">
                         </div>
                     </div>
                 </div>
