@@ -7,131 +7,137 @@
     <link rel="stylesheet" href="{{ asset('css/user.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-infoproj.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ asset('css/edit-profile.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 @endsection
 
 
 @section('content')
-<div class="data-section">
+    <div class="data-section">
 
-    <section class="personal contenedor">
-        <div class="contenido-data">
-            
-     
+        <section class="personal contenedor">
+            <div class="contenido-data">
 
-            <div class="container-grid-profile">
-                <div class="card-portada">
-                    <div class="img-box-user">
-                        <img src="{{asset($usuario->imagen)}}" alt="">
+
+
+                <div class="container-grid-profile">
+                    <div class="card-portada">
+                        <div class="img-box-user">
+                            <img src="{{ asset($usuario->imagen) }}" alt="">
+                        </div>
+                        <div class="texts-box-portada">
+                            <label>¿Quien Soy?</label>
+                            <p>{{ $usuario->texto_quiensoy }}</p>
+                        </div>
+                        <div class="social-media-port">
+                            <a href="{{ $usuario->instagram }}"><i class="fab fa-instagram"></i></a>
+                            <a href="{{ $usuario->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $usuario->github }}"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
-                    <div class="texts-box-portada">
-                        <label>¿Quien Soy?</label>
-                        <p>{{$usuario->texto_quiensoy}}</p>
-                    </div>
-                    <div class="social-media-port">
-                    <a href="{{$usuario->instagram}}"><i class="fab fa-instagram"></i></a>
-                        <a href="{{$usuario->facebook}}"><i class="fab fa-facebook-f"></i></a>
-                        <a href="{{$usuario->github}}"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
 
-                <div class="data-info-user">
+                    <div class="data-info-user">
 
 
-                    <div class="content-margin-profile">
-                        <div class="header-titles-profile">
-                            <label>{{$usuario->nombre }}</label>
-                            @php 
-                            $aux;
-                            
-                            if ($usuario->rol == 0){
+                        <div class="content-margin-profile">
+                            <div class="header-titles-profile">
+                                <label>{{ $usuario->nombre }}</label>
+                                @php
+                                $aux;
+
+                                if ($usuario->rol == 0){
                                 $aux="Empresario";
-                            }else{
+                                }else{
                                 $aux="Estudiante";
-                            }
-                            @endphp
-                                <p>{{$aux}}</p>
-                            <hr>
-                        </div>
-                        <div class="container-data-profile">
-                            <label style="font-weight: bold">Carrera</label>
-                            <label style="grid-row-start: 2; font-weight: bold">Cel</label>
-                            <label style="grid-row-start: 3; font-weight: bold;">Email</label>
-                            <label style="grid-row-start: 4; font-weight: bold">Edad</label>
-                  
+                                }
+                                @endphp
+                                <p>{{ $aux }}</p>
+                                <hr>
+                            </div>
+                            <div class="container-data-profile">
+                                <label style="font-weight: bold">Carrera</label>
+                                <label style="grid-row-start: 2; font-weight: bold">Cel</label>
+                                <label style="grid-row-start: 3; font-weight: bold;">Email</label>
+                                <label style="grid-row-start: 4; font-weight: bold">Edad</label>
 
-                            <label>{{$usuario->programa}}</label>
-                            <label>{{$usuario->contacto}}</label>
-                            <label>{{$usuario->email}}</label>
-                            <label>{{$usuario->edad}}</label>
-         
-                        </div>
-                        <div class="footer-profile">
-                            <button class="btn-footer contact">Contacta me</button>
-                            <button class="btn-footer cv">Descargar CV</button>
 
-                      
+                                <label>{{ $usuario->programa }}</label>
+                                <label>{{ $usuario->contacto }}</label>
+                                <label>{{ $usuario->email }}</label>
+                                <label>{{ $usuario->edad }}</label>
+
+                            </div>
+                            <div class="footer-profile">
+                                <button class="btn-footer contact">Contacta me</button>
+                                <button class="btn-footer cv">Descargar CV</button>
+
+
+                            </div>
                         </div>
+
+
+
+
+
                     </div>
 
-            
-                    
-
-              
                 </div>
 
             </div>
-       
-        </div>
 
 
-        <div class="contenido-data">
-            <div class="container-grid-more">
-                <div class="content-more-data">
-                    <div class="title-more-data">
-                        <label for="">MÁS SOBRE MI</label>
+            <div class="contenido-data">
+                <div class="container-grid-more">
+                    <div class="content-more-data">
+                        <div class="title-more-data">
+                            <label for="">MÁS SOBRE MI</label>
+                        </div>
+                        <div class="nav-tabs-container">
+                            <div class="tab-header">
+
+                                <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+                                    <li class="tab tabs-li"><a href="#tab1">Sueño</a></li>
+                                    <li class="tab tabs-li"><a class="active" href="#tab2">Actitud</a></li>
+                                    <li class="tab tabs-li"><a href="#tab3">Meta</a></li>
+                                </ul>
+
+                            </div>
+
+                            <div class="tab-body">
+                                <div class="tab-box" id="tab1">
+                                    <i class="fas fa-rocket"></i>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde eum error saepe iure
+                                        quasi exercitationem nostrum, explicabo eaque qui doloremque doloribus mollitia
+                                        iusto maiores ducimus.</p>
+                                </div>
+                                <div class="tab-box" id="tab2">
+                                    <i class="fas fa-bolt"></i>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, cumque! Asperiores
+                                        autem, laboriosam harum atque fugit veniam aut, vel quos ducimus, aspernatur eveniet
+                                        quo sed!</p>
+                                </div>
+                                <div class="tab-box" id="tab3">
+                                    <i class="fas fa-meteor center-align"></i>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione iusto maxime
+                                        deserunt minus incidunt soluta reiciendis, recusandae, fuga sit fugit necessitatibus
+                                        iste quasi, accusantium facere.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="nav-tabs-container">
-                        <div class="tab-header">
+                    <div class="card-portada-more">
 
-                            <ul class="tabs-ul">
-                                <li class="tabs-li active">Sueño</li>
-                                <li class="tabs-li">Actitud</li>
-                                <li class="tabs-li">Meta</li>
-                            </ul>
-                            
-                        </div>
-                        <div class="tab-indicator">
-
-                        </div>
-                        <div class="tab-body">
-                            <div class="tab-box active">
-                                <i class="fas fa-rocket"></i>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde eum error saepe iure quasi exercitationem nostrum, explicabo eaque qui doloremque doloribus mollitia iusto maiores ducimus.</p>
+                        <div class="box-container-img">
+                            <div class="img-box-more">
+                                <img src="./img/Profile2.jpg" alt="">
                             </div>
-                            <div class="tab-box">
-                                <i class="fas fa-bolt"></i>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, cumque! Asperiores autem, laboriosam harum atque fugit veniam aut, vel quos ducimus, aspernatur eveniet quo sed!</p>
-                            </div>
-                            <div class="tab-box">
-                                <i class="fas fa-meteor"></i>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione iusto maxime deserunt minus incidunt soluta reiciendis, recusandae, fuga sit fugit necessitatibus iste quasi, accusantium facere.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-portada-more">
-
-                    <div class="box-container-img">
-                        <div class="img-box-more">
-                            <img src="./img/Profile2.jpg" alt="">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-
-    </section>
+        </section>
 
 
         <svg class="divider datas-bottom" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
@@ -162,81 +168,81 @@
                         <div class="carrusel">
                             <div class="carrusel_container">
 
-                                @foreach($proyectos as $proyecto)
-     
-                             
-                               
-                             
-                                <div class="carrusel_itemsInline">
-                                  
-                                    <div class="carrusel_itemsFlex">
+                                @foreach ($proyectos as $proyecto)
 
-                                        <div class="carrusel_cont_items-img">
-                                            <img class="carrusel_items-img" src="{{asset($proyecto->imagen)}}" alt="">
+
+
+
+                                    <div class="carrusel_itemsInline">
+
+                                        <div class="carrusel_itemsFlex">
+
+                                            <div class="carrusel_cont_items-img">
+                                                <img class="carrusel_items-img" src="{{ asset($proyecto->imagen) }}" alt="">
+                                            </div>
+
+                                            <div class="carrusel_item-content">
+                                                <div class="title-projects">
+                                                    <h1>{{ $proyecto->nombre_proyecto }}</h1>
+                                                </div>
+
+                                                <div class="text-projects">
+
+                                                    <p>{{ $proyecto->descripcion }}</p>
+
+                                                </div>
+
+                                                <div class="bottom-projects">
+                                                    <a id="btn1">Leer más</a>
+                                                </div>
+
+
+                                            </div>
+
+
                                         </div>
-
-                                        <div class="carrusel_item-content">
-                                            <div class="title-projects">
-                                                <h1>{{$proyecto->nombre_proyecto}}</h1>
-                                            </div>
-
-                                            <div class="text-projects">
-
-                                                <p>{{$proyecto->descripcion}}</p>
-
-                                            </div>
-
-                                            <div class="bottom-projects">
-                                                <a id="btn1">Leer más</a>
-                                            </div>
-
-
-                                        </div>
-
-
                                     </div>
-                                </div>
 
-                          
-                                
 
-                        
-                        
+
+
+
+
 
 
                                 @endforeach
 
-                                @if($proyectos->count()==0)
-                                <div class="carrusel_itemsInline">
+                                @if ($proyectos->count() == 0)
+                                    <div class="carrusel_itemsInline">
 
-                                    <div class="carrusel_itemsFlex">
+                                        <div class="carrusel_itemsFlex">
 
-                                        <div class="carrusel_cont_items-img">
-                                            <img class="carrusel_items-img" src="\img\x.jpg" alt="">
-                                        </div>
-
-                                        <div class="carrusel_item-content">
-                                            <div class="title-projects">
-                                                <h1>No hay proyectos</h1>
+                                            <div class="carrusel_cont_items-img">
+                                                <img class="carrusel_items-img" src="\img\x.jpg" alt="">
                                             </div>
 
-                                            <div class="text-projects">
+                                            <div class="carrusel_item-content">
+                                                <div class="title-projects">
+                                                    <h1>No hay proyectos</h1>
+                                                </div>
 
-                                                <p>¿Que esperas para publicar?</p>
+                                                <div class="text-projects">
+
+                                                    <p>¿Que esperas para publicar?</p>
+
+                                                </div>
+
+
+
 
                                             </div>
 
-                                           
-
 
                                         </div>
-
-
                                     </div>
-                                </div>
                                 @endif
-       
-                             
+
+
 
 
                             </div>
@@ -414,12 +420,12 @@
     </div>
 
 
-    <script>
 
-    </script>
 
 @endsection
 
 @section('sc')
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ asset('js/tabs.js') }}"></script>
 @endsection
