@@ -1,3 +1,3 @@
-document.querySelector(".right ul li").addEventListener("click", function() {
+document.querySelector(".nav-user-control ul li").addEventListener("click", function() {
     this.classList.toggle("active");
 });

@@ -17,7 +17,7 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     @endsection
     <title>WorkClip</title>
 </head>
@@ -52,29 +52,70 @@
 
 
                     <div class="container-btns-nav">
-                        <div class="login-btn-nav">
-                            <a href="/perfil"> {{ Auth::user()->nombre }} </a>
+                        <div class="nav-user-control">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <p>{{ Auth::user()->nombre }}<br>
+                                            <span>{{ Auth::user()->rol == 1 ? 'Estudiante' : 'Empresario' }}</span>
+                                        </p><i class="fas fa-angle-down"></i>
+                                    </a>
+
+                                    <div class="dropdown">
+                                        <ul>
+                                            <li><a href="/perfil"><i class="fas fa-user"></i> Profile</a></li>
+                                            <li><a href="#"><i class="fas fa-sliders-h"></i> Settings</a></li>
+                                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                                    <i class="fas fa-sign-out-alt"></i> Signout</a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    class="d-none">
+                                                    @csrf
+                                                </form>
+                                        </ul>
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </div>
+ 
+               <!--         <div class="wrapper">
+                            <div class="navbar">
+
+                                <div class="right">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <p>{{ Auth::user()->nombre }}<br>
+                                                    <span>{{ Auth::user()->rol == 1 ? 'Estudiante' : 'Empresario' }}</span>
+                                                </p><i class="fas fa-angle-down"></i>
+                                            </a>
+
+                                            <div class="dropdown">
+                                                <ul>
+                                                    <li><a href="/perfil"><i class="fas fa-user"></i> Profile</a></li>
+                                                    <li><a href="#"><i class="fas fa-sliders-h"></i> Settings</a></li>
+                                                    <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();">
+                                                            <i class="fas fa-sign-out-alt"></i> Signout</a>
+
+                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                            class="d-none">
+                                                            @csrf
+                                                        </form>
+                                                </ul>
+                                            </div>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="register-btn-nav">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                                            document.getElementById('logout-form').submit();">
-                                {{ __('Cerrar Sesión') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                        <div class="login-btn-nav">
-                            <button> {{ Auth::user()->rol == 1 ? 'Estudiante' : 'Empresario' }}</button>
-                        </div>
-
-
-
+-->
                     </div>
-                
+
 
                 @endguest
                 @php
@@ -152,29 +193,15 @@
             </div>
         </form>
     </div>
+    
+    <script src="{{ asset('js/index.js') }}"></script>
 
     @yield('sc')
 
 
 
 
-    @section('sc')
 
-        <script src="{{ asset('js/index.js') }}"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-        </script>
-        <script src="https://kit.fontawesome.com/f579ace1fb.js" crossorigin="anonymous"></script>
-
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script>
-            document.querySelector(".right ul li").addEventListener("click", function() {
-                this.classList.toggle("active");
-            });
-
-        </script>
-    @endsection
 
 
 

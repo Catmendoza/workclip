@@ -16,7 +16,7 @@ body {
 .container {
     width: 100%;
     max-width: 1200px;
-    overflow: hidden;
+    overflow: visible;
     margin: auto;
 }
 
@@ -26,6 +26,10 @@ body {
     overflow: hidden;
     margin: auto;
     padding: 60px 0;
+}
+
+a:hover {
+    text-decoration: none !important;
 }
 
 
@@ -71,8 +75,10 @@ header::before {
 }
 
 .container-btns-nav {
+    width: 50%;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .login-btn-nav>button:focus {
@@ -134,7 +140,6 @@ header::before {
     justify-content: space-between;
     width: 100%;
     height: 500px;
-    margin: 0px 3%;
 }
 
 .cont_imagen {
@@ -511,27 +516,91 @@ header::before {
 
 /* Navigation After Login or Register */
 
+.nav-user-control {
+    display: flex !important;
+    width: 40% !important;
+    background: #fff !important;
+    max-height: 70px !important;
+    justify-content: flex-end !important;
+    padding: 0 20px !important;
+    border-radius: .4em !important;
+}
+
+.nav-user-control>ul li a {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: right !important;
+    background: none !important;
+    margin: 0 !important;
+    color: #000 !important;
+    height: 50px !important;
+    padding: 0 !important;
+}
+
+.nav-user-control>ul li a span {
+    font-size: 1.1vw !important;
+}
+
+.nav-user-control>ul li a p {
+    font-size: 1.3vw !important;
+    padding: 0 !important;
+    height: 20px !important;
+    line-height: 15px !important;
+}
+
+.nav-user-control>ul li a>i {
+    margin-left: 10px !important;
+}
+
+.nav-user-control ul li .dropdown {
+    position: absolute !important;
+    top: 90px !important;
+    right: 5vw !important;
+    background: #fff !important;
+    padding: 10px 25px !important;
+    border-radius: 5px !important;
+    display: none !important;
+}
+
+.nav-user-control ul li .dropdown:before {
+    content: "" !important;
+    position: absolute !important;
+    top: -20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border: 10px solid !important;
+    border-color: transparent transparent #fff transparent !important;
+}
+
+.nav-user-control ul li.active .dropdown {
+    display: block !important;
+}
+
+
+/*
 .wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 50%;
 }
 
 .wrapper .navbar {
-    width: 420px;
+    width: 35%;
     background: #fff;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 10px 25px;
     border-radius: 5px;
+    min-width: 150px;
+}
+
+.fa-angle-down:before {
+    padding: 10px !important;
 }
 
 .wrapper .navbar ul li a {
     color: #644def;
 }
 
-.wrapper .navbar .left ul,
 .wrapper .navbar .right ul li a {
     display: flex;
     align-items: center;
@@ -582,3 +651,4 @@ header::before {
 .wrapper .navbar .right ul li.active .dropdown {
     display: block;
 }
+*/
