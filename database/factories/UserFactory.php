@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 | Model Factories
 |--------------------------------------------------------------------------
 |
-| This directory should contain each of the model factory definitions for
+| This directory should contain each off the model factory definitions for
 | your application. Factories provide a convenient way to generate new
 | model instances for testing / seeding your application's database.
 |
@@ -30,6 +30,13 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => bcrypt(1234), // password
         'edad' => $faker->numberBetween(0,100),
         'rol' => $faker->numberBetween(1,2),
+        'imagen' => "./imagenes_usuarios/usuario.png",
+        'texto_quiensoy' => "Aqui debes poner tu descripcion",
+        'nombre_empresa' => "USC",
+        'instagram' => "#",
+        'facebook' => "#",
+        'git' => "#",
         'remember_token' => Str::random(10),
+        
     ];
 });

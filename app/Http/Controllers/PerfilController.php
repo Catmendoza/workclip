@@ -82,8 +82,8 @@ class PerfilController extends Controller
         //
         $perfil = User::findOrFail($id);
         $proyecto = Proyecto::all()->where('id_perfil','=',$perfil->id);
-        $hobbys = Hobby::all()->where('id_perfil','=',Auth::user()->id);
-        $habilidades = Habilidades::all()->where('id_perfil','=',Auth::user()->id);
+        $hobbys = Hobby::all()->where('id_perfil','=',$perfil->id);
+        $habilidades = Habilidades::all()->where('id_perfil','=',$perfil->id);
 
         return view('users')->with('proyectos',$proyecto)->with('usuario',$perfil)->with('habilidad',$habilidades)->with('hobby',$hobbys);
         

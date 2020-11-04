@@ -68,13 +68,6 @@
                 </a>
             </div>
 
-            <div class="buttons-nav-bar">
-                <button class="btn btn-lg" id="btn-public">
-                    <i class="fa fa-plus-circle"></i>
-              
-                </button>
-            </div>
-
             @endguest
         </div>
     </div>

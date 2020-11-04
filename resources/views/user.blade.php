@@ -293,7 +293,7 @@
                     <div class="contenedor_tarjeta">
                         <a>
                             <figure id="tarjeta">
-                                <img src=".\img\mascaras.svg" class="frontal" alt="">
+                                <img src="{{asset("./img/mascaras.svg")}}" class="frontal" alt="">
                                 <figcaption class="trasera">
                                     <h2 class="titulo">Cultura</h2>
                                     <hr>
@@ -306,7 +306,7 @@
                     <div class="contenedor_tarjeta">
                         <a>
                             <figure id="tarjeta">
-                                <img src=".\img\comer.svg" class="frontal" alt="">
+                                <img src="{{asset("./img/comer.svg")}}" class="frontal" alt="">
                                 <figcaption class="trasera">
                                     <h2 class="titulo">Comida</h2>
                                     <hr>
@@ -319,7 +319,7 @@
                     <div class="contenedor_tarjeta">
                         <a>
                             <figure id="tarjeta">
-                                <img src=".\img\nadar.svg" class="frontal" alt="">
+                                <img src="{{asset("./img/nadar.svg")}}" class="frontal" alt="">
                                 <figcaption class="trasera">
                                     <h2 class="titulo">Deporte</h2>
                                     <hr>
