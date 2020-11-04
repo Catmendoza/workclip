@@ -126,7 +126,7 @@ font-size: 15px;
 }
 
 
-.caja_fotoComentario > img{
+.caja_fotoComentario a >img{
     width: 35px;
     border-radius:50%;
     height: 35px;

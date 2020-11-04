@@ -219,7 +219,7 @@
       @endphp
 <div class="caja_comentario">
   <div class="caja_fotoComentario">
-  <img src="{{$aux2->imagen}}">
+  <a  href="{{route("perfil.show",$comentario->id)}}"style="color:white; cursor: pointer;"><img src="{{$aux2->imagen}}"></a>
       
   </div>
 
@@ -474,7 +474,7 @@
 <div class="caja_comentario">
   <div class="caja_fotoComentario">
       
-  <img src="{{asset($aux2->imagen)}}">
+  <a href="{{route("perfil.show",$comentario->id)}}"style="color:white; cursor: pointer;"><img src="{{asset($aux2->imagen)}}"></a>
   </div>
 
   <div class="caja_textoComentario">
