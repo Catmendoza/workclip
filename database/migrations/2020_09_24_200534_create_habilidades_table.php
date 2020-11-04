@@ -16,7 +16,12 @@ class CreateHabilidadesTable extends Migration
         Schema::create('habilidades', function (Blueprint $table) {
             $table->id();
             $table->integer('id_perfil');
-            $table->text('principal_texto');
+            $table->string('titulo1');
+            $table->text('principal_texto1');
+            $table->string('titulo2');
+            $table->text('principal_texto2');
+            $table->string('titulo3');
+            $table->text('principal_texto3');
             $table->timestamps();
         });
     }

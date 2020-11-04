@@ -286,6 +286,9 @@
 
                 </div>
 
+                @foreach($hobby as $hobbys)
+                    
+               
                 <div class="box-cards-hobbys">
                     <div class="contenedor_tarjeta">
                         <a>
@@ -294,8 +297,7 @@
                                 <figcaption class="trasera">
                                     <h2 class="titulo">Cultura</h2>
                                     <hr>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis cupiditate voluptates
-                                        ipsum suscipit, aspernatur eum, amet nemo architecto nihil corrupti.</p>
+                                <p>{{$hobbys->cultura}}</p>
                                 </figcaption>
                             </figure>
                         </a>
@@ -308,8 +310,7 @@
                                 <figcaption class="trasera">
                                     <h2 class="titulo">Comida</h2>
                                     <hr>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis cupiditate voluptates
-                                        ipsum suscipit, aspernatur eum, amet nemo architecto nihil corrupti.</p>
+                                    <p>{{$hobbys->comida}}</p>
                                 </figcaption>
                             </figure>
                         </a>
@@ -322,14 +323,15 @@
                                 <figcaption class="trasera">
                                     <h2 class="titulo">Deporte</h2>
                                     <hr>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis cupiditate voluptates
-                                        ipsum suscipit, aspernatur eum, amet nemo architecto nihil corrupti.</p>
+                                <p>{{$hobbys->deporte}}</p>
                                 </figcaption>
                             </figure>
                         </a>
                     </div>
 
                 </div>
+
+                @endforeach
             </div>
         </div>
     </section>
@@ -350,20 +352,23 @@
 
                 <div class="cards-habilities">
 
+                    @foreach($habilidad as $habilidades)
+                        
+             
                     <div class="box box1">
-                        <h4>Diseño HTML</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, eveniet?</p>
+                        <h4>{{$habilidades->titulo1}}</h4>
+                        <p>{{$habilidades->principal_texto1}}</p>
                     </div>
                     <div class="box box2">
-                        <h4>React JS</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, eveniet?</p>
+                        <h4>{{$habilidades->titulo2}}</h4>
+                        <p>{{$habilidades->principal_texto2}}</p>
                     </div>
                     <div class="box box3">
-                        <h4>Angular</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, eveniet?</p>
+                        <h4>{{$habilidades->titulo3}}</h4>
+                        <p>{{$habilidades->principal_texto3}}</p>
                     </div>
 
-
+@endforeach
 
 
                 </div>

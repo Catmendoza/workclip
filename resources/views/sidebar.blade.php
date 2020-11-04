@@ -35,17 +35,42 @@
             <div class="p-4">
                 <h1><a href="{{ url('/proyecto') }}" class="logo">WorkClip </a><span>Editar Perfil</span></h1>
                 <ul class="list-unstyled components mb-5">
+                    <li class="">
+                        <a href="{{url("/perfil")}}"><span class="fa fa-home mr-3"></span> Mi Perfil</a>
+                    </li>
                     <li class="active">
-                        <a href="./home.html"><span class="fa fa-home mr-3"></span> Mi Perfil</a>
+                        <a href="{{route('perfil.edit',Auth::user()->id)}}"><span class="fa fa-user mr-3"></span> Datos personales</a>
                     </li>
                     <li>
-                        <a href="#about"><span class="fa fa-user mr-3"></span> Datos personales</a>
+                        @php
+                            $aux=DB::table('habilidades')->where('id_perfil','=',Auth::user()->id)->count();
+                            $aux2=DB::table('hobbys')->where('id_perfil','=',Auth::user()->id)->count();
+                        @endphp
+                        
+                        @if ($aux==null)
+                        <a href="{{url("/edit-habilidades")}}"><span class="fa fa-briefcase mr-3"></span>Mis habilidades</a>
+                        
+                        @endif
+
+                        @if ($aux!=null)
+                        <a href="{{route('edit-habilidades.edit',Auth::user()->id)}}"><span class="fa fa-briefcase mr-3"></span>Mis habilidades</a>
+
+                        @endif
+                    
+
                     </li>
                     <li>
-                        <a href="#"><span class="fa fa-briefcase mr-3"></span> Mis Habilidades</a>
-                    </li>
-                    <li>
-                        <a href="#"><span class="fa fa-sticky-note mr-3"></span> Mis Hobbys</a>
+
+                        @if ($aux2==null)
+                        <a href="{{url("/edit-hobbys")}}"><span class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
+                        
+                        @endif
+
+                        @if ($aux2!=null)
+                        <a href="{{route('edit-hobbys.edit',Auth::user()->id)}}"><span class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
+
+                        @endif
+                        
                     </li>
 
                 </ul>
@@ -68,92 +93,19 @@
         </nav>
 
         <!-- Page Content  -->
-        @yield('content-sidebar')
+
         <div id="content" class="p-4 p-md-5 pt-5">
-        
+         
+            @yield('content-sidebar')
         </div>
     </div>
 
 
  
 
-    <div id="EditProfileModal" class="modal-editProfile">
-
-        <form class="modal-editp-content" action="{{ route('perfil.update', $datos->id) }}" method="POST"
-            enctype="multipart/form-data">
-            @method('PATCH')
-            @csrf
-            <div class="header-modal-editp">
-
-                <label>WORKCLIP</label>
-
-            </div>
-
-            <div class="body-editp-grid">
-
-                <div class="boxgray update-profile">
-                    <div class="grid-content-update">
-                        <div class="img-update-user">
-
-
-                            <div class="image-user-form" action="" method="post" enctype="multipart/form-data">
-                                <input id="avatar-2" name="imagen" type="file">
-                                <img src="{{ asset($datos->imagen) }}">
-                            </div>
-
-                        </div>
-                        <div class="data-info-user-profile">
-                            <label for="">Nombre</label>
-                            <input type="text" name="nombre" value="{{ $datos->nombre }}">
-                            <input class="state" type="text" spellcheck="false" value="Hi! this is my state">
-                        </div>
-
-                    </div>
-                </div>
-                <div class="boxgray who-im">
-                    <label for="">Quien eres</label>
-                    <textarea id="description-who-im" style="resize: none;"
-                        name="texto_quiensoy">{{ $datos->texto_quiensoy }}</textarea>
-                </div>
-                <div class="boxgray social-networks-user">
-                    <div class="icons-social">
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div class="inputs-social">
-                        <input type="text" name="instagram" value="{{ $datos->instagram }}" id="">
-
-                        <input type="text" name="facebook" value="{{ $datos->facebook }}" id="">
-
-                        <input type="text" name="git" value="{{ $datos->git }}" id="">
-                    </div>
-
-                    <input type="hidden" name="apellido" value="{{ $datos->apellido }}">
-                    <input type="hidden" name="cedula" value="{{ $datos->cedula }}">
-                    <input type="hidden" name="contacto" value="{{ $datos->contacto }}">
-                    <input type="hidden" name="programa" value="{{ $datos->programa }}">
-                    <input type="hidden" name="rol" value="{{ $datos->rol }}">
-                    <input type="hidden" name="nombre_empresa" value="{{ $datos->nombre_empresa }}">
 
 
 
-                </div>
-            </div>
-
-            <div class="footer-modal-editp">
-                <div class="button-modal-profile">
-                    <a class="btn btn-danger" href="/perfil">Cancelar</a>
-                    <button type="submit" class="btn btn-success">Guardar</button>
-                </div>
-            </div>
-
-
-
-        </form>
-
-
-    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"

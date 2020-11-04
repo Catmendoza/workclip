@@ -28,7 +28,7 @@
                 <form class="form-inline">
                     <div class="form-group has-search">
                         <i class="fa fa-search form-control-feedback"></i>
-                        <input type="text" class="form-control" placeholder="Buscar Perfil">
+                        <input name ="search" type="text" class="form-control" placeholder="Buscar Perfil">
                     </div>
                 </form>
             </div>

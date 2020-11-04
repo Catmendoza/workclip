@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Perfil;
 use App\User;
 use App\Proyecto;
+use App\Hobby;
+use App\Habilidades;
 use Illuminate\Http\Request;
 
 class PerfilController extends Controller
@@ -19,9 +21,11 @@ class PerfilController extends Controller
         //
 
         $usuario = Auth::user()->all();
+        $hobbys = Hobby::all()->where('id_perfil','=',Auth::user()->id);
+        $habilidades = Habilidades::all()->where('id_perfil','=',Auth::user()->id);
         $proyecto = Proyecto::all()->where('id_perfil','=',Auth::user()->id);
 
-        return view("user")->with('usuarios',$usuario)->with('proyectos',$proyecto);
+        return view("user")->with('usuarios',$usuario)->with('proyectos',$proyecto)->with('habilidad',$habilidades)->with('hobby',$hobbys);
     }
 
     public function perfiles( Request $request){
@@ -78,8 +82,10 @@ class PerfilController extends Controller
         //
         $perfil = User::findOrFail($id);
         $proyecto = Proyecto::all()->where('id_perfil','=',$perfil->id);
+        $hobbys = Hobby::all()->where('id_perfil','=',Auth::user()->id);
+        $habilidades = Habilidades::all()->where('id_perfil','=',Auth::user()->id);
 
-        return view('users')->with('proyectos',$proyecto)->with('usuario',$perfil);
+        return view('users')->with('proyectos',$proyecto)->with('usuario',$perfil)->with('habilidad',$habilidades)->with('hobby',$hobbys);
         
 
 
@@ -96,7 +102,7 @@ class PerfilController extends Controller
         //
         $usuario = Auth::user()->all();
 
-        return view('sidebar',['datos'=>User::findOrFail($id)])->with('usuarios',$usuario);
+        return view('editperfil',['datos'=>User::findOrFail($id)])->with('usuarios',$usuario);
     }
 
     /**

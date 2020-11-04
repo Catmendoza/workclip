@@ -255,6 +255,7 @@
     </section>
 
 
+
     <section class="hobbys-section">
 
         <svg class="divider hobbys-top" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
@@ -278,6 +279,9 @@
 
                 </div>
 
+                @foreach($hobby as $hobbys)
+                    
+               
                 <div class="box-cards-hobbys">
                     <div class="contenedor_tarjeta">
                         <a>
@@ -286,8 +290,7 @@
                                 <figcaption class="trasera">
                                     <h2 class="titulo">Cultura</h2>
                                     <hr>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis cupiditate voluptates
-                                        ipsum suscipit, aspernatur eum, amet nemo architecto nihil corrupti.</p>
+                                <p>{{$hobbys->cultura}}</p>
                                 </figcaption>
                             </figure>
                         </a>
@@ -300,8 +303,7 @@
                                 <figcaption class="trasera">
                                     <h2 class="titulo">Comida</h2>
                                     <hr>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis cupiditate voluptates
-                                        ipsum suscipit, aspernatur eum, amet nemo architecto nihil corrupti.</p>
+                                    <p>{{$hobbys->comida}}</p>
                                 </figcaption>
                             </figure>
                         </a>
@@ -314,14 +316,15 @@
                                 <figcaption class="trasera">
                                     <h2 class="titulo">Deporte</h2>
                                     <hr>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis cupiditate voluptates
-                                        ipsum suscipit, aspernatur eum, amet nemo architecto nihil corrupti.</p>
+                                <p>{{$hobbys->deporte}}</p>
                                 </figcaption>
                             </figure>
                         </a>
                     </div>
 
                 </div>
+
+                @endforeach
             </div>
         </div>
     </section>
@@ -342,20 +345,23 @@
 
                 <div class="cards-habilities">
 
+                    @foreach($habilidad as $habilidades)
+                        
+             
                     <div class="box box1">
-                        <h4>Diseño HTML</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, eveniet?</p>
+                        <h4>{{$habilidades->titulo1}}</h4>
+                        <p>{{$habilidades->principal_texto1}}</p>
                     </div>
                     <div class="box box2">
-                        <h4>React JS</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, eveniet?</p>
+                        <h4>{{$habilidades->titulo2}}</h4>
+                        <p>{{$habilidades->principal_texto2}}</p>
                     </div>
                     <div class="box box3">
-                        <h4>Angular</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, eveniet?</p>
+                        <h4>{{$habilidades->titulo3}}</h4>
+                        <p>{{$habilidades->principal_texto3}}</p>
                     </div>
 
-
+@endforeach
 
 
                 </div>
@@ -415,15 +421,18 @@
     </div>
 
 
+    <script>
 
+    </script>
 
 @endsection
 
 @section('sc')
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ asset('js/tabs.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/modal-login.js') }}">
-    </script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="{{ asset('js/tabs.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/modal-login.js') }}">
+</script>
 
 @endsection

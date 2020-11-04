@@ -29,6 +29,8 @@ Route::resource('/proyecto', 'ProyectoController');
 Route::resource('/comentario', 'ComentarioController');
 Route::resource('/producto','ProductoController');
 Route::resource('/perfil','PerfilController');
+Route::resource('/edit-habilidades','HabilidadesController');
+Route::resource('/edit-hobbys','HobbyController');
 
 
 Route::get('/perfiles','PerfilController@perfiles');
