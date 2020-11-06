@@ -24,18 +24,7 @@ class ProyectoController extends Controller
     {
         //
 
-        
-    $proyecto = Proyecto::all();
-    $producto = Producto::all();
-    $comentario = Comentario::all();
 
-    //$proyecto = Proyecto::all();
-//        $proyecto = DB::table("proyectos")->paginate(3);
-  
-
-        
-
-        return view("main")->with('proyectos',$proyecto)->with('productos',$producto)->with('comentarios',$comentario);
 
        
 
@@ -49,9 +38,7 @@ class ProyectoController extends Controller
      */
     public function create()
     {
-        $proyecto = Proyecto::all();
-        $producto = Producto::all();
-        $comentario = Comentario::all();
+      
     
         //$proyecto = Proyecto::all();
     //        $proyecto = DB::table("proyectos")->paginate(3);
@@ -59,7 +46,7 @@ class ProyectoController extends Controller
     
             
     
-            return view("main",["proyectos"=> $proyecto],["comentarios"=>$comentario],["productos"=>$producto]);
+            return redirect("/publicaciones");
     
            
     
@@ -93,7 +80,7 @@ class ProyectoController extends Controller
         $proyecto->imagen = $destino.$nombre;
         $proyecto->save();
 
-        return redirect("/proyecto");
+        return redirect("/publicaciones");
 
     }
 

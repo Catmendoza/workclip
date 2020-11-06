@@ -3,19 +3,39 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Proyecto;
+use App\User;
 use App\Comentario;
+use App\Producto;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\SubirProyectosRequest;
 
-class ComentarioController extends Controller
+
+
+
+class PublicacionController extends Controller
 {
-    /**ee
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //   return view("main",["proyectos"=> $proyecto]);
+        //
 
+                
+    $proyecto = Proyecto::all();
+    $producto = Producto::all();
+    $comentario = Comentario::all();
+
+    //$proyecto = Proyecto::all();
+//        $proyecto = DB::table("proyectos")->paginate(3);
+  
+
+        
+
+        return view("main")->with('proyectos',$proyecto)->with('productos',$producto)->with('comentarios',$comentario);
     }
 
     /**
@@ -26,8 +46,6 @@ class ComentarioController extends Controller
     public function create()
     {
         //
-
-        return redirect("/publicaciones");
     }
 
     /**
@@ -38,19 +56,7 @@ class ComentarioController extends Controller
      */
     public function store(Request $request)
     {
-        set_time_limit(0);
-        $comentario = new Comentario();
-        
-        $comentario->id_proyecto = request('id_proyecto');
-        $comentario->id_producto=request('id_producto');
-        $comentario->fecha_publi="2020-10-04";
-        $comentario->id_usuario = request('id_usuario');
-        $comentario->contenido_texto = request('contenido_texto');
-
-        $comentario->save();
-
-        return redirect("/publicaciones");
-
+        //
     }
 
     /**

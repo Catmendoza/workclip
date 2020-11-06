@@ -39,7 +39,7 @@
                    
 
                 <div class="buttons-nav-bar">
-                    <a class="active" href="{{url("/proyecto")}}" class="btn btn-lg">
+                    <a class="active" href="{{url("/publicaciones")}}" class="btn btn-lg">
                         <i class="fas fa-home"></i>
                       
                     </a>
@@ -56,7 +56,7 @@
 
                 @else
                 <div class="buttons-nav-bar">
-                    <a class="active" href="{{url("/proyecto")}}" class="btn btn-lg">
+                    <a class="active" href="{{url("/publicaciones")}}" class="btn btn-lg">
                         <i class="fas fa-home"></i>
                      
                     </a>

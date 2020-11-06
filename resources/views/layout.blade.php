@@ -29,7 +29,7 @@
             <div class="container nav">
 
                 <div class="logo">
-                    <a href="{{ url('/proyecto') }}">WORKCLIP</a>
+                    <a href="{{ url('/publicaciones') }}">WORKCLIP</a>
                 </div>
                 @guest
 

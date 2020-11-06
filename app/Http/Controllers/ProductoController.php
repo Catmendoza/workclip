@@ -15,11 +15,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        
-        $producto = Producto::all();
-
-
-        return redirect("/proyecto",["productos"=>$producto]);
+      
         //
     }
 
@@ -31,7 +27,7 @@ class ProductoController extends Controller
     public function create()
     {
         //
-            return redirect("/proyecto");
+            return redirect("/publicaciones");
     }
 
     /**
@@ -61,7 +57,7 @@ class ProductoController extends Controller
         $producto->imagen = $destino.$nombre;
         $producto->save();
 
-        return redirect("/proyecto");
+        return redirect("/publicaciones");
     }
 
     /**
