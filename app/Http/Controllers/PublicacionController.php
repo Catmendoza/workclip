@@ -7,6 +7,7 @@ use App\Proyecto;
 use App\User;
 use App\Comentario;
 use App\Producto;
+use App\Empleo;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SubirProyectosRequest;
 
@@ -25,8 +26,9 @@ class PublicacionController extends Controller
         //
 
                 
-    $proyecto = Proyecto::all();
-    $producto = Producto::all();
+    $proyecto = Proyecto::paginate(1);
+    $producto = Producto::paginate(1);
+    $empleo = Empleo::paginate(1);
     $comentario = Comentario::all();
 
     //$proyecto = Proyecto::all();
@@ -35,7 +37,7 @@ class PublicacionController extends Controller
 
         
 
-        return view("main")->with('proyectos',$proyecto)->with('productos',$producto)->with('comentarios',$comentario);
+        return view("main")->with('proyectos',$proyecto)->with('productos',$producto)->with('comentarios',$comentario)->with('empleos',$empleo);
     }
 
     /**

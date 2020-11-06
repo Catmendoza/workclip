@@ -527,6 +527,224 @@
 
                 @endforeach
 
+
+
+
+
+<!--Empleos-->
+
+@foreach ($empleos->reverse() as $empleo)
+                <div class="col-md-7">
+
+                    @php
+                    $aux = DB::table('users')->find($empleo->id_perfil);
+                    $mes = $empleo->created_at->format('m');
+                     $mesD;
+                     switch($mes){
+                         case 1:
+                         $mesD = "ENE";
+
+                         break;
+
+                         case 2:
+                         $mesD = "FEB";
+                         break;
+
+                         case 3:
+                         $mesD = "MAR";
+                         break;
+
+                         case 4:
+                         $mesD = "ABR";
+                         break;
+                         
+                         case 5:
+                         $mesD ="MAY";
+                         break;
+                         
+                         case 6:
+                         $mesD = "JUN";
+                         break;
+
+                         case 7:
+                         $mesD = "JUL";
+                         break;
+
+                         case 8:
+                         $mesD = "AGO";
+                         break;
+
+                         case 9:
+                         $mesD = "SEP";
+                         break;
+
+                         case 10:
+                         $mesD = "OCT";
+                         break;
+
+                         case 11:
+                         $mesD = "NOV";
+                         break;
+
+                         case 12:
+                         $mesD ="DIC";
+                         break;
+
+                         
+                     }
+                  
+                     @endphp
+
+                    <div class="header-box-main">
+                        <div class="img-user-header">
+                            <a href="{{route("perfil.show",$aux->id)}}"> <img src="{{ asset($aux->imagen) }}" alt="" class="rounded-circle float-left imgpeque"></a>
+                          
+                        </div>
+
+                      
+
+                        <div class="name-user-box">
+                    
+                            <a   href="{{route("perfil.show",$aux->id)}}"style="color:white; cursor: pointer;"class="textWhite"><h4 class="textWhite">{{$aux->nombre}}</h4></a>
+                            <h6 class="textWhite">{{$aux->programa}}</h6>
+                        </div>
+
+                        <div class="fecha-box">
+                            <label>{{$empleo->created_at->format('d')}}{{"  ".$mesD}}</label>
+                        </div>
+
+                    </div>
+
+                    <div class="box-main-content">
+
+                        <div class="header-box-ppe">
+                            <h6 style="color:#979797">EMPLEO PARA : {{ $empleo->titulo_trabajo }}</h6>
+                            <hr>
+                        </div>
+
+                        <div class="img-box-ppe" style="flex-direction: column">
+
+                            @if($empleo->tiempo_trabajo== 1)
+                            <h6 style="color:#979797">Tiempo del empleo:      Remoto</h6><br>
+                            @endif
+                            @if($empleo->tiempo_trabajo== 2)
+                            <h6 style="color:#979797">Tiempo del empleo:  Presencial</h6><br>
+                            @endif
+
+
+                            @if($empleo->tipo_empleo== 1)
+                            <h6 style="color:#979797">Tipo de empleo : Tiempo completo</h6><br>
+                            @endif
+                            @if($empleo->tipo_empleo== 2)
+                            <h6 style="color:#979797">Tipo de empleo : Medio tiempo</h6><br>
+                            @endif
+                            @if($empleo->tipo_empleo== 3)
+                            <h6 style="color:#979797">Tipo de empleo : De preferencia</h6><br>
+                            @endif
+
+
+
+
+                           
+                     
+                            <h6 style="color:#979797">Tipo de contrato  {{ $empleo->tipo_contrato }}</h6><br>
+                        </div>
+
+                        <div class="description-box">
+                           <p>DESCRIPCION DEL EMPLEO:<BR>{{$empleo->descripcion_empleo}}</p>
+                        <p>SALARIO :  ${{$empleo->salarioi}} a  {{$empleo->salariof}}</p>
+
+
+                            <div class="btn-read-more">
+                                <button>Leer Mas</button>
+                                
+                            </div>
+               
+                            
+                        </div>
+
+
+                   
+                         
+                        
+
+                        
+                    </div>
+                    @php
+                    $contComents=DB::table('comentarios')->where('id_empleo','=',$empleo->id)->count();
+                    @endphp
+                    <button class="accordion" >Comentarios {{$contComents}}</button>
+                      
+                    <div class="panel">
+                    <div class="caja_comentarios">
+
+@foreach ($comentarios as $comentario)
+@if($comentario->id_empleo == $empleo->id)
+         
+      @php
+      
+      $aux2 = DB::table('users')->find($comentario->id_usuario);
+      @endphp
+<div class="caja_comentario">
+  <div class="caja_fotoComentario">
+      
+  <a href="{{route("perfil.show",$comentario->id)}}"style="color:white; cursor: pointer;"><img src="{{asset($aux2->imagen)}}"></a>
+  </div>
+
+  <div class="caja_textoComentario">
+      <label>{{$aux2->nombre}}</label>
+      <p>{{$comentario->contenido_texto}}</p>
+  </div>
+
+
+ </div>
+ @endif
+
+@endforeach
+
+
+
+@guest
+
+@if (Route::has('register'))
+
+  @endif
+
+  @else
+  <form action="./comentario" method="POST" class="caja_comentar">
+@csrf
+  <div class="caja_fotoComentar">
+
+  <img src="{{asset(Auth::user()->imagen)}}">
+     
+    
+  </div>
+
+   <input type="hidden" name="id_empleo" value="{{$empleo->id}}">
+   <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
+    <input class="input_comentar" type="text" name="contenido_texto">
+    <button type="submit">Publicar</button>
+   
+  
+  </form>
+
+  @endguest
+</div>
+
+          </div>
+                 <div>
+             
+                 </div>
+
+
+                </div>
+
+                @endforeach
+
+
+                {{$proyectos->links()}}
+
+
               
             </div>
 
@@ -570,16 +788,13 @@
 
         
 
-        
 
     </section>
 
 
 
-    @php
 
 
-    @endphp
 
    
 
@@ -606,12 +821,15 @@
                 </div>
 
             </div>
+
+            @if (Auth::user()->rol == 2)
             <div class="select-modal-public">
                 <div class="select-box">
                     <a id="btn-publicJob"><i class="fas fa-id-badge"></i></a>
                     <h4>Oferta de trabajo</h4>
                 </div>
             </div>
+            @endif
 
         </div>
 
@@ -683,7 +901,8 @@
 
 
     <div id="publicJobModal" class="modal-publish-job">
-        <div class="modal-pj-content">
+        <form class="modal-pj-content" action="./empleo" method="POST" >
+            @csrf
             <div class="header-modal-pj">
                 <h3>Publicar empleo</h3>
                 <div class="close-modal-pj">
@@ -710,29 +929,29 @@
                 </div>
 
                 <div class="box-texts-pj">
-                    <input type="text" name="" id="" />
+                    <input type="text" name="titulo_trabajo" id="" />
                 </div>
 
                 <div class="radio-btns-pj">
-                    <input type="radio" name="time-job" id="" />
+                    <input type="radio" name="tiempo_trabajo"value="1" id="" />
                     <label>Remoto</label>
-                    <input type="radio" name="time-job" id="" />
+                    <input type="radio" name="tiempo_trabajo"value="2" id="" />
                     <label>Presencial</label>
                 </div>
 
                 <div class="radio-btns-pj">
-                    <input type="radio" name="job-type" id="" />
+                    <input type="radio" name="tipo_empleo" value="1" id="" />
                     <label>Tiempo completo</label>
-                    <input type="radio" name="job-type" id="" />
+                    <input type="radio" name="tipo_empleo" value="2" id="" />
                     <label>Medio tiempo</label>
-                    <input type="radio" name="job-type" id="" />
+                    <input type="radio" name="tipo_empleo" value="3" id="" />
                     <label>De preferencia</label>
                 </div>
 
                 <div class="box-select-pj">
-                    <select name="" id="">
-                        <option value="">Selecciona una opcion</option>
-                        <option value="">1</option>
+                    <select name="tipo_contrato" id="">
+                        <option value="0">Selecciona una opcion</option>
+                        <option value="1">1</option>
                     </select>
                 </div>
 
@@ -740,11 +959,11 @@
                     <div class="range-salary">
                         <h4>$</h4>
                         <div class="range one">
-                            <input type="number" name="" placeholder=" ej: 700000" id="" />
+                            <input type="number" name="salarioi" placeholder=" ej: 700000" id="" />
                         </div>
                         <h4>a</h4>
                         <div class="range two">
-                            <input type="number" placeholder=" 900000" name="" id="" />
+                            <input type="number" placeholder=" 900000" name="salariof" id="" />
                         </div>
                     </div>
                 </div>
@@ -765,21 +984,21 @@
                 </div>
 
                 <div class="radio-btns-pj" style="grid-column-start: 4; grid-row-start: 2">
-                    <input type="radio" name="hv" id="" />
+                    <input type="radio" name="recibirhv" value="1"id="" />
                     <label>Si</label>
-                    <input type="radio" name="hv" id="" />
+                    <input type="radio" name="recibirhv" value="2"id="" />
                     <label>No</label>
                 </div>
 
                 <div class="box-texts-pj" style="grid-column-start: 4; grid-row-start: 3">
-                    <textarea type="text" maxlength="200"></textarea>
+                    <textarea type="text" name="descripcion_empleo" maxlength="200"></textarea>
                 </div>
 
                 <div class="btn-submit-pj">
                     <button type="submit">Publicar</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
   
@@ -887,6 +1106,37 @@
 
     <script type="text/javascript" src="{{ asset('js/modal-login.js') }}"></script>
 
+    <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function()
+            {
+            $("#boton").click(function () {	 
+                alert($('input:radio[name=tiempo_trabajo]:checked').val());
+                $("#formulario").submit();
+                });
+             });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function()
+            {
+            $("#boton").click(function () {	 
+                alert($('input:radio[name=tipo_empleo]:checked').val());
+                $("#formulario").submit();
+                });
+             });
+    </script>
+
+<script type="text/javascript">
+    $(document).ready(function()
+        {
+        $("#boton").click(function () {	 
+            alert($('input:radio[name=recibirhv]:checked').val());
+            $("#formulario").submit();
+            });
+         });
+</script>
+
+ 
  
 @endsection
 

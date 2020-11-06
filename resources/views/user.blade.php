@@ -20,8 +20,9 @@
             
             @foreach($usuarios  as $usuario)
 
-            @if ($usuario->id == Auth::user()->id)
-
+      @php
+          $auxusu = $usuario;
+      @endphp
             <div class="container-grid-profile">
                 <div class="card-portada">
                     <div class="img-box-user">
@@ -77,7 +78,7 @@
                         </div>
                     </div>
 
-                    @endif
+      
                     
 
               
@@ -161,7 +162,15 @@
             <div class="content-projects">
 
 
+                @if($auxusu->rol == 1)
                 <h2>Proyectos Productos</h2>
+                @endif
+                
+                @if($auxusu->rol == 2)
+                <h2>Empleos</h2>
+                @endif
+
+              
 
 
                 <div class="slider-projects">
@@ -215,7 +224,52 @@
 
                                 @endforeach
 
-                                @if($proyectos->count()==0)
+                                @foreach($productos as $producto)
+     
+                             
+                               
+                             
+                                <div class="carrusel_itemsInline">
+                                  
+                                    <div class="carrusel_itemsFlex">
+
+                                        <div class="carrusel_cont_items-img">
+                                            <img class="carrusel_items-img" src="{{asset($producto->imagen)}}" alt="">
+                                        </div>
+
+                                        <div class="carrusel_item-content">
+                                            <div class="title-projects">
+                                                <h1>{{$producto->nombre_producto}}</h1>
+                                            </div>
+
+                                            <div class="text-projects">
+
+                                                <p>{{$producto->descripcion}}</p>
+                                                <p>{{$producto->precio}}</p>
+
+                                            </div>
+
+                                            <div class="bottom-projects">
+                                                <a id="btn1">Leer más</a>
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                          
+                                
+
+                        
+                        
+
+
+                                @endforeach
+
+                                @if($proyectos->count()==0 || $productos->count()==0)
                                 <div class="carrusel_itemsInline">
 
                                     <div class="carrusel_itemsFlex">
@@ -226,7 +280,7 @@
 
                                         <div class="carrusel_item-content">
                                             <div class="title-projects">
-                                                <h1>No hay proyectos</h1>
+                                                <h1>Faltan proyectos o productos</h1>
                                             </div>
 
                                             <div class="text-projects">

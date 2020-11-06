@@ -27,7 +27,7 @@ class ProyectoController extends Controller
 
 
        
-
+        return redirect("/publicaciones");
     
     }
 

@@ -15,11 +15,12 @@ class CreateEmpleosTable extends Migration
     {
         Schema::create('empleos', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_perfil');
             $table->string('titulo_trabajo');
             $table->integer('tiempo_trabajo');
             $table->integer('tipo_empleo');
             $table->integer('tipo_contrato');
-            $table->float('saliarioi');
+            $table->float('salarioi');
             $table->float('salariof');
             $table->integer('recibirhv');
             $table->string('descripcion_empleo');

@@ -32,6 +32,7 @@ Route::resource('/perfil','PerfilController');
 Route::resource('/edit-habilidades','HabilidadesController');
 Route::resource('/edit-hobbys','HobbyController');
 Route::resource('/publicaciones','PublicacionController');
+Route::resource('/empleo','EmpleoController');
 
 
 Route::get('/perfiles','PerfilController@perfiles');

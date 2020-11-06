@@ -6,6 +6,8 @@ use App\Perfil;
 use App\User;
 use App\Proyecto;
 use App\Hobby;
+use App\Producto;
+use App\Empleo;
 use App\Habilidades;
 use Illuminate\Http\Request;
 
@@ -20,12 +22,15 @@ class PerfilController extends Controller
     {
         //
 
-        $usuario = Auth::user()->all();
+        $usuario = Auth::user()->all()->where('id','=',Auth::user()->id);
         $hobbys = Hobby::all()->where('id_perfil','=',Auth::user()->id);
         $habilidades = Habilidades::all()->where('id_perfil','=',Auth::user()->id);
         $proyecto = Proyecto::all()->where('id_perfil','=',Auth::user()->id);
+        $producto = Producto::all()->where('id_perfil','=',Auth::user()->id);
+        $empleo = Empleo::all()->where('id_perfil','=',Auth::user()->id);
 
-        return view("user")->with('usuarios',$usuario)->with('proyectos',$proyecto)->with('habilidad',$habilidades)->with('hobby',$hobbys);
+        return view("user")->with('usuarios',$usuario)->with('proyectos',$proyecto)->with('habilidad',$habilidades)->with('hobby',$hobbys)
+        ->with('productos',$producto)->with('empleos',$empleo);
     }
 
     public function perfiles( Request $request){
@@ -84,8 +89,11 @@ class PerfilController extends Controller
         $proyecto = Proyecto::all()->where('id_perfil','=',$perfil->id);
         $hobbys = Hobby::all()->where('id_perfil','=',$perfil->id);
         $habilidades = Habilidades::all()->where('id_perfil','=',$perfil->id);
+        $producto = Producto::all()->where('id_perfil','=',Auth::user()->id);
+        $empleo = Empleo::all()->where('id_perfil','=',Auth::user()->id);
 
-        return view('users')->with('proyectos',$proyecto)->with('usuario',$perfil)->with('habilidad',$habilidades)->with('hobby',$hobbys);
+        return view('users')->with('proyectos',$proyecto)->with('usuario',$perfil)->with('habilidad',$habilidades)->with('hobby',$hobbys)
+        ->with('productos',$producto)->with('empleos',$empleo);;
         
 
 

@@ -3,19 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Comentario;
+use App\Empleo;
+use Illuminate\Support\Facades\Auth;
 
-class ComentarioController extends Controller
+class EmpleoController extends Controller
 {
-    /**ee
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //   return view("main",["proyectos"=> $proyecto]);
-
+        //
+        return redirect("/publicaciones");
     }
 
     /**
@@ -26,7 +27,6 @@ class ComentarioController extends Controller
     public function create()
     {
         //
-
         return redirect("/publicaciones");
     }
 
@@ -38,20 +38,22 @@ class ComentarioController extends Controller
      */
     public function store(Request $request)
     {
-        set_time_limit(0);
-        $comentario = new Comentario();
-        
-        $comentario->id_proyecto = request('id_proyecto');
-        $comentario->id_producto=request('id_producto');
-        $comentario->id_empleo=request('id_empleo');
-        $comentario->fecha_publi="2020-10-04";
-        $comentario->id_usuario = request('id_usuario');
-        $comentario->contenido_texto = request('contenido_texto');
+        //
 
-        $comentario->save();
+        $empleo = new Empleo();
+        $empleo->id_perfil = Auth::user()->id;
+      
+        $empleo->titulo_trabajo = request('titulo_trabajo');
+        $empleo->tiempo_trabajo =request('tiempo_trabajo');
+        $empleo->tipo_empleo = request('tipo_empleo');
+        $empleo->tipo_contrato = request('tipo_contrato');
+        $empleo->salarioi = request('salarioi');
+        $empleo->salariof = request('salariof');
+        $empleo->recibirhv = request('recibirhv');
+        $empleo->descripcion_empleo = request('descripcion_empleo');
+        $empleo->save();
 
         return redirect("/publicaciones");
-
     }
 
     /**

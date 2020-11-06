@@ -17,6 +17,7 @@ class CreateComentariosTable extends Migration
             $table->id();
             $table->integer('id_producto')->nullable();
             $table->integer('id_proyecto')->nullable();
+            $table->integer('id_empleo')->nullable();
             $table->integer('id_usuario');
             $table->string('contenido_texto');
             $table->date('fecha_publi');
