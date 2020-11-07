@@ -68,6 +68,14 @@
                 </a>
             </div>
 
+            <div disabled class="buttons-nav-bar">
+                <button disabled class="btn btn-lg" id="btn-public">
+                    <i class="fa fa-plus-circle"></i>
+                 
+                </button>
+            </div>
+
+
             @endguest
         </div>
     </div>
