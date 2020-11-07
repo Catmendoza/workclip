@@ -795,9 +795,14 @@
 
 
 
-
+    @guest
+    @if (Route::has('register'))
    
 
+
+    @endif
+
+    @else
     <div id="publicModal" class="modal-public-main">
         <div class="modal-public-content">
 
@@ -835,6 +840,7 @@
 
 
     </div>
+    @endguest
 
     <div id="publicProduct" class="modal-publish-project">
         <div class="modal-pp-content">
