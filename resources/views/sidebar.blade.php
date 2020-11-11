@@ -94,7 +94,7 @@
 
         <!-- Page Content  -->
 
-        <div id="content" class="p-4 p-md-5 pt-5">
+        <div id="content" class="p-4 p-md-2 pt-5">
          
             @yield('content-sidebar')
         </div>

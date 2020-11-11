@@ -130,7 +130,8 @@ class PerfilController extends Controller
         $perfil->instagram =$request->get('instagram');
         $perfil->facebook =$request->get('facebook');
         $perfil->git =$request->get('git');
-        
+    
+
         if($request->file("imagen")==null){
             $perfil->imagen = User::findOrFail($id)->imagen;
         

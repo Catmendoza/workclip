@@ -20,8 +20,11 @@ function readFile(input) {
         };
 
         reader.readAsDataURL(input.files[0]);
+
+        $('#exampleModal').modal('show');
+
     } else {
-        swal("Sorry - you're browser doesn't support the FileReader API");
+
     }
 }
 
@@ -56,6 +59,7 @@ $("#DeleteImgBtn").on("click", function(ev) {
         "background-image",
         'url("/imagenes_usuarios/usuario.png")'
     );
-    var UploadDeleteImg = document.getElementById("imageUpload");
-    UploadDeleteImg.value = "/imagenes_usuarios/usuario.png";
+
+    $("#imageUpload").html("/imagenes_usuarios/usuario.png");
+
 });
