@@ -15,97 +15,8 @@
         @method('PATCH')
         @csrf
         <label for="" class="name-page" style="text-align: center">MI PERFIL</label>
-        <div class="grid-profile">
-
-            <div class="user-data">
-
-                <div class="content-imgbox">
-                    <div class="avatar-upload">
-                        <div class="avatar-edit">
-                            <input type='file' id="imageUpload" value="" name="imagen" accept=".png, .jpg, .jpeg" />
-                            <label type="button" id="browseImg" class="btn btn-primary" for="imageUpload"><i
-                                    class="fas fa-pencil-alt"></i></label>
-                        </div>
-                        <div class="avatar-preview" id="UserImgBox"
-                            style="background-image: url({{ asset($datos->imagen) }})">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="inputs-user">
-                    <label class="lb1" for="" class="username">Giovanni Jaramillo</label>
-                    <label class="lb2" for="" class="iduser">@GiovaniJ</label>
-
-                    <button type="button" id="DeleteImgBtn" class="btn btn-danger">Eliminar</button>
-                </div>
 
 
-            </div>
-
-            <div class="datos-user" style="justify-content: flex-end">
-                <div class="box-grid-datos">
-                    <div class="box-content-data">
-                        <label for="">
-                            <h6>Correo electronico</h6>Giovani@Jajaj.com
-                        </label>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EditEmailModal">Editar</button>
-                    </div>
-                    <div class="box-content-data">
-                        <label for="">
-                            <h6>Carrera</h6>Ingenieria Sistemas
-                        </label>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EditCarrierModal">Editar</button>
-
-                    </div>
-                    <div class="box-content-data">
-                        <label for="">
-                            <h6>Celular</h6>+57 315655999
-                        </label>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EditCelModal">Editar</button>
-
-                    </div>
-
-                </div>
-            </div>
-            <div class="datos-user">
-                <div class="box-grid-datos">
-                    <div class="box-content-data">
-                        <label for="">
-                            <h6>Edad</h6>29
-                        </label>
-                        <button type="button" class=" btn btn-primary" data-toggle="modal" data-target="#EditAgeModal">Editar</button>
-
-                    </div>
-                    <div class="box-content-data">
-                        <label for="">
-                            <h6>Quien Soy</h6>*Añade una descripcion de ti
-                        </label>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EditWhoModal">Editar</button>
-
-                    </div>
-                    <div class="box-content-data">
-                        <label for="">
-                            <h6>Redes Sociales</h6>*Añade tus redes
-                        </label>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EditRedModal">Editar</button>
-
-                    </div>
-                </div>
-            </div>
-            <div class="buttons-submit p-2 d-flex "
-                style=" width: 80%; grid-column-start: 2; justify-content: flex-end; align-items: center">
-
-
-                <button type="submit" class="btn bg-success m-4" style="color: white">Guardar</button>
-
-
-
-
-            </div>
-
-
-
-        </div>
         <!-- Modal -->
         <div class="modal " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -155,13 +66,13 @@
                         <div class="box-inputs-modal">
 
                             <label for="" style="text-transform: uppercase;">Nuevo Correo Electronico</label>
-                            <input name="email" type="email">
+                            <input id="email" name="email" value="{{ $datos->email }}">
                         </div>
-                        
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Listo</button>
+                        <button id="saveemail" type="button" class="btn btn-primary" data-dismiss="modal">Listo</button>
                     </div>
                 </div>
             </div>
@@ -182,13 +93,13 @@
                         <div class="box-inputs-modal">
 
                             <label for="" style="text-transform: uppercase;">Programa/Carrera</label>
-                            <input name="programa" type="text">
+                            <input id="programa" name="programa" value="{{ $datos->programa }}" type="text">
                         </div>
-                        
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Listo</button>
+                        <button id="saveprograma" type="button" data-dismiss="modal" class="btn btn-primary">Listo</button>
                     </div>
                 </div>
             </div>
@@ -209,44 +120,19 @@
                         <div class="box-inputs-modal">
 
                             <label for="" style="text-transform: uppercase;">Contacto/Celular</label>
-                            <input name="contacto" type="text">
+                            <input id="contacto" name="contacto" value="{{ $datos->contacto }}" type="text">
                         </div>
-                        
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Listo</button>
+                        <button id="savecontacto" type="button" data-dismiss="modal" class="btn btn-primary">Listo</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Modal Edit Age -->
-        <div class="modal" id="EditAgeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ingresa tu edad actual.</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-bodyAge">
-                        <div class="box-inputs-modal">
 
-                            <label for="" style="text-transform: uppercase;">Edad Actual</label>
-                            <input name="edad" type="text">
-                        </div>
-                        
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Listo</button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Modal Edit Who -->
         <div class="modal" id="EditWhoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -262,14 +148,15 @@
                         <div class="box-inputs-modal">
 
                             <label for="" style="text-transform: uppercase;">Añade una descripcion de ti</label>
-                            <textarea name="edad" type="text" style="resize: none"></textarea>
-  
+                            <textarea name="texto_quiensoy" type="text"
+                                style="resize: none">{{ $datos->texto_quiensoy }}</textarea>
+
                         </div>
-                        
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Listo</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Listo</button>
                     </div>
                 </div>
             </div>
@@ -289,18 +176,18 @@
                         <div class="box-inputs-modal">
 
                             <label for="" style="text-transform: uppercase;">Instagram</label>
-                            <input name="instagram" type="text">
+                            <input name="instagram" value="{{ $datos->instagram }}" type="text">
                             <label for="" style="text-transform: uppercase;">Facebook</label>
-                            <input name="facebook" type="text">
+                            <input name="facebook" value="{{ $datos->facebook }}" type="text">
                             <label for="" style="text-transform: uppercase;">GitHub</label>
-                            <input name="github" type="text">
-  
+                            <input name="git" value="{{ $datos->git }}" type="text">
+
                         </div>
-                        
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Listo</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Listo</button>
                     </div>
                 </div>
             </div>
@@ -313,11 +200,113 @@
 
         <input type="hidden" name="apellido" value="{{ $datos->apellido }}">
         <input type="hidden" name="cedula" value="{{ $datos->cedula }}">
-        <input type="hidden" name="contacto" value="{{ $datos->contacto }}">
-        <input type="hidden" name="programa" value="{{ $datos->programa }}">
+        <input type="hidden" name="edad" value="{{ $datos->edad }}">
+        <input type="hidden" name="nombre" value="{{ $datos->nombre }}">
         <input type="hidden" name="rol" value="{{ $datos->rol }}">
         <input type="hidden" name="nombre_empresa" value="{{ $datos->nombre_empresa }}">
 
+
+        <div class="grid-profile">
+
+            <div class="user-data">
+
+                <div class="content-imgbox">
+                    <div class="avatar-upload">
+                        <div class="avatar-edit">
+                            <input type='file' id="imageUpload" value="" name="imagen" accept=".png, .jpg, .jpeg" />
+                            <label type="button" id="browseImg" class="btn btn-primary" for="imageUpload"><i
+                                    class="fas fa-pencil-alt"></i></label>
+                        </div>
+                        <div class="avatar-preview" id="UserImgBox"
+                            style="background-image: url({{ asset($datos->imagen) }})">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="inputs-user">
+                    <label class="lb1" for="" class="username">{{ $datos->nombre }}</label>
+                    <label class="lb2" for="" class="iduser">@ {{ $datos->usuario }}</label>
+
+                    <button type="button" id="DeleteImgBtn" class="btn btn-danger">Eliminar</button>
+                </div>
+
+
+            </div>
+
+            <div class="datos-user" style="justify-content: flex-end">
+                <div class="box-grid-datos">
+                    <div class="box-content-data">
+                        <label for="">
+                            <h6>Correo electronico</h6>
+                            <h6 id="email2">{{ $datos->email }}</h6>
+                        </label>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#EditEmailModal">Editar</button>
+                    </div>
+                    <div class="box-content-data">
+                        <label for="">
+                            <h6>Carrera</h6>
+                            <h6 id="programa2">{{ $datos->programa }}</h6>
+                        </label>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#EditCarrierModal">Editar</button>
+
+                    </div>
+                    <div class="box-content-data">
+                        <label for="">
+                            <h6>Celular</h6>
+                            <h6 id="contacto2">{{ $datos->contacto }}</h6>
+                        </label>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#EditCelModal">Editar</button>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="datos-user">
+                <div class="box-grid-datos">
+                    <div class="box-content-data">
+                        <label for="">
+                            <h6>Edad</h6>
+                            <h6>{{ $datos->edad }}</h6>
+                        </label>
+
+
+                    </div>
+                    <div class="box-content-data">
+                        <label for="">
+                            <h6>Quien Soy</h6>
+
+                        </label>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#EditWhoModal">Editar</button>
+
+                    </div>
+                    <div class="box-content-data">
+                        <label for="">
+                            <h6>Redes Sociales</h6>
+                        </label>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#EditRedModal">Editar</button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-submit p-2 d-flex "
+                style=" width: 80%; grid-column-start: 2; justify-content: flex-end; align-items: center">
+
+
+                <button type="submit" class="btn btn-success">Guardar</button>
+
+
+
+
+            </div>
+
+
+
+        </div>
 
     </form>
 

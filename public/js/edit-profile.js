@@ -1,5 +1,8 @@
 var $uploadCrop;
 
+
+
+
 $("#browseImg").on("click", function(ev) {
     $("#imgpreviewcrop").css("display", "block");
 });
@@ -44,11 +47,14 @@ $(".vanilla-result").on("click", function(ev) {
     $uploadCrop
         .croppie("result", {
             type: "canvas",
-            size: "viewport"
+            size: "viewport",
+            format:'png'
         })
         .then(function(resp) {
             $(".avatar-preview").css("background-image", "url(" + resp + ")");
             $("#imgpreviewcrop").css("display", "none");
+            console.log(resp)
+            $("imageUpload").val(resp);
         });
 });
 
@@ -63,3 +69,34 @@ $("#DeleteImgBtn").on("click", function(ev) {
     $("#imageUpload").html("/imagenes_usuarios/usuario.png");
 
 });
+
+
+/*Botones melos*/
+
+$("#saveemail").on("click", function(ev) {
+   var aux = $("#email").val();
+
+   $("#email2").text(aux);
+
+   
+});
+
+
+$("#saveprograma").on("click", function(ev) {
+    var aux = $("#programa").val();
+ 
+    $("#programa2").text(aux);
+ 
+    
+ });
+
+ $("#savecontacto").on("click", function(ev) {
+    var aux = $("#contacto").val();
+ 
+    $("#contacto2").text(aux);
+ 
+    
+ });
+
+
+

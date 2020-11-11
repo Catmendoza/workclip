@@ -125,11 +125,15 @@ class PerfilController extends Controller
         //
         
         $perfil = User::findOrFail($id);
-        $perfil->nombre =$request->get('nombre');
         $perfil->texto_quiensoy =$request->get('texto_quiensoy');
         $perfil->instagram =$request->get('instagram');
         $perfil->facebook =$request->get('facebook');
         $perfil->git =$request->get('git');
+        $perfil->programa = $request->get('programa');
+        $perfil->contacto = $request->get('contacto');
+        $perfil->email = $request->get('email');
+
+    
     
 
         if($request->file("imagen")==null){
@@ -149,7 +153,7 @@ class PerfilController extends Controller
 
         $perfil->update();
         
-        return redirect('/perfil');
+        return redirect('/perfil/'.$id.'/edit');
     }
 
     /**
