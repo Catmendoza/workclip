@@ -1,77 +1,21 @@
-var $uploadCrop;
+/*Botones melos*/
 
-
-
-
-$("#browseImg").on("click", function(ev) {
-    $("#imgpreviewcrop").css("display", "block");
-});
-
-function readFile(input) {
+function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-
         reader.onload = function(e) {
-            $(".modalhh").addClass("ready");
-            $uploadCrop
-                .croppie("bind", {
-                    url: e.target.result
-                })
-                .then(function() {
-                    console.log("jQuery bind complete");
-                });
-        };
-
+            $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+            $('#imagePreview').hide();
+            $('#imagePreview').fadeIn(650);
+        }
         reader.readAsDataURL(input.files[0]);
-
-        $('#exampleModal').modal('show');
-
-    } else {
-
     }
 }
-
-$uploadCrop = $("#imgpreviewcrop").croppie({
-    viewport: {
-        width: 100,
-        height: 100,
-        type: "circle"
-    },
-    enableExif: true
-});
-
-$("#imageUpload").on("change", function() {
-    readFile(this);
-});
-$(".vanilla-result").on("click", function(ev) {
-    $uploadCrop
-        .croppie("result", {
-            type: "canvas",
-            size: "viewport",
-            format:'png'
-        })
-        .then(function(resp) {
-            $(".avatar-preview").css("background-image", "url(" + resp + ")");
-            $("#imgpreviewcrop").css("display", "none");
-            console.log(resp)
-            $("imageUpload").val(resp);
-        });
-});
-
-/* Eliminar foto */
-
-$("#DeleteImgBtn").on("click", function(ev) {
-    $("#UserImgBox").css(
-        "background-image",
-        'url("/imagenes_usuarios/usuario.png")'
-    );
-
-    $("#imageUpload").html("/imagenes_usuarios/usuario.png");
-
+$("#imageUpload").change(function() {
+    readURL(this);
 });
 
 
-/*Botones melos*/
 
 $("#saveemail").on("click", function(ev) {
    var aux = $("#email").val();

@@ -17,37 +17,7 @@
         <label for="" class="name-page" style="text-align: center">MI PERFIL</label>
 
 
-        <!-- Modal -->
-        <div class="modal " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
 
-                    </div>
-
-                    <div class="modal-body">
-                        <div class="avatar-preview">
-                            <div id="imgpreviewcrop">
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary vanilla-result"
-                                    data-dismiss="modal">Guardar</button>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </div>
 
 
 
@@ -217,7 +187,7 @@
                             <label type="button" id="browseImg" class="btn btn-primary" for="imageUpload"><i
                                     class="fas fa-pencil-alt"></i></label>
                         </div>
-                        <div class="avatar-preview" id="UserImgBox"
+                        <div class="avatar-preview" id="imagePreview"
                             style="background-image: url({{ asset($datos->imagen) }})">
                         </div>
                     </div>
@@ -227,7 +197,7 @@
                     <label class="lb1" for="" class="username">{{ $datos->nombre }}</label>
                     <label class="lb2" for="" class="iduser">@ {{ $datos->usuario }}</label>
 
-                    <button type="button" id="DeleteImgBtn" class="btn btn-danger">Eliminar</button>
+
                 </div>
 
 
@@ -328,10 +298,9 @@
         integrity="sha512-vUJTqeDCu0MKkOhuI83/MEX5HSNPW+Lw46BA775bAWIp1Zwgz3qggia/t2EnSGB9GoS2Ln6npDmbJTdNhHy1Yw=="
         crossorigin="anonymous"></script>
 
-    <script>
-        var imgUser = "<?php echo $datos->imagen; ?>";
 
-    </script>
+
+
 
     <script type="text/javascript" src="{{ asset('js/edit-profile.js') }}"></script>
 
