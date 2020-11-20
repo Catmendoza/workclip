@@ -26,7 +26,7 @@
             <div class="container-grid-profile">
                 <div class="card-portada">
                     <div class="img-box-user">
-                        <img src="{{$usuario->imagen}}" alt="">
+                        <img src="{{asset($usuario->imagen)}}" alt="">
                     </div>
                     <div class="texts-box-portada">
                         <label>¿Quien Soy?</label>

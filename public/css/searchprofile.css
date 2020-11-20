@@ -26,7 +26,6 @@ section.profiles {
 
 .container {
     max-width: 1200px !important;
-    overflow: hidden !important;
 }
 
 .bigbox-profiles {

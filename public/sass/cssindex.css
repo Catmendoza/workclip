@@ -112,6 +112,7 @@ nav i {
   text-decoration: none;
   outline: none;
   border: 0;
+  line-height: normal;
   width: 140px;
   margin-left: 20px;
   padding: 10px 10px;
@@ -770,15 +771,6 @@ nav i {
   content: '';
   display: table;
   clear: both;
-}
-
-h1 {
-  text-align: center;
-  font-size: 3rem;
-  color: rgba(0, 0, 0, 0.5);
-  text-transform: uppercase;
-  margin: 2rem 0 0;
-  letter-spacing: .5rem;
 }
 
 @-webkit-keyframes push {

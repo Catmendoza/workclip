@@ -4,7 +4,7 @@
 @section('css')
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="shortcut icon" href="https://www.flaticon.es/svg/static/icons/svg/2905/2905064.svg">
-<link rel="stylesheet" href="{{ asset('css/cssindex.css') }}" />
+<link rel="stylesheet" href="{{ asset('sass/cssindex.css') }}" />
 <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
 <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
 

@@ -62,7 +62,7 @@
                         <ul>
                  
                           <li><a href="/perfil"><i class="fas fa-user"></i>Mi Perfil</a></li>
-                          <li><a href="/perfil.edit"><i class="fas fa-cog"></i>Configuracion</a></li>
+                          <li><a href="{{route('perfil.edit',Auth::user()->id)}}"><i class="fas fa-cog"></i>Configuracion</a></li>
                           <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                         <i class="fas fa-sign-out-alt"></i> Signout</a></li>
