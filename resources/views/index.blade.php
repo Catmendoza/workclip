@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/cssindex.css') }}" />
+    <link rel="stylesheet" href="{{ asset('sass/cssindex.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
 @endsection
 

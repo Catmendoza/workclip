@@ -49,8 +49,35 @@
                         <i class="fas fa-bars"></i>
                     </div>
                 @else
+                <div class="container-profile-nav">
+                    <div class="half">
+                      <label for="profile2" class="profile-dropdown">
+                        <input type="checkbox" id="profile2">
+                        <div class="box-imgUser">
+                            <img src="{{ Auth::user()->imagen }}">
+        
+                        </div>
+               <span>{{ Auth::user()->nombre }}</span>
+                        <label for="profile2"><i class="fas fa-bars"></i></label>
+                        <ul>
+                 
+                          <li><a href="/perfil"><i class="fas fa-user"></i>Mi Perfil</a></li>
+                          <li><a href="/perfil.edit"><i class="fas fa-cog"></i>Configuracion</a></li>
+                          <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                        <i class="fas fa-sign-out-alt"></i> Signout</a></li>
 
-
+                        
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                        class="d-none">
+                        @csrf
+                    </form>
+                          
+                        </ul>
+                      </label>
+                    </div>
+                  </div>
+   <!-- 
                     <div class="container-btns-nav">
                         <div class="nav-user-control">
                             <ul>
@@ -80,7 +107,7 @@
                             </ul>
                         </div>
  
-               <!--         <div class="wrapper">
+                    <div class="wrapper">
                             <div class="navbar">
 
                                 <div class="right">
