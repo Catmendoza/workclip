@@ -24,10 +24,11 @@ class ProyectoController extends Controller
     {
         //
 
-
+        $proyecto = Proyecto::paginate(3);
+        $comentario = Comentario::all();
 
        
-        return redirect("/publicaciones");
+        return view("proyecto")->with('proyectos',$proyecto)->with('comentarios',$comentario);
     
     }
 

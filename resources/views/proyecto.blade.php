@@ -4,7 +4,7 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
-    <link rel="stylesheet" href="{{ asset('sass/cssindex.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/cssindex.css') }}" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -27,7 +27,7 @@
                 <div class="form-nav-bar">
                     <form class="form-inline">
                         <div class="form-group has-search">
-                          
+                  
                         </div>
                     </form>
                 </div>
@@ -333,414 +333,11 @@
 
               
 
-
-
-
-
-<!--Productos-->
-
-@foreach ($productos->reverse() as $producto)
-                <div class="col-md-7">
-
-                    @php
-                    $aux = DB::table('users')->find($producto->id_perfil);
-                    $mes = $producto->created_at->format('m');
-                     $mesD;
-                     switch($mes){
-                         case 1:
-                         $mesD = "ENE";
-
-                         break;
-
-                         case 2:
-                         $mesD = "FEB";
-                         break;
-
-                         case 3:
-                         $mesD = "MAR";
-                         break;
-
-                         case 4:
-                         $mesD = "ABR";
-                         break;
-                         
-                         case 5:
-                         $mesD ="MAY";
-                         break;
-                         
-                         case 6:
-                         $mesD = "JUN";
-                         break;
-
-                         case 7:
-                         $mesD = "JUL";
-                         break;
-
-                         case 8:
-                         $mesD = "AGO";
-                         break;
-
-                         case 9:
-                         $mesD = "SEP";
-                         break;
-
-                         case 10:
-                         $mesD = "OCT";
-                         break;
-
-                         case 11:
-                         $mesD = "NOV";
-                         break;
-
-                         case 12:
-                         $mesD ="DIC";
-                         break;
-
-                         
-                     }
-                  
-                     @endphp
-
-                    <div class="header-box-main">
-                        <div class="img-user-header">
-                            <a href="{{route("perfil.show",$aux->id)}}"> <img src="{{ asset($aux->imagen) }}" alt="" class="rounded-circle float-left imgpeque"></a>
-                          
-                        </div>
-
-                      
-
-                        <div class="name-user-box">
-                    
-                            <a   href="{{route("perfil.show",$aux->id)}}"style="color:white; cursor: pointer;"class="textWhite"><h4 class="textWhite">{{$aux->nombre}}</h4></a>
-                            <h6 class="textWhite">{{$aux->programa}}</h6>
-                        </div>
-
-                        <div class="fecha-box">
-                            <label>{{$producto->created_at->format('d')}}{{"  ".$mesD}}</label>
-                        </div>
-
-                    </div>
-
-                    <div class="box-main-content">
-
-                        <div class="header-box-ppe">
-                            <h6 style="color:#979797">{{ $producto->nombre_proyecto }}</h6>
-                            <hr>
-                        </div>
-
-                        <div class="img-box-ppe">
-                            <img src="{{ asset($producto->imagen) }}">
-                        </div>
-
-                        <div class="description-box">
-                           <p>{{$producto->descripcion}}</p>
-                           <p>${{$producto->precio}}</p>
-
-
-
-               
-                            
-                        </div>
-
-
-                   
-                         
-                        
-
-                        
-                    </div>
-                    @php
-                    $contComents=DB::table('comentarios')->where('id_producto','=',$producto->id)->count();
-                    @endphp
-                    <button class="accordion" >Comentarios {{$contComents}}</button>
-                      
-                    <div class="panel">
-                    <div class="caja_comentarios">
-
-@foreach ($comentarios as $comentario)
-@if($comentario->id_producto == $producto->id)
-         
-      @php
-      
-      $aux2 = DB::table('users')->find($comentario->id_usuario);
-      @endphp
-<div class="caja_comentario">
-  <div class="caja_fotoComentario">
-      
-  <a href="{{route("perfil.show",$comentario->id)}}"style="color:white; cursor: pointer;"><img src="{{asset($aux2->imagen)}}"></a>
-  </div>
-
-  <div class="caja_textoComentario">
-      <label>{{$aux2->nombre}}</label>
-      <p>{{$comentario->contenido_texto}}</p>
-  </div>
-
-
- </div>
- @endif
-
-@endforeach
-
-
-
-@guest
-
-@if (Route::has('register'))
-
-  @endif
-
-  @else
-  <form action="./comentario" method="POST" class="caja_comentar">
-@csrf
-  <div class="caja_fotoComentar">
-
-  <img src="{{asset(Auth::user()->imagen)}}">
-     
-    
-  </div>
-
-   <input type="hidden" name="id_producto" value="{{$producto->id}}">
-   <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
-    <input class="input_comentar" type="text" name="contenido_texto">
-    <button type="submit">Publicar</button>
-   
-  
-  </form>
-
-  @endguest
-</div>
-
-          </div>
-                 <div>
-             
-                 </div>
-
-
-                </div>
-
-                @endforeach
-
-
-
-
-
-<!--Empleos-->
-
-@foreach ($empleos->reverse() as $empleo)
-                <div class="col-md-7">
-
-                    @php
-                    $aux = DB::table('users')->find($empleo->id_perfil);
-                    $mes = $empleo->created_at->format('m');
-                     $mesD;
-                     switch($mes){
-                         case 1:
-                         $mesD = "ENE";
-
-                         break;
-
-                         case 2:
-                         $mesD = "FEB";
-                         break;
-
-                         case 3:
-                         $mesD = "MAR";
-                         break;
-
-                         case 4:
-                         $mesD = "ABR";
-                         break;
-                         
-                         case 5:
-                         $mesD ="MAY";
-                         break;
-                         
-                         case 6:
-                         $mesD = "JUN";
-                         break;
-
-                         case 7:
-                         $mesD = "JUL";
-                         break;
-
-                         case 8:
-                         $mesD = "AGO";
-                         break;
-
-                         case 9:
-                         $mesD = "SEP";
-                         break;
-
-                         case 10:
-                         $mesD = "OCT";
-                         break;
-
-                         case 11:
-                         $mesD = "NOV";
-                         break;
-
-                         case 12:
-                         $mesD ="DIC";
-                         break;
-
-                         
-                     }
-                  
-                     @endphp
-
-                    <div class="header-box-main">
-                        <div class="img-user-header">
-                            <a href="{{route("perfil.show",$aux->id)}}"> <img src="{{ asset($aux->imagen) }}" alt="" class="rounded-circle float-left imgpeque"></a>
-                          
-                        </div>
-
-                      
-
-                        <div class="name-user-box">
-                    
-                            <a   href="{{route("perfil.show",$aux->id)}}"style="color:white; cursor: pointer;"class="textWhite"><h4 class="textWhite">{{$aux->nombre}}</h4></a>
-                            <h6 class="textWhite">{{$aux->programa}}</h6>
-                        </div>
-
-                        <div class="fecha-box">
-                            <label>{{$empleo->created_at->format('d')}}{{"  ".$mesD}}</label>
-                        </div>
-
-                    </div>
-
-                    <div class="box-main-content">
-
-                        <div class="header-box-ppe">
-                            <h6 style="color:#979797">EMPLEO PARA : {{ $empleo->titulo_trabajo }}</h6>
-                            <hr>
-                        </div>
-
-                        <div class="img-box-ppe" style="flex-direction: column">
-
-                            @if($empleo->tiempo_trabajo== 1)
-                            <h6 style="color:#979797">Tiempo del empleo:      Remoto</h6><br>
-                            @endif
-                            @if($empleo->tiempo_trabajo== 2)
-                            <h6 style="color:#979797">Tiempo del empleo:  Presencial</h6><br>
-                            @endif
-
-
-                            @if($empleo->tipo_empleo== 1)
-                            <h6 style="color:#979797">Tipo de empleo : Tiempo completo</h6><br>
-                            @endif
-                            @if($empleo->tipo_empleo== 2)
-                            <h6 style="color:#979797">Tipo de empleo : Medio tiempo</h6><br>
-                            @endif
-                            @if($empleo->tipo_empleo== 3)
-                            <h6 style="color:#979797">Tipo de empleo : De preferencia</h6><br>
-                            @endif
-
-
-
-
-                           
-                     
-                            <h6 style="color:#979797">Tipo de contrato  {{ $empleo->tipo_contrato }}</h6><br>
-                        </div>
-
-                        <div class="description-box">
-                           <p>DESCRIPCION DEL EMPLEO:<BR>{{$empleo->descripcion_empleo}}</p>
-                        <p>SALARIO :  ${{$empleo->salarioi}} a  {{$empleo->salariof}}</p>
-
-
- 
-                            
-                        </div>
-
-
-                   
-                         
-                        
-
-                        
-                    </div>
-                    @php
-                    $contComents=DB::table('comentarios')->where('id_empleo','=',$empleo->id)->count();
-                    @endphp
-                    <button class="accordion" >Comentarios {{$contComents}}</button>
-                      
-                    <div class="panel">
-                    <div class="caja_comentarios">
-
-@foreach ($comentarios as $comentario)
-@if($comentario->id_empleo == $empleo->id)
-         
-      @php
-      
-      $aux2 = DB::table('users')->find($comentario->id_usuario);
-      @endphp
-<div class="caja_comentario">
-  <div class="caja_fotoComentario">
-      
-  <a href="{{route("perfil.show",$comentario->id)}}"style="color:white; cursor: pointer;"><img src="{{asset($aux2->imagen)}}"></a>
-  </div>
-
-  <div class="caja_textoComentario">
-      <label>{{$aux2->nombre}}</label>
-      <p>{{$comentario->contenido_texto}}</p>
-  </div>
-
-
- </div>
- @endif
-
-@endforeach
-
-
-
-@guest
-
-@if (Route::has('register'))
-
-  @endif
-
-  @else
-  <form action="./comentario" method="POST" class="caja_comentar">
-@csrf
-  <div class="caja_fotoComentar">
-
-  <img src="{{asset(Auth::user()->imagen)}}">
-     
-    
-  </div>
-
-   <input type="hidden" name="id_empleo" value="{{$empleo->id}}">
-   <input type="hidden" name="id_usuario"value="{{Auth::user()->id}}">
-    <input class="input_comentar" type="text" name="contenido_texto">
-    <button type="submit">Publicar</button>
-   
-  
-  </form>
-
-  @endguest
-</div>
-
-          </div>
-                 <div>
-             
-                 </div>
-
-
-                </div>
-
-                @endforeach
-
-                @php
-                 
-                 $auxProject = DB::table('proyectos')->count();
-                 $auxProduct =  DB::table('productos')->count();
-                 $auxJob = DB::table('empleos')->count();
-                @endphp
+            
                 
-                @if ($auxProject >= 1 || $auxProduct >=1 || $auxJob >= 1)
                     {{$proyectos->links()}}
                     
-                @endif
+            
 
             
                 
@@ -769,14 +366,14 @@
 
                         <div class="checkbox " style="margin-left: 10px;line-height:10px">
                             <label style="color:white;font-size:20px; ">
-                                <input checked name="opc" id="opc1"  value="1"type="radio">
+                                <input name="opc" id="opc1"  value="1"type="radio">
                                Publicaciones
                             </label>
 
                         </div>
                         <div class="checkbox " style="margin-left: 10px;line-height:10px">
                             <label style="color:white;font-size:20px; ">
-                                <input name="opc"id="opc2"  value="2" type="radio">
+                                <input  checked name="opc"id="opc2"  value="2" type="radio">
                                 Proyectos
                             </label>
 
@@ -811,8 +408,6 @@
 
 
     </section>
-
-
 
 
 
@@ -1176,8 +771,6 @@
 
 
 </script>
-
-
  
  
 @endsection

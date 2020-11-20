@@ -29,7 +29,7 @@ $factory->define(User::class, function (Faker $faker) {
         'usuario' => $faker->name,
         'password' => bcrypt(1234), // password
         'edad' => $faker->numberBetween(0,100),
-        'rol' => $faker->numberBetween(1,2),
+        'rol' => $faker->numberBetween(0,1),
         'imagen' => "./imagenes_usuarios/usuario.png",
         'texto_quiensoy' => "Aqui debes poner tu descripcion",
         'nombre_empresa' => "USC",
