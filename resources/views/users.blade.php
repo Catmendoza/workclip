@@ -187,10 +187,6 @@
 
                                                 </div>
 
-                                                <div class="bottom-projects">
-                                                    <a id="btn1">Leer más</a>
-                                                </div>
-
 
                                             </div>
 
@@ -207,34 +203,76 @@
 
                                 @endforeach
 
-                                @if ($proyectos->count() == 0)
-                                    <div class="carrusel_itemsInline">
+                                @foreach($productos as $producto)
+     
+                             
+                               
+                             
+                                <div class="carrusel_itemsInline">
+                                  
+                                    <div class="carrusel_itemsFlex">
 
-                                        <div class="carrusel_itemsFlex">
+                                        <div class="carrusel_cont_items-img">
+                                            <img class="carrusel_items-img" src="{{asset($producto->imagen)}}" alt="">
+                                        </div>
 
-                                            <div class="carrusel_cont_items-img">
-                                                <img class="carrusel_items-img" src="\img\x.jpg" alt="">
+                                        <div class="carrusel_item-content">
+                                            <div class="title-projects">
+                                                <h1>{{$producto->nombre_producto}}</h1>
                                             </div>
 
-                                            <div class="carrusel_item-content">
-                                                <div class="title-projects">
-                                                    <h1>No hay proyectos</h1>
-                                                </div>
+                                            <div class="text-projects">
 
-                                                <div class="text-projects">
-
-                                                    <p>¿Que esperas para publicar?</p>
-
-                                                </div>
-
-
-
+                                                <p>{{$producto->descripcion}}</p>
+                                                <p>{{$producto->precio}}</p>
 
                                             </div>
+
 
 
                                         </div>
+
+
                                     </div>
+                                </div>
+
+                          
+                                
+
+                        
+                        
+
+
+                                @endforeach
+
+                                @if($proyectos->count()==0 || $productos->count()==0)
+                                <div class="carrusel_itemsInline">
+
+                                    <div class="carrusel_itemsFlex">
+
+                                        <div class="carrusel_cont_items-img">
+                                            <img class="carrusel_items-img" src=".\img\x.jpg" alt="">
+                                        </div>
+
+                                        <div class="carrusel_item-content">
+                                            <div class="title-projects">
+                                                <h1>Faltan proyectos o productos</h1>
+                                            </div>
+
+                                            <div class="text-projects">
+
+                                                <p>¿Que esperas para publicar?</p>
+
+                                            </div>
+
+                                           
+
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
                                 @endif
 
 

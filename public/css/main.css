@@ -101,7 +101,7 @@ a:hover {
     margin-left: 20px;
 }
 
-.active {
+.container-nav-bar .active {
     color: #2b8eff !important;
     text-align: center;
     padding: .5rem 1rem;

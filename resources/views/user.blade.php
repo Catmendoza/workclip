@@ -204,10 +204,7 @@
 
                                             </div>
 
-                                            <div class="bottom-projects">
-                                                <a id="btn1">Leer más</a>
-                                            </div>
-
+                           
 
                                         </div>
 
@@ -249,9 +246,6 @@
 
                                             </div>
 
-                                            <div class="bottom-projects">
-                                                <a id="btn1">Leer más</a>
-                                            </div>
 
 
                                         </div>

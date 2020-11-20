@@ -187,10 +187,7 @@
                            <p>{{ $proyecto->descripcion }}</p>
 
 
-                            <div class="btn-read-more">
-                                <button>Leer Mas</button>
-                                
-                            </div>
+
                
                             
                         </div>
@@ -441,10 +438,7 @@
                            <p>${{$producto->precio}}</p>
 
 
-                            <div class="btn-read-more">
-                                <button>Leer Mas</button>
-                                
-                            </div>
+
                
                             
                         </div>
@@ -655,11 +649,7 @@
                         <p>SALARIO :  ${{$empleo->salarioi}} a  {{$empleo->salariof}}</p>
 
 
-                            <div class="btn-read-more">
-                                <button>Leer Mas</button>
-                                
-                            </div>
-               
+ 
                             
                         </div>
 
@@ -741,8 +731,20 @@
 
                 @endforeach
 
+                @php
+                 
+                 $auxProject = DB::table('proyectos')->count();
+                 $auxProduct =  DB::table('productos')->count();
+                 $auxJob = DB::table('empleos')->count();
+                @endphp
+                
+                @if ($auxProject >= 1 || $auxProduct >=1 || $auxJob >= 1)
+                    {{$proyectos->links()}}
+                    
+                @endif
 
-                {{$proyectos->links()}}
+            
+                
 
 
               
