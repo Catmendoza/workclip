@@ -40,6 +40,37 @@ class PublicacionController extends Controller
         return view("main")->with('proyectos',$proyecto)->with('productos',$producto)->with('comentarios',$comentario)->with('empleos',$empleo);
     }
 
+    public function retornar(Request $request){
+
+        $opc = request('opc');
+
+      
+
+        if ($opc == 1){
+            return redirect('/publicaciones');
+        }
+
+        if ($opc==2){
+        
+            return redirect('/proyecto');
+        }
+        if ($opc==3){
+            return redirect('/producto');
+       
+            
+        }
+      
+        if ($opc==4){
+            return redirect('/empleo');
+        }
+      
+        if ($opc==null){
+            return redirect('/publicaciones');
+        }
+      
+      
+    }
+
     /**
      * Show the form for creating a new resource.
      *

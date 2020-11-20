@@ -36,6 +36,7 @@ Route::resource('/empleo','EmpleoController');
 
 
 Route::get('/perfiles','PerfilController@perfiles');
+Route::post('/retornar','PublicacionController@retornar');
 
 Auth::routes();
 

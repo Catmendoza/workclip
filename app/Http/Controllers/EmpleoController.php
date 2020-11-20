@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Empleo;
+use App\Comentario;
 use Illuminate\Support\Facades\Auth;
 
 class EmpleoController extends Controller
@@ -16,7 +17,10 @@ class EmpleoController extends Controller
     public function index()
     {
         //
-        return redirect("/publicaciones");
+        $comentario = Comentario::all();
+        $empleo = Empleo::paginate(3);
+     
+        return view("empleo")->with('empleos',$empleo)->with('comentarios',$comentario);
     }
 
     /**

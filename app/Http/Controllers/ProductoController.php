@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Producto;
+use App\Comentario;
 use Illuminate\Support\Facades\Auth;
 
 class ProductoController extends Controller
@@ -15,7 +16,9 @@ class ProductoController extends Controller
      */
     public function index()
     {
-      
+        $producto = Producto::paginate(3);
+        $comentario = Comentario::all();
+        return view("producto")->with('productos',$producto)->with('comentarios',$comentario);
         //
     }
 
