@@ -41,3 +41,6 @@ Route::post('/retornar','PublicacionController@retornar');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/auth/redirect/{provider}', 'GoogleLoginController@redirect');
+Route::get('/callback/{provider}', 'GoogleLoginController@callback');
