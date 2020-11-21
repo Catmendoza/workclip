@@ -81,9 +81,10 @@ class HabilidadesController extends Controller
     public function edit($id)
     {
         //
+        $aux = Habilidades::all()->where('id_perfil','=',$id);
 
 
-        return view('edithabilidades',['datos'=>Habilidades::findOrFail($id)]);
+        return view('edithabilidades',['datos'=>$aux]);
     }
 
     /**

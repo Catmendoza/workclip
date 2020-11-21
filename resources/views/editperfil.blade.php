@@ -194,8 +194,10 @@
 
                 </div>
                 <div class="inputs-user">
-                    <label class="lb1" for="" class="username">{{ $datos->nombre }}</label>
-                    <label class="lb2" for="" class="iduser">@ {{ $datos->usuario }}</label>
+                    <label class="lb1" for="" class="username">{{$datos->nombre}}</label>
+                    <label class="lb1" for="" class="username">{{$datos->usuario}}</label>
+   
+                  
 
 
                 </div>

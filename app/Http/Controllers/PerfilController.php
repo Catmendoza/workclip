@@ -77,7 +77,7 @@ class PerfilController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resourwce.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -125,6 +125,7 @@ class PerfilController extends Controller
         //
         
         $perfil = User::findOrFail($id);
+        $perfil->nombre = $request->get('nombre');
         $perfil->texto_quiensoy =$request->get('texto_quiensoy');
         $perfil->instagram =$request->get('instagram');
         $perfil->facebook =$request->get('facebook');

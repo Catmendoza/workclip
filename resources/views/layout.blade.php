@@ -54,7 +54,7 @@
                       <label for="profile2" class="profile-dropdown">
                         <input type="checkbox" id="profile2">
                         <div class="box-imgUser">
-                            <img src="{{ Auth::user()->imagen }}">
+                            <img src="{{ asset(Auth::user()->imagen) }}">
         
                         </div>
                <span>{{ Auth::user()->nombre }}</span>

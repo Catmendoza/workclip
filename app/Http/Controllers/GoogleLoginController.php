@@ -24,7 +24,7 @@ public function callback($provider)
  
     auth()->login($user);
  
-    return redirect()->to('/perfil');
+    return redirect()->to('/perfil/'.$user->id.'/edit');
  
 }
 function createUser($getInfo,$provider){
@@ -33,7 +33,12 @@ function createUser($getInfo,$provider){
  
  if (!$user) {
      $user = User::create([
-        'name'     => $getInfo->name,
+        'nombre'     => $getInfo->name,
+        'imagen'=>"/imagenes_usuarios/usuario.png",
+        'texto_quiensoy'=>"Aqui debes poner  tu descripcion",
+        'instagram'=>"#",
+        'facebook'=>'#',
+        'git'=>'#',
         'email'    => $getInfo->email,
         'provider' => $provider,
         'provider_id' => $getInfo->id

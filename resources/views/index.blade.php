@@ -11,8 +11,7 @@
             <div class="content-about-us">
 
                 <div class="textos-about-us">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut necessitatibus minima voluptate nam
-                        explicabo voluptatem quo, voluptas optio, molestiae modi eius, vero perspiciatis in repellendus!</p>
+                    <p>¡Bienvenido a WorkClip!<br> si eres estudiante, ingresa y postea tus proyectos y productos<br>¡y si eres empresario busca estudiantes!</p>
 
                 </div>
                 <div class="cont_imagen">
@@ -100,21 +99,21 @@
                                 <img id="itemImg_1" class="carrusel_items-img" src=".\img\gio.png" alt="">
                                 <div id="itemInfo_1" class="carrusel_items-info">
                                     <p class="attributes">Giovanni Jaramillo</p>
-                                    <button class="button-carousel">Ver Mas</button>
+                                   
                                 </div>
                             </div>
                             <div class="carrusel_items">
                                 <img class="carrusel_items-img" src=".\img\cata.png" alt="">
                                 <div class="carrusel_items-info">
                                     <p class="attributes">Catalina Alvarez</p>
-                                    <button class="button-carousel">Ver Mas</button>
+                                
                                 </div>
                             </div>
                             <div class="carrusel_items">
                                 <img class="carrusel_items-img" src=".\img\juan.png" alt="">
                                 <div class="carrusel_items-info">
                                     <p class="attributes">Juan Villota</p>
-                                    <button class="button-carousel">Ver mas</button>
+                                   
                                 </div>
                             </div>
 

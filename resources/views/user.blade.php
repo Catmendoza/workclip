@@ -268,13 +268,10 @@
 
                                     <div class="carrusel_itemsFlex">
 
-                                        <div class="carrusel_cont_items-img">
-                                            <img class="carrusel_items-img" src=".\img\x.jpg" alt="">
-                                        </div>
-
+                                 
                                         <div class="carrusel_item-content">
                                             <div class="title-projects">
-                                                <h1>Faltan proyectos o productos</h1>
+                                                <h1>Faltan proyectos <br>o productos</h1>
                                             </div>
 
                                             <div class="text-projects">
