@@ -36,9 +36,9 @@
                         <div class="box-inputs-modal">
 
                             <label for="" style="text-transform: uppercase;">Titulo Habilidad</label>
-                            <input id="email" name="titulo1" value="">
+                            <input id="email" name="titulo" value="">
                             <label for="" style="text-transform: uppercase;">Texto Habilidad</label>
-                            <input id="programa" name="principal_texto1" value="" type="text">
+                            <input id="programa" name="principal_texto" value="" type="text">
                         </div>
 
                     </div>
@@ -50,107 +50,29 @@
             </div>
         </div>
 
-        <!-- Modal Edit Carrera -->
-        <div class="modal" id="EditCarrierModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Introduce una Habilidad</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-bodyCarrera">
-                        <div class="box-inputs-modal">
-
-                            <label for="" style="text-transform: uppercase;">Titulo Habilidad</label>
-                            <input id="programa" name="titulo2" value="" type="text">
-
-                            <label for="" style="text-transform: uppercase;">Texto Habilidad</label>
-                            <input id="programa" name="principal_texto2" value="" type="text">
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button id="saveprograma" type="button" data-dismiss="modal" class="btn btn-primary">Listo</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Edit Cel -->
-        <div class="modal" id="EditCelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Introduce una Habilidad</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            <input type="hidden" name="id_perfil" value="{{ Auth::user()->id }}" id="">
-                        </button>
-                    </div>
-                    <div class="modal-bodyCel">
-                        <div class="box-inputs-modal">
-
-                            <label for="" style="text-transform: uppercase;">Titulo Habilidad</label>
-                            <input id="contacto" name="titulo3" value="" type="text">
-                            <label for="" style="text-transform: uppercase;">Texto Habilidad</label>
-                            <input id="programa" name="principal_texto3" value="" type="text">
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button id="savecontacto" type="button" data-dismiss="modal" class="btn btn-primary">Listo</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-
         <div class="grid-profile">
 
 
 
-            <div class="datos-user" style="justify-content: flex-end">
+            <div class="datos-user" style="justify-content: flex-end" id="formulario">
                 <div class="box-grid-datos">
+                    <button type="button" class="clonar btn btn-secondary btn-sm">+</button>
                     <div class="box-content-data">
-                        <label for="">
+
+                        <label for="habilidad">
                             <h6>HABILIDADES</h6>
                             <h6 id="email2"></h6>
                         </label>
+
                         <button type="button" class="btn btn-primary" data-toggle="modal"
                             data-target="#EditEmailModal">Editar</button>
-                    </div>
-                    <div class="box-content-data">
-                        <label for="">
-                            <h6>HABILIDADES</h6>
-                            <h6 id="programa2"></h6>
-                        </label>
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#EditCarrierModal">Editar</button>
 
-                    </div>
-                    <div class="box-content-data">
-                        <label for="">
-                            <h6>HABILIDADES</h6>
-                            <h6 id="contacto2"></h6>
-                        </label>
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#EditCelModal">Editar</button>
 
                     </div>
 
                 </div>
             </div>
+
 
             <div class="buttons-submit p-2 d-flex "
                 style=" width: 80%; grid-column-start: 2; justify-content: flex-end; align-items: center">

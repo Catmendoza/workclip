@@ -22,6 +22,8 @@ class CreatePerfilesTable extends Migration
             $table->string('instagram')->nullable();
             $table->string('facebook')->nullable();
             $table->string('git')->nullable();
+            $table->double('puntaje')->nullable();
+            $table->integer('estrella')->nullable();
             $table->timestamps();
         });
     }

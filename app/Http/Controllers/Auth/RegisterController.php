@@ -59,14 +59,14 @@ class RegisterController extends Controller
             'usuario' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:4', 'confirmed'],
             'edad' => ['required', 'numeric'],
-            'rol'=> ['required','numeric'],
-            'imagen'=>['required','string'],
-            'texto_quiensoy'=>['required','string'],
-            'nombre_empresa'=>['required','string'],
-            'instagram'=>['required','string'],
-            'facebook'=>['required','string'],
-            'git'=>['required','string'],
-            
+            'rol' => ['required', 'numeric'],
+            'imagen' => ['required', 'string'],
+            'texto_quiensoy' => ['required', 'string'],
+            'nombre_empresa' => ['required', 'string'],
+            'instagram' => ['required', 'string'],
+            'facebook' => ['required', 'string'],
+            'git' => ['required', 'string'],
+
         ]);
     }
 
@@ -90,12 +90,12 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'edad' => $data['edad'],
             'rol' => $data['rol'],
-            'imagen'=>$data['imagen'],
-            'texto_quiensoy'=>$data['texto_quiensoy'],
-            'nombre_empresa'=>$data['nombre_empresa'],
-            'instagram'=>$data['instagram'],
-            'facebook'=>$data['facebook'],
-            'git'=>$data['git'],
+            'imagen' => $data['imagen'],
+            'texto_quiensoy' => $data['texto_quiensoy'],
+            'nombre_empresa' => $data['nombre_empresa'],
+            'instagram' => $data['instagram'],
+            'facebook' => $data['facebook'],
+            'git' => $data['git'],
         ]);
     }
 }

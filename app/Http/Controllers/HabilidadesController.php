@@ -21,8 +21,6 @@ class HabilidadesController extends Controller
         //
 
         return view('createhabilidades');
-
-       
     }
 
     /**
@@ -45,16 +43,12 @@ class HabilidadesController extends Controller
     {
         //
 
-        
+
         $habilidades = new Habilidades();
         $habilidades->id_perfil = request('id_perfil');
-      
-        $habilidades->titulo1 = request('titulo1');
-        $habilidades->principal_texto1=request('principal_texto1');
-        $habilidades->titulo2 = request('titulo2');
-        $habilidades->principal_texto2=request('principal_texto2');
-        $habilidades->titulo3 = request('titulo3');
-        $habilidades->principal_texto3=request('principal_texto3');
+
+        $habilidades->titulo1 = request('titulo');
+        $habilidades->principal_texto1 = request('principal_texto');
 
         $habilidades->save();
 
@@ -83,7 +77,7 @@ class HabilidadesController extends Controller
         //
 
 
-        return view('edithabilidades',['datos'=>Habilidades::findOrFail($id)]);
+        return view('edithabilidades', ['datos' => Habilidades::findOrFail($id)]);
     }
 
     /**
@@ -99,18 +93,18 @@ class HabilidadesController extends Controller
 
 
         $habilidades = Habilidades::findOrFail($id);
-        $habilidades->id_perfil  =$request->get('id_perfil');
+        $habilidades->id_perfil  = $request->get('id_perfil');
         $habilidades->titulo1 = $request->get('titulo1');
-        $habilidades->principal_texto1=$request->get('principal_texto1');
+        $habilidades->principal_texto1 = $request->get('principal_texto1');
         $habilidades->titulo2 = $request->get('titulo2');
-        $habilidades->principal_texto2=$request->get('principal_texto2');
+        $habilidades->principal_texto2 = $request->get('principal_texto2');
         $habilidades->titulo3 = $request->get('titulo3');
-        $habilidades->principal_texto3=$request->get('principal_texto3');
+        $habilidades->principal_texto3 = $request->get('principal_texto3');
 
-        
+
         $habilidades->update();
-        
-        return view('edithabilidades',['datos'=>$habilidades]);
+
+        return view('edithabilidades', ['datos' => $habilidades]);
     }
 
     /**

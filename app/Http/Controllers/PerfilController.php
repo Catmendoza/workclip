@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use App\Perfil;
 use App\User;
@@ -22,35 +23,30 @@ class PerfilController extends Controller
     {
         //
 
-        $usuario = Auth::user()->all()->where('id','=',Auth::user()->id);
-        $hobbys = Hobby::all()->where('id_perfil','=',Auth::user()->id);
-        $habilidades = Habilidades::all()->where('id_perfil','=',Auth::user()->id);
-        $proyecto = Proyecto::all()->where('id_perfil','=',Auth::user()->id);
-        $producto = Producto::all()->where('id_perfil','=',Auth::user()->id);
-        $empleo = Empleo::all()->where('id_perfil','=',Auth::user()->id);
+        $usuario = Auth::user()->all()->where('id', '=', Auth::user()->id);
+        $hobbys = Hobby::all()->where('id_perfil', '=', Auth::user()->id);
+        $habilidades = Habilidades::all()->where('id_perfil', '=', Auth::user()->id);
+        $proyecto = Proyecto::all()->where('id_perfil', '=', Auth::user()->id);
+        $producto = Producto::all()->where('id_perfil', '=', Auth::user()->id);
+        $empleo = Empleo::all()->where('id_perfil', '=', Auth::user()->id);
 
-        return view("user")->with('usuarios',$usuario)->with('proyectos',$proyecto)->with('habilidad',$habilidades)->with('hobby',$hobbys)
-        ->with('productos',$producto)->with('empleos',$empleo);
+        return view("user")->with('usuarios', $usuario)->with('proyectos', $proyecto)->with('habilidad', $habilidades)->with('hobby', $hobbys)
+            ->with('productos', $producto)->with('empleos', $empleo);
     }
 
-    public function perfiles( Request $request){
+    public function perfiles(Request $request)
+    {
 
- 
-        if ($request){
+
+        if ($request) {
             $query = trim($request->get('search'));
-            $usuario = User::where('nombre','LIKE','%'.$query.'%')->orderBy('id','asc')->paginate(3);
+            $usuario = User::where('nombre', 'LIKE', '%' . $query . '%')->orderBy('id', 'asc')->paginate(3);
 
-       
 
-            
-        return view('searchprofiles',['usuarios'=>$usuario,'search'=>$query]);
+
+
+            return view('searchprofiles', ['usuarios' => $usuario, 'search' => $query]);
         }
-        
-     
-
-
-
-     
     }
 
     /**
@@ -60,7 +56,7 @@ class PerfilController extends Controller
      */
     public function create()
     {
-      
+        return redirect("/user");
     }
 
     /**
@@ -71,9 +67,17 @@ class PerfilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $puntaje = new Perfil();
+        $puntaje->id_usuario = request('id_usuario');
+        $puntaje->puntaje = request('puntaje');
 
-        
+        if ($puntaje->estrellas != null) {
+            $puntaje->estrellas = request('estrellas');
+        } else {
+        }
+        $puntaje->save();
+
+        return redirect("/publicaciones");
     }
 
     /**
@@ -86,17 +90,14 @@ class PerfilController extends Controller
     {
         //
         $perfil = User::findOrFail($id);
-        $proyecto = Proyecto::all()->where('id_perfil','=',$perfil->id);
-        $hobbys = Hobby::all()->where('id_perfil','=',$perfil->id);
-        $habilidades = Habilidades::all()->where('id_perfil','=',$perfil->id);
-        $producto = Producto::all()->where('id_perfil','=',$perfil->id);
-        $empleo = Empleo::all()->where('id_perfil','=',$perfil->id);
+        $proyecto = Proyecto::all()->where('id_perfil', '=', $perfil->id);
+        $hobbys = Hobby::all()->where('id_perfil', '=', $perfil->id);
+        $habilidades = Habilidades::all()->where('id_perfil', '=', $perfil->id);
+        $producto = Producto::all()->where('id_perfil', '=', $perfil->id);
+        $empleo = Empleo::all()->where('id_perfil', '=', $perfil->id);
 
-        return view('users')->with('proyectos',$proyecto)->with('usuario',$perfil)->with('habilidad',$habilidades)->with('hobby',$hobbys)
-        ->with('productos',$producto)->with('empleos',$empleo);;
-        
-
-
+        return view('users')->with('proyectos', $proyecto)->with('usuario', $perfil)->with('habilidad', $habilidades)->with('hobby', $hobbys)
+            ->with('productos', $producto)->with('empleos', $empleo);;
     }
 
     /**
@@ -110,7 +111,7 @@ class PerfilController extends Controller
         //
         $usuario = Auth::user()->all();
 
-        return view('editperfil',['datos'=>User::findOrFail($id)])->with('usuarios',$usuario);
+        return view('editperfil', ['datos' => User::findOrFail($id)])->with('usuarios', $usuario);
     }
 
     /**
@@ -123,37 +124,37 @@ class PerfilController extends Controller
     public function update(Request $request, $id)
     {
         //
-        
+
         $perfil = User::findOrFail($id);
-        $perfil->texto_quiensoy =$request->get('texto_quiensoy');
-        $perfil->instagram =$request->get('instagram');
-        $perfil->facebook =$request->get('facebook');
-        $perfil->git =$request->get('git');
+        $perfil->texto_quiensoy = $request->get('texto_quiensoy');
+        $perfil->instagram = $request->get('instagram');
+        $perfil->facebook = $request->get('facebook');
+        $perfil->git = $request->get('git');
         $perfil->programa = $request->get('programa');
         $perfil->contacto = $request->get('contacto');
         $perfil->email = $request->get('email');
+        $perfil->puntaje = $request->get('puntaje');
+        $perfil->puntaje = $request->get('estrellas');
 
-    
-    
 
-        if($request->file("imagen")==null){
+
+
+        if ($request->file("imagen") == null) {
             $perfil->imagen = User::findOrFail($id)->imagen;
-        
-
-        }else{
-        $archivo = $request->file("imagen");
-        $destino = "imagenes_usuarios/";
-        $nombre = strtotime(date("Y-m-d-H:isa")).$archivo->getClientOriginalName();
-        $archivo->move($destino,$nombre);
-        $perfil->imagen = $destino.$nombre;
+        } else {
+            $archivo = $request->file("imagen");
+            $destino = "imagenes_usuarios/";
+            $nombre = strtotime(date("Y-m-d-H:isa")) . $archivo->getClientOriginalName();
+            $archivo->move($destino, $nombre);
+            $perfil->imagen = $destino . $nombre;
         }
 
-       
+
 
 
         $perfil->update();
-        
-        return redirect('/perfil/'.$id.'/edit');
+
+        return redirect('/perfil/' . $id . '/edit');
     }
 
     /**

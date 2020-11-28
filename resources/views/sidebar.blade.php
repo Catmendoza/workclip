@@ -36,41 +36,90 @@
                 <h1><a href="{{ url('/proyecto') }}" class="logo">WorkClip </a><span>Editar Perfil</span></h1>
                 <ul class="list-unstyled components mb-5">
                     <li class="">
-                        <a href="{{url("/perfil")}}"><span class="fa fa-home mr-3"></span> Mi Perfil</a>
+                        <a href="{{ url('/perfil') }}"><span class="fa fa-home mr-3"></span> Mi Perfil</a>
                     </li>
                     <li class="active">
-                        <a href="{{route('perfil.edit',Auth::user()->id)}}"><span class="fa fa-user mr-3"></span> Datos personales</a>
+                        <a href="{{ route('perfil.edit', Auth::user()->id) }}"><span class="fa fa-user mr-3"></span>
+                            Datos personales</a>
                     </li>
                     <li>
                         @php
-                            $aux=DB::table('habilidades')->where('id_perfil','=',Auth::user()->id)->count();
-                            $aux2=DB::table('hobbys')->where('id_perfil','=',Auth::user()->id)->count();
+                        $aux=DB::table('habilidades')->where('id_perfil','=',Auth::user()->id)->count();
+                        $aux2=DB::table('hobbys')->where('id_perfil','=',Auth::user()->id)->count();
                         @endphp
-                        
-                        @if ($aux==null)
-                        <a href="{{url("/edit-habilidades")}}"><span class="fa fa-briefcase mr-3"></span>Mis habilidades</a>
-                        
-                        @endif
 
-                        @if ($aux!=null)
-                        <a href="{{route('edit-habilidades.edit',Auth::user()->id)}}"><span class="fa fa-briefcase mr-3"></span>Mis habilidades</a>
+                        @if ($aux == null)
+                            <a href="{{ url('/edit-habilidades') }}"><span class="fa fa-briefcase mr-3"></span>Mis
+                                habilidades</a>
 
                         @endif
-                    
+
+                        @if ($aux != null)
+                            <a href="{{ route('edit-habilidades.edit', Auth::user()->id) }}"><span
+                                    class="fa fa-briefcase mr-3"></span>Mis habilidades</a>
+
+                        @endif
+
 
                     </li>
                     <li>
 
-                        @if ($aux2==null)
-                        <a href="{{url("/edit-hobbys")}}"><span class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
-                        
-                        @endif
-
-                        @if ($aux2!=null)
-                        <a href="{{route('edit-hobbys.edit',Auth::user()->id)}}"><span class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
+                        @if ($aux2 == null)
+                            <a href="{{ url('/edit-hobbys') }}"><span class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
 
                         @endif
-                        
+
+                        @if ($aux2 != null)
+                            <a href="{{ route('edit-hobbys.edit', Auth::user()->id) }}"><span
+                                    class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
+
+                        @endif
+
+                    </li>
+                    <li>
+
+                        @if ($aux2 == null)
+                            <a href="{{ url('/edit-hobbys') }}"><span class="fa fa-briefcase mr-3"></span>Mi
+                                experiencia</a>
+
+                        @endif
+
+                        @if ($aux2 != null)
+                            <a href="{{ route('edit-hobbys.edit', Auth::user()->id) }}"><span
+                                    class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
+
+                        @endif
+
+                    </li>
+                    <li>
+
+                        @if ($aux2 == null)
+                            <a href="{{ url('/edit-hobbys') }}"><span class="fa fa-briefcase mr-3"></span>Subir hoja de
+                                vida</a>
+
+                        @endif
+
+                        @if ($aux2 != null)
+                            <a href="{{ route('edit-hobbys.edit', Auth::user()->id) }}"><span
+                                    class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
+
+                        @endif
+
+                    </li>
+                    <li>
+
+                        @if ($aux2 == null)
+                            <a href="{{ url('/edit-hobbys') }}"><span class="fa fa-briefcase mr-3"></span>Mi
+                                educación</a>
+
+                        @endif
+
+                        @if ($aux2 != null)
+                            <a href="{{ route('edit-hobbys.edit', Auth::user()->id) }}"><span
+                                    class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
+
+                        @endif
+
                     </li>
 
                 </ul>
@@ -81,7 +130,7 @@
                         WorkClip Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-    
+
                         </script> <br> All rights reserved | This template is made with <i class="icon-heart"
                             aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -95,22 +144,22 @@
         <!-- Page Content  -->
 
         <div id="content" class="p-4 p-md-2 pt-5">
-         
+
             @yield('content-sidebar')
         </div>
     </div>
 
 
- 
 
 
-@section('sc')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-@endsection
+
+    @section('sc')
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    @endsection
 
 
 
