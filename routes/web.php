@@ -20,23 +20,23 @@ Route::get('/', function () {
 
 
 //->middleware(("auth"))
-Route::get('/user',function(){
+Route::get('/user', function () {
     return view('user');
 });
 
 Route::resource('/usuario', 'UserController');
 Route::resource('/proyecto', 'ProyectoController');
 Route::resource('/comentario', 'ComentarioController');
-Route::resource('/producto','ProductoController');
-Route::resource('/perfil','PerfilController');
-Route::resource('/edit-habilidades','HabilidadesController');
-Route::resource('/edit-hobbys','HobbyController');
-Route::resource('/publicaciones','PublicacionController');
-Route::resource('/empleo','EmpleoController');
+Route::resource('/producto', 'ProductoController');
+Route::resource('/perfil', 'PerfilController');
+Route::resource('/edit-habilidades', 'HabilidadesController');
+Route::resource('/edit-hobbys', 'HobbyController');
+Route::resource('/publicaciones', 'PublicacionController');
+Route::resource('/empleo', 'EmpleoController');
 
 
-Route::get('/perfiles','PerfilController@perfiles');
-Route::post('/retornar','PublicacionController@retornar');
+Route::get('/perfiles', 'PerfilController@perfiles');
+Route::post('/retornar', 'PublicacionController@retornar');
 
 Auth::routes();
 
@@ -44,3 +44,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/auth/redirect/{provider}', 'GoogleLoginController@redirect');
 Route::get('/callback/{provider}', 'GoogleLoginController@callback');
+
+Route::get('pdfview', array('as' => 'pdfview', 'uses' => 'BestInterviewQuestionController@pdfview'));

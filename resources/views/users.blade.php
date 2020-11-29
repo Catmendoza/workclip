@@ -66,7 +66,7 @@
                         </div>
                         <div class="footer-profile">
                             <button class="btn-footer contact">Contacta me</button>
-                            <button class="btn-footer cv">Descargar CV</button>
+                            <button class="btn-footer cv" href="{{ route('pdfview') }}">Descargar CV</button>
 
 
                         </div>
@@ -203,74 +203,74 @@
 
                                 @endforeach
 
-                                @foreach($productos as $producto)
-     
-                             
-                               
-                             
-                                <div class="carrusel_itemsInline">
-                                  
-                                    <div class="carrusel_itemsFlex">
+                                @foreach ($productos as $producto)
 
-                                        <div class="carrusel_cont_items-img">
-                                            <img class="carrusel_items-img" src="{{asset($producto->imagen)}}" alt="">
-                                        </div>
 
-                                        <div class="carrusel_item-content">
-                                            <div class="title-projects">
-                                                <h1>{{$producto->nombre_producto}}</h1>
+
+
+                                    <div class="carrusel_itemsInline">
+
+                                        <div class="carrusel_itemsFlex">
+
+                                            <div class="carrusel_cont_items-img">
+                                                <img class="carrusel_items-img" src="{{ asset($producto->imagen) }}" alt="">
                                             </div>
 
-                                            <div class="text-projects">
+                                            <div class="carrusel_item-content">
+                                                <div class="title-projects">
+                                                    <h1>{{ $producto->nombre_producto }}</h1>
+                                                </div>
 
-                                                <p>{{$producto->descripcion}}</p>
-                                                <p>{{$producto->precio}}</p>
+                                                <div class="text-projects">
+
+                                                    <p>{{ $producto->descripcion }}</p>
+                                                    <p>{{ $producto->precio }}</p>
+
+                                                </div>
+
+
 
                                             </div>
 
 
-
                                         </div>
-
-
                                     </div>
-                                </div>
 
-                          
-                                
 
-                        
-                        
+
+
+
+
 
 
                                 @endforeach
 
-                                @if($proyectos->count()==0 || $productos->count()==0)
-                                <div class="carrusel_itemsInline">
+                                @if ($proyectos->count() == 0 || $productos->count() == 0)
+                                    <div class="carrusel_itemsInline">
 
-                                    <div class="carrusel_itemsFlex">
+                                        <div class="carrusel_itemsFlex">
 
-                                       
 
-                                        <div class="carrusel_item-content">
-                                            <div class="title-projects">
-                                                <h1>Faltan proyectos<br> o productos</h1>
+
+                                            <div class="carrusel_item-content">
+                                                <div class="title-projects">
+                                                    <h1>Faltan proyectos<br> o productos</h1>
+                                                </div>
+
+                                                <div class="text-projects">
+
+                                                    <p>¿Que esperas para publicar?</p>
+
+                                                </div>
+
+
+
+
                                             </div>
-
-                                            <div class="text-projects">
-
-                                                <p>¿Que esperas para publicar?</p>
-
-                                            </div>
-
-                                           
 
 
                                         </div>
-
-
                                     </div>
-                                </div>
                                 @endif
 
 
@@ -315,50 +315,50 @@
 
                 </div>
 
-                @foreach($hobby as $hobbys)
-                    
-               
-                <div class="box-cards-hobbys">
-                    <div class="contenedor_tarjeta">
-                        <a>
-                            <figure id="tarjeta">
-                                <img src="{{asset("./img/mascaras.svg")}}" class="frontal" alt="">
-                                <figcaption class="trasera">
-                                    <h2 class="titulo">Cultura</h2>
-                                    <hr>
-                                <p>{{$hobbys->cultura}}</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
+                @foreach ($hobby as $hobbys)
 
-                    <div class="contenedor_tarjeta">
-                        <a>
-                            <figure id="tarjeta">
-                                <img src="{{asset("./img/comer.svg")}}" class="frontal" alt="">
-                                <figcaption class="trasera">
-                                    <h2 class="titulo">Comida</h2>
-                                    <hr>
-                                    <p>{{$hobbys->comida}}</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
 
-                    <div class="contenedor_tarjeta">
-                        <a>
-                            <figure id="tarjeta">
-                                <img src="{{asset("./img/nadar.svg")}}" class="frontal" alt="">
-                                <figcaption class="trasera">
-                                    <h2 class="titulo">Deporte</h2>
-                                    <hr>
-                                <p>{{$hobbys->deporte}}</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
+                    <div class="box-cards-hobbys">
+                        <div class="contenedor_tarjeta">
+                            <a>
+                                <figure id="tarjeta">
+                                    <img src="{{ asset('./img/mascaras.svg') }}" class="frontal" alt="">
+                                    <figcaption class="trasera">
+                                        <h2 class="titulo">Cultura</h2>
+                                        <hr>
+                                        <p>{{ $hobbys->cultura }}</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
 
-                </div>
+                        <div class="contenedor_tarjeta">
+                            <a>
+                                <figure id="tarjeta">
+                                    <img src="{{ asset('./img/comer.svg') }}" class="frontal" alt="">
+                                    <figcaption class="trasera">
+                                        <h2 class="titulo">Comida</h2>
+                                        <hr>
+                                        <p>{{ $hobbys->comida }}</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+
+                        <div class="contenedor_tarjeta">
+                            <a>
+                                <figure id="tarjeta">
+                                    <img src="{{ asset('./img/nadar.svg') }}" class="frontal" alt="">
+                                    <figcaption class="trasera">
+                                        <h2 class="titulo">Deporte</h2>
+                                        <hr>
+                                        <p>{{ $hobbys->deporte }}</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+
+                    </div>
 
                 @endforeach
             </div>
@@ -381,23 +381,23 @@
 
                 <div class="cards-habilities">
 
-                    @foreach($habilidad as $habilidades)
-                        
-             
-                    <div class="box box1">
-                        <h4>{{$habilidades->titulo1}}</h4>
-                        <p>{{$habilidades->principal_texto1}}</p>
-                    </div>
-                    <div class="box box2">
-                        <h4>{{$habilidades->titulo2}}</h4>
-                        <p>{{$habilidades->principal_texto2}}</p>
-                    </div>
-                    <div class="box box3">
-                        <h4>{{$habilidades->titulo3}}</h4>
-                        <p>{{$habilidades->principal_texto3}}</p>
-                    </div>
+                    @foreach ($habilidad as $habilidades)
 
-@endforeach
+
+                        <div class="box box1">
+                            <h4>{{ $habilidades->titulo1 }}</h4>
+                            <p>{{ $habilidades->principal_texto1 }}</p>
+                        </div>
+                        <div class="box box2">
+                            <h4>{{ $habilidades->titulo2 }}</h4>
+                            <p>{{ $habilidades->principal_texto2 }}</p>
+                        </div>
+                        <div class="box box3">
+                            <h4>{{ $habilidades->titulo3 }}</h4>
+                            <p>{{ $habilidades->principal_texto3 }}</p>
+                        </div>
+
+                    @endforeach
 
 
                 </div>
@@ -465,10 +465,10 @@
 
 @section('sc')
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="{{ asset('js/tabs.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/modal-login.js') }}">
-</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ asset('js/tabs.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/modal-login.js') }}">
+    </script>
 
 @endsection
