@@ -231,12 +231,17 @@
         <input type="hidden"value="#" name="facebook">
         <input type="hidden"value="#" name="git">
                     <div class="btn-register-submit" style="padding-top: 100px;">
-                        <input class="btn btn-primary" type="submit" value="Registrarme" />
+                        <input class="btn btn-primary btn-register" type="submit" value="Registrarme" />
                     </div>
         
-                    <div class="form-group row mb-0">
-                    <div class="col-md-8 offset-md-4">
-                    <a href="{{ url('/auth/redirect/google') }}" class="btn btn-primary"><i class="fa fa-google"></i> Google</a>
+                    <div class="form-group row mb-0 google-content">
+                    <div class="col-md-8 offset-md-4 btn-google-container">
+                        <button formaction="https://www.youtube.com/watch?v=1KhZKNZO8mQ" class="googleSignIn googleSignIn--white">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/G-on-clear.svg" alt="Google logo">
+                            <span class="googleSignIn__text"><a href="{{ url('/auth/redirect/google') }}">Registrarme con Google</a></span>
+                          </button>
+
+                
                     </div>
                     </div>
                 </div>
@@ -244,8 +249,6 @@
 
             </div>
         </section>
-
-
 
     </form>
 
