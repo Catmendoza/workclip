@@ -5,14 +5,15 @@
     <meta charset="UTF-8" />
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     @yield('css')
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Roboto&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@600&display=swap"
         rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;500&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
 
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Roboto:wght@700;900&family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     @section('css')
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -29,14 +30,14 @@
             <div class="container nav">
 
                 <div class="logo">
-                    <a href="{{ url('/publicaciones') }}">WORKCLIP</a>
+                    <a href="{{ url('/publicaciones') }}" style="line-height: 30px; ">WORK<span>CLIP</span></a>
                 </div>
                 @guest
 
 
                     <div class="container-btns-nav">
                         <div class="login-btn-nav">
-                            <button id="btn-login">Iniciar Sesion</a>
+                            <button id="btn-login">Iniciar sesion</a>
                         </div>
                         @if (Route::has('register'))
                             <div class="register-btn-nav">
