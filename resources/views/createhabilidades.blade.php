@@ -123,10 +123,18 @@
                     <div class="modal-bodyEmail">
                         <div class="box-inputs-modal">
 
-                            <label for="" style="text-transform: uppercase;">Aptitud</label>
-                            <input id="email" name="titulo1" value="">
+
                             <label for="" style="text-transform: uppercase;">Selecciona una aptitud</label>
-                            <input id="programa" name="principal_texto1" value="" type="text">
+                            
+                            <select name="aptitudes" id="apt-select">
+                                <option value="">Ninguna</option>
+                                <option value="Capacidad de iniciativa">Capacidad de iniciativa</option>
+                                <option value="Capacidad para resolver problemas">Capacidad para resolver problemas</option>
+                                <option value="Trabajo en equipo">Trabajo en equipo</option>
+                                <option value="Versatilidad">Versatilidad</option>
+                                <option value="Creatividad">Creatividad</option>
+                                <option value="Liderazgo">Liderazgo</option>
+                            </select>
                         </div>
 
                     </div>
@@ -145,7 +153,7 @@
       <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Introduce una Habilidad</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Introduce una aptitud</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
@@ -153,10 +161,16 @@
               <div class="modal-bodyEmail">
                   <div class="box-inputs-modal">
 
-                      <label for="" style="text-transform: uppercase;">Titulo Habilidad</label>
-                      <input id="email" name="titulo1" value="">
-                      <label for="" style="text-transform: uppercase;">Texto Habilidad</label>
-                      <input id="programa" name="principal_texto1" value="" type="text">
+                      <label for="" style="text-transform: uppercase;">Selecciona una aptitud</label>
+                      <select name="aptitudes" id="apt-select">
+                        <option value="">Ninguna</option>
+                        <option value="Capacidad de iniciativa">Capacidad de iniciativa</option>
+                        <option value="Capacidad para resolver problemas">Capacidad para resolver problemas</option>
+                        <option value="Trabajo en equipo">Trabajo en equipo</option>
+                        <option value="Versatilidad">Versatilidad</option>
+                        <option value="Creatividad">Creatividad</option>
+                        <option value="Liderazgo">Liderazgo</option>
+                    </select>
                   </div>
 
               </div>
@@ -178,7 +192,7 @@
                 <div class="box-grid-datos">
                     <div class="box-content-data">
                         <label for="">
-                            <h6>HABILIDADES</h6>
+                            <h6>HABILIDAD 1</h6>
                             <h6 id="email2"></h6>
                         </label>
                         <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -186,7 +200,7 @@
                     </div>
                     <div class="box-content-data">
                         <label for="">
-                            <h6>HABILIDADES</h6>
+                            <h6>HABILIDAD 2</h6>
                             <h6 id="programa2"></h6>
                         </label>
                         <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -195,7 +209,7 @@
                     </div>
                     <div class="box-content-data">
                         <label for="">
-                            <h6>HABILIDADES</h6>
+                            <h6>HABILIDAD 3</h6>
                             <h6 id="contacto2"></h6>
                         </label>
                         <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -210,7 +224,7 @@
                 <div class="box-grid-datos">
                     <div class="box-content-data">
                         <label for="">
-                            <h6>Aptitudes</h6>
+                            <h6>Aptitud 1</h6>
                             <h6 id="email2"></h6>
                         </label>
                         <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -218,7 +232,7 @@
                     </div>
                     <div class="box-content-data">
                         <label for="">
-                            <h6>Aptitudes</h6>
+                            <h6>Aptitud 2</h6>
                             <h6 id="programa2"></h6>
                         </label>
                         <button type="button" class="btn btn-primary" data-toggle="modal"
