@@ -706,6 +706,8 @@ $animation: push;
             display: inline-block;
             vertical-align: middle;
             margin: 5px 5px;
+            width: 78% !important;
+            object-fit: cover;
             border-radius: 50%;
         }
     }

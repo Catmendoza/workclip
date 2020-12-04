@@ -18,9 +18,6 @@
 
 
 
-
-
-
         <!-- Modal Edit Email -->
         <div class="modal" id="EditEmailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -112,7 +109,64 @@
 
 
 
+        <!-- Modal Edit Aptitud 1 -->
+        <div class="modal" id="EditApt1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Introduce una aptitud</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-bodyEmail">
+                        <div class="box-inputs-modal">
 
+                            <label for="" style="text-transform: uppercase;">Aptitud</label>
+                            <input id="email" name="titulo1" value="">
+                            <label for="" style="text-transform: uppercase;">Selecciona una aptitud</label>
+                            <input id="programa" name="principal_texto1" value="" type="text">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="saveemail" type="button" class="btn btn-primary" data-dismiss="modal">Listo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+      <!-- Modal Edit Aptitud 2 -->
+      <div class="modal" id="EditApt2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Introduce una Habilidad</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-bodyEmail">
+                  <div class="box-inputs-modal">
+
+                      <label for="" style="text-transform: uppercase;">Titulo Habilidad</label>
+                      <input id="email" name="titulo1" value="">
+                      <label for="" style="text-transform: uppercase;">Texto Habilidad</label>
+                      <input id="programa" name="principal_texto1" value="" type="text">
+                  </div>
+
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button id="saveemail" type="button" class="btn btn-primary" data-dismiss="modal">Listo</button>
+              </div>
+          </div>
+      </div>
+  </div>
 
 
 
@@ -151,6 +205,32 @@
 
                 </div>
             </div>
+
+            <div class="datos-user" style="justify-content: flex-end">
+                <div class="box-grid-datos">
+                    <div class="box-content-data">
+                        <label for="">
+                            <h6>Aptitudes</h6>
+                            <h6 id="email2"></h6>
+                        </label>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#EditApt1">Editar</button>
+                    </div>
+                    <div class="box-content-data">
+                        <label for="">
+                            <h6>Aptitudes</h6>
+                            <h6 id="programa2"></h6>
+                        </label>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#EditApt2">Editar</button>
+
+                    </div>
+           
+
+                </div>
+            </div>
+
+            
 
             <div class="buttons-submit p-2 d-flex "
                 style=" width: 80%; grid-column-start: 2; justify-content: flex-end; align-items: center">

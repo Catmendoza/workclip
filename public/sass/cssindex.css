@@ -779,6 +779,9 @@ nav i {
   display: inline-block;
   vertical-align: middle;
   margin: 5px 5px;
+  width: 78% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
 }
 
