@@ -1,0 +1,40 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.titulo{
+    font-size: 50px;
+    line-height: 20px;
+    font-family: 'Poppins', sans-serif;
+   
+}
+.subtitulo{
+    font-size: 55px;
+    font-family: 'Poppins', sans-serif;
+    color: #1c2347;
+}
+
+hr{
+    background: #1c2347
+}
+
+.textoTitulos{
+    font-family: 'Poppins', sans-serif;
+    color: #1c2347;
+    font-size: 25px;
+}
+
+.texto{
+    font-family: 'Poppins', sans-serif;
+}
+
+.progreso{
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10%;
+    width: 100%;
+}

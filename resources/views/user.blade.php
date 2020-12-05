@@ -41,13 +41,17 @@
 
                     <div class="data-info-user">
 
-
                         <div class="content-margin-profile">
                             <div class="header-titles-profile">
                                 <label>{{ $usuario->nombre }}</label>
                                 @php
                                 $aux;
 
+                        <div class="content-margin-profile">
+                            <div class="header-titles-profile">
+                                <label>{{ $usuario->nombre }}</label>
+                                @php
+                                $aux;
                                 if ($usuario->rol == 0){
                                 $aux="Empresario";
                                 }else{
@@ -63,7 +67,6 @@
                                 <label style="grid-row-start: 3; font-weight: bold;">Email</label>
                                 <label style="grid-row-start: 4; font-weight: bold">Edad</label>
 
-
                                 <label>{{ $usuario->programa }}</label>
                                 <label>{{ $usuario->contacto }}</label>
                                 <label>{{ $usuario->email }}</label>
@@ -72,7 +75,9 @@
                             </div>
                             <div class="footer-profile">
                                 <button class="btn-footer contact">Contacta me</button>
-                                <button class="btn-footer cv">Descargar CV</button>
+
+                                <a class="btn-footer cv" href="{{ route('pdfview') }}">Descargar CV</a>
+
 
                                 <a href="{{ route('perfil.edit', $usuario->id) }}" style="background:red;"
                                     class="btn-footer edit">EDITALO</a>
@@ -143,6 +148,7 @@
 
 
         </section>
+
     </div>
     <section class="habilities-section">
         <div class="contenedor2 habilities">
@@ -258,13 +264,10 @@
                                     @endforeach
                                 </div>
 
-
-
                                 @if ($proyectos->count() == 0 || $productos->count() == 0)
                                     <div class="carrusel_itemsInline">
 
                                         <div class="carrusel_itemsFlex">
-
 
                                             <div class="carrusel_item-content">
                                                 <div class="title-projects">
@@ -282,6 +285,7 @@
 
                                             </div>
 
+                                            </div>
 
                                         </div>
                                     </div>
@@ -329,9 +333,51 @@
                         Aún no hay hobbys.
                     @endif
 
-
-
                 </div>
+
+                @foreach ($hobby as $hobbys)
+
+
+                    <div class="box-cards-hobbys">
+                        <div class="contenedor_tarjeta">
+                            <a>
+                                <figure id="tarjeta">
+                                    <img src="{{ asset('./img/mascaras.svg') }}" class="frontal" alt="">
+                                    <figcaption class="trasera">
+                                        <h2 class="titulo">Cultura</h2>
+                                        <hr>
+                                        <p>{{ $hobbys->cultura }}</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+
+                        <div class="contenedor_tarjeta">
+                            <a>
+                                <figure id="tarjeta">
+                                    <img src="{{ asset('./img/comer.svg') }}" class="frontal" alt="">
+                                    <figcaption class="trasera">
+                                        <h2 class="titulo">Comida</h2>
+                                        <hr>
+                                        <p>{{ $hobbys->comida }}</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+
+                        <div class="contenedor_tarjeta">
+                            <a>
+                                <figure id="tarjeta">
+                                    <img src="{{ asset('./img/nadar.svg') }}" class="frontal" alt="">
+                                    <figcaption class="trasera">
+                                        <h2 class="titulo">Deporte</h2>
+                                        <hr>
+                                        <p>{{ $hobbys->deporte }}</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                    </div>
 
                 @foreach ($hobby as $hobbys)
 
