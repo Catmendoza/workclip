@@ -2,10 +2,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 
-
-
-
-
 <div>
 
     <a href="{{ route('pdfview', ['download' => 'pdf']) }}">Download PDF</a>
@@ -61,16 +57,15 @@
             <div class="progreso col-6">
                 <div class="row">
                     <div>
-                        <label for="file">File progress:</label>
-                        <progress id="file" max="100" value="70"> 70% </progress>
+                        <span></span>
                     </div>
                     <div>
-                        <label for="file">File progress:</label>
-                        <progress id="file" max="100" value="70"> 70% </progress>
+                    <span></span>
+                        
                     </div>
                     <div>
-                        <label for="file">File progress:</label>
-                        <progress id="file" max="100" value="70"> 70% </progress>
+                    <span></span>
+                        
                     </div>
 
                 </div>
@@ -78,30 +73,7 @@
             </div>
 
         </div>
-        <div class="row " style="margin-left: 10%; margin-top:5%">
-            <div class="contenedorTitulos">
-                <div class="textoTitulos">Habilidades</div>
-            </div>
-            <div class="progreso col-6">
-                <div class="row">
-                    <div>
-                        <label for="file">File progress:</label>
-                        <progress id="file" max="100" value="70"> 70% </progress>
-                    </div>
-                    <div>
-                        <label for="file">File progress:</label>
-                        <progress id="file" max="100" value="70"> 70% </progress>
-                    </div>
-                    <div>
-                        <label for="file">File progress:</label>
-                        <progress id="file" max="100" value="70"> 70% </progress>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
+        
 
 
     </div>
