@@ -71,10 +71,9 @@
          
                         </div>
                         <div class="footer-profile">
-                            <button class="btn-footer contact">Contacta me</button>
-                            <button class="btn-footer cv">Descargar CV</button>
+     
 
-                        <a href="{{route('perfil.edit',$usuario->id)}}"style="background:red;" class="btn-footer edit">EDITALO</a>
+                        <a href="{{route('perfil.edit',$usuario->id)}}"style="background:red;" class="btn-footer edit-profile-btn">Editar perfil</a>
                         </div>
                     </div>
 
@@ -100,29 +99,56 @@
 
                                 <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
                                     
-                                    <li class="tab tabs-li"><a class="active" href="#tab2">Actitudes</a></li>
-                                    <li class="tab tabs-li"><a href="#tab3">Meta</a></li>
+                                    <li class="tab tabs-li"><a class="active" href="#tab2">Aptitud 1</a></li>
+                                    <li class="tab tabs-li"><a href="#tab3">Aptitud 2</a></li>
                                 </ul>
 
                             </div>
 
                             <div class="tab-body">
 
-                                <div class="tab-box" id="tab2">
-                                    <i class="fas fa-bolt"></i>
-                                    <p>Estas son mis Actitudes como estudiante y trabajador:</p>
-                                    
-                                    @foreach($habilidad as $habilidades)
-                                    <br><p>1.{{$habilidades->aptitud1}}</p>
-                                    <br><p>2.{{$habilidades->aptitud2}}</p>
-                                    @endforeach
-                                </div>
-                                <div class="tab-box" id="tab3">
-                                    <i class="fas fa-meteor center-align"></i>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione iusto maxime
-                                        deserunt minus incidunt soluta reiciendis, recusandae, fuga sit fugit necessitatibus
-                                        iste quasi, accusantium facere.</p>
-                                </div>
+                                <div class="tab-box" id="tab2" style="width: 100%;">
+                             
+                                
+                                        
+                                    @if ($habilidad->count()==0)
+                                    <i class="fas fa-rocket" style="opacity: .5"></i>
+                                        <h5 style="opacity: .5; color: #707070">Aún no hay aptitudes.</h5>
+                                    @endif
+
+                                    @if ($habilidad->count()!=0)
+                                    <i class="fas fa-rocket"></i>
+                                        @foreach($habilidad as $habilidades)
+                                          
+                                            @if ($habilidades->aptitud1 == NULL)
+                                              <h5 style="opacity: .5; color: #707070">Aún no hay aptitudes.</h5>
+                                            @else
+                                            <br><p>{{$habilidades->aptitud1}}</p>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                         
+                            </div>
+                            <div class="tab-box" id="tab3" style="width: 100%;">
+                       
+                                     @if ($habilidad->count()==0)
+                                        <i class="fas fa-bolt" style="opacity: .5"></i>
+                                        <h5 style="opacity: .5; color: #707070">Aún no hay aptitudes.</h5>
+                                    @endif
+
+                                    @if ($habilidad->count()!=0)
+                                        <i class="fas fa-bolt"></i>
+                                        @foreach($habilidad as $habilidades)
+                                            
+                                            @if ($habilidades->aptitud2 == NULL)
+                                            <h5 style="opacity: .5; color: #707070">Aún no hay aptitudes.</h5>
+                                            @else
+                                            <br><p>{{$habilidades->aptitud2}}</p>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                        
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -145,46 +171,56 @@
         <div class="contenedor2 habilities">
             <div class="content-habilities">
 
+                @if ($habilidad->count()==0)
+                    <h1>Habilidades</h1>
+                <div class="content-img-emptyhabi">
+                
+                    <img src="{{ asset('img/emptyhabi.svg') }}" alt="">
+                    <h1>Aun no hay habilidades.</h1>
+
+                </div>
+
+                @endif
+                @if ($habilidad->count()!=0)
                 <div class="textos-habilities">
                     <h1>Habilidades</h1>
-                    <div>
 
-                        @if ($habilidad->count()==0)
-Aún no hay habilidades.
-@endif
-@if ($habilidad->count()!=0)
-<p>Estas son algunas de mis habilidades.</p>
-@endif
-                       
-                    </div>
 
                 </div>
 
                 <div class="cards-habilities">
 
+
+
+
+                       
+               
+
                     @foreach($habilidad as $habilidades)
                         
-             
-                    <div class="box box1">
-                        <h4>{{$habilidades->titulo1}}</h4>
-                        <p>{{$habilidades->principal_texto1}}</p>
-                    </div>
-                    <div class="box box2">
-                        <h4>{{$habilidades->titulo2}}</h4>
-                        <p>{{$habilidades->principal_texto2}}</p>
-                    </div>
-                    <div class="box box3">
-                        <h4>{{$habilidades->titulo3}}</h4>
-                        <p>{{$habilidades->principal_texto3}}</p>
-                    </div>
+                
+                        <div class="box box1">
+                            <h4>{{$habilidades->titulo1}}</h4>
+                            <p>{{$habilidades->principal_texto1}}</p>
+                        </div>
+                        <div class="box box2">
+                            <h4>{{$habilidades->titulo2}}</h4>
+                            <p>{{$habilidades->principal_texto2}}</p>
+                        </div>
+                        <div class="box box3">
+                            <h4>{{$habilidades->titulo3}}</h4>
+                            <p>{{$habilidades->principal_texto3}}</p>
+                        </div>
 
-@endforeach
+                @endforeach
 
 
 
 
 
                 </div>
+                @endif
+
             </div>
         </div>
     </section>
@@ -341,79 +377,74 @@ Aún no hay habilidades.
 
 
     <section class="hobbys-section">
-
-        <svg class="divider hobbys-top" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1366 112"
-            style="enable-background:new 0 0 1366 112;" xml:space="preserve">
-            <style type="text/css">
-                .st0 {
-                    fill: #1c2347;
-                }
-
-            </style>
-            <polygon class="st0" points="-107.9,-7.3 1570.1,-7.3 -107.9,120 " />
-        </svg>
-
-
         <div class="contenedor2 hobbys">
             <div class="content-hobbys">
-                <div class="titulo-hobbys">
-                    <h1>HOBBYS </h1>
-
-                    @if ($hobby->count()==0)
-                    Aún no hay hobbys.
-                    @endif
-             
 
 
-                </div>
-
-                @foreach($hobby as $hobbys)
+                @if ($hobby->count()==0)
+                <h1>Hobbies</h1>
+                    <div class="content-img-emptyhobby">
                     
-               
-                <div class="box-cards-hobbys">
-                    <div class="contenedor_tarjeta">
-                        <a>
-                            <figure id="tarjeta">
-                                <img src="{{asset("./img/mascaras.svg")}}" class="frontal" alt="">
-                                <figcaption class="trasera">
-                                    <h2 class="titulo">Cultura</h2>
-                                    <hr>
-                                <p>{{$hobbys->cultura}}</p>
-                                </figcaption>
-                            </figure>
-                        </a>
+                        <img src="{{ asset('img/emptyhobby.svg') }}" alt="">
+                        <h1>Aun no hay hobbys.</h1>
+
                     </div>
 
-                    <div class="contenedor_tarjeta">
-                        <a>
-                            <figure id="tarjeta">
-                                <img src="{{asset("./img/comer.svg")}}" class="frontal" alt="">
-                                <figcaption class="trasera">
-                                    <h2 class="titulo">Comida</h2>
-                                    <hr>
-                                    <p>{{$hobbys->comida}}</p>
-                                </figcaption>
-                            </figure>
-                        </a>
+                @endif
+                @if ($hobby->count()!=0)
+                    <div class="titulo-hobbys">
+                        <h1>Hobbies </h1>
+                
                     </div>
 
-                    <div class="contenedor_tarjeta">
-                        <a>
-                            <figure id="tarjeta">
-                                <img src="{{asset("./img/nadar.svg")}}" class="frontal" alt="">
-                                <figcaption class="trasera">
-                                    <h2 class="titulo">Deporte</h2>
-                                    <hr>
-                                <p>{{$hobbys->deporte}}</p>
-                                </figcaption>
-                            </figure>
-                        </a>
+                    @foreach($hobby as $hobbys)
+                        
+                
+                    <div class="box-cards-hobbys">
+                        <div class="contenedor_tarjeta">
+                            <a>
+                                <figure id="tarjeta">
+                                    <img src="{{asset("./img/mascaras.svg")}}" class="frontal" alt="">
+                                    <figcaption class="trasera">
+                                        <h2 class="titulo">Cultura</h2>
+                                        <hr>
+                                    <p>{{$hobbys->cultura}}</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+
+                        <div class="contenedor_tarjeta">
+                            <a>
+                                <figure id="tarjeta">
+                                    <img src="{{asset("./img/comer.svg")}}" class="frontal" alt="">
+                                    <figcaption class="trasera">
+                                        <h2 class="titulo">Comida</h2>
+                                        <hr>
+                                        <p>{{$hobbys->comida}}</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+
+                        <div class="contenedor_tarjeta">
+                            <a>
+                                <figure id="tarjeta">
+                                    <img src="{{asset("./img/nadar.svg")}}" class="frontal" alt="">
+                                    <figcaption class="trasera">
+                                        <h2 class="titulo">Deporte</h2>
+                                        <hr>
+                                    <p>{{$hobbys->deporte}}</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+
                     </div>
 
-                </div>
-
-                @endforeach
+                    @endforeach
+                @endif
+              
             </div>
         </div>
     </section>

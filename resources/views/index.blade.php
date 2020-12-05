@@ -18,7 +18,7 @@
                     <br>
                     <p>Busca y encuentra oportunidad de trabajo fácil y rápido entre estudiantes y reclutadores expertos.
                     </p>
-                    <button type="button" class="btn btn-primary btn-lg btnport">Comienza</button>
+               <a href="{{ url('/usuario/create') }}"> <button type="button" class="btn btn-primary btn-lg btnport">Comienza</button></a>
                 </div>
                 <div class="cont_imagenport">
                     <img src="../img/imgPortada3.svg" alt="">

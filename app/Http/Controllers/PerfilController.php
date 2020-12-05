@@ -40,11 +40,11 @@ class PerfilController extends Controller
         if ($request){
             $query = trim($request->get('search'));
             $usuario = User::where('nombre','LIKE','%'.$query.'%')->orderBy('id','asc')->paginate(3);
-
+            $habilidades = Habilidades::all();
        
 
             
-        return view('searchprofiles',['usuarios'=>$usuario,'search'=>$query]);
+        return view('searchprofiles',['usuarios'=>$usuario,'search'=>$query],['habilidad'=>$habilidades]);
         }
         
      

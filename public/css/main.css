@@ -44,13 +44,6 @@ body {
     height: 5vw !important;
 }
 
-.form-group,
-.has-search {
-    height: 5vw !important;
-    margin: 0 !important;
-    width: 100% !important;
-}
-
 .form-group>i {
     color: #585858 !important;
     font-size: 1vw !important;
@@ -312,6 +305,28 @@ a:hover {
     flex-direction: column;
     justify-content: space-evenly;
     word-break: break-all;
+}
+
+.content-img-nofoundpj {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.content-img-nofoundpj h1 {
+    opacity: .5;
+    color: #707070;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 2vw;
+}
+
+.content-img-nofoundpj img {
+    width: 20vw;
+    height: 20vw;
+    opacity: .5;
 }
 
 .description-box>p {

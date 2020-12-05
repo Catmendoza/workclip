@@ -201,10 +201,20 @@ nav i {
         &:focus {
             background-color: #fff !important;
             color: #1c2347 !important;
+            a {
+                color: #1c2347 !important;
+            }
         }
         &:hover {
             color: #1c2347 !important;
             background-color: #fff !important;
+            a {
+                color: #1c2347 !important;
+            }
+        }
+        a {
+            text-decoration: none !important;
+            color: #fff;
         }
     }
 }

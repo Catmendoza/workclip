@@ -87,10 +87,20 @@
 
           
     <section class="sect-content-post">
-        <div class="container-grid-post">
-    
-            <div class="content-post-main">
 
+
+        <div class="container-grid-post">
+
+            <div class="content-post-main">
+                <div class="content-img-nofoundpj">
+
+     
+                    @if ($proyectos->count()==0)
+                    <img src="{{ asset('img/nofoundpj.svg') }}" alt="">
+                    <h1>No hay nada aun.</h1>
+                   @endif
+        
+                </div>
               @foreach ($proyectos->reverse() as $proyecto)
                 <div class="col-md-7">
 

@@ -236,9 +236,22 @@ nav i {
   color: #1c2347 !important;
 }
 
+.textos-about-us button:focus a {
+  color: #1c2347 !important;
+}
+
 .textos-about-us button:hover {
   color: #1c2347 !important;
   background-color: #fff !important;
+}
+
+.textos-about-us button:hover a {
+  color: #1c2347 !important;
+}
+
+.textos-about-us button a {
+  text-decoration: none !important;
+  color: #fff;
 }
 
 .textos-about-us > h3 {

@@ -92,17 +92,28 @@
 
             <div class="bigbox-profiles">
 
-                @if ($search)
-                <h6>
-                <div class="alert alert-primary" role="alert">
-                   Los resultados de tu busqueda '{{$search}}' son:
-                  </div>
-                </h6>
-                @endif
+                <div class="content-img-nofound">
+                    @if ($search)
+                    <h6>
+                    <div class="alert alert-primary" role="alert">
+                       Los resultados de tu busqueda '{{$search}}' son:
+                      </div>
+                    </h6>
+                    @endif
+                    @if ($usuarios->count()==0)
+                    <img src="{{ asset('img/nofound.svg') }}" alt="">
+                    <h1>Aun no hay usuarios</h1>
+                   @endif
+
+                </div>
+
+
+            
                 <div class="box-grid-cards">
 
                     @foreach($usuarios as $usuario)
                         
+     
                    
                     <div class="card-profile-user">
                         <div class="content-card-grid">
@@ -123,27 +134,32 @@
                                 <label>Programa</label>
                             </div>
                             <div class="progress-university">
-                                <label>Progreso Universitario</label>
+                                <label>Aptitudes</label>
                             </div>
+              
+                            <div class="habilidades-camp">
+                                <label>Habilidades</label>
+                            </div>
+                            
 
                             <div class="links-user-card">
 
                                 @guest
                                 @if (Route::has('register'))
                           
+                            
+                                @endif
+                            @else
+                            @if (Auth::user()->rol==3)
+                            <form action="{{route('perfil.destroy',$usuario->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Eliminar</button>
 
-                                                        @endif
-@else
-@if (Auth::user()->rol==3)
-<form action="{{route('perfil.destroy',$usuario->id)}}" method="POST">
-    @csrf
-    @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                            @endif
 
-</form>
-                        @endif
-
-                                                        @endguest
+                             @endguest
                             </div>
 
                             <div class="name-user-text">
@@ -156,11 +172,24 @@
                             </div>
 
                             <div class="user-data-bar">
-                                <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 25%; font-size: .8vw;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                </div>
+                                @foreach ($habilidad as $habilidades)
+                                    @if ($habilidades->id_perfil == $usuario->id)
+                                        <h6>{{$habilidades->aptitud1}}</h6>
+                                        <h6>{{$habilidades->aptitud2}}</h6>
+                                    @endif
+                                @endforeach
+                          
                             </div>
-
+                    
+                            <div class="habilidades-show">
+                                @foreach ($habilidad as $habilidades)
+                                    @if ($habilidades->id_perfil == $usuario->id)
+                                        <h6>{{$habilidades->titulo1}}</h6>
+                                        <h6>{{$habilidades->titulo2}}</h6>
+                                        <h6>{{$habilidades->titulo3}}</h6>
+                                    @endif
+                                 @endforeach
+                            </div>
 
                         </div>
                     </div>
