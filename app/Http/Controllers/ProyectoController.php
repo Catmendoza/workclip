@@ -128,5 +128,14 @@ class ProyectoController extends Controller
     public function destroy($id)
     {
         //
+
+        $proyecto = Proyecto::findOrFail($id);
+        $proyecto->delete();
+        $comentario = Comentario::all()->where('id_proyecto','=',$id);
+
+        foreach($comentario as $comentarios){
+            $comentarios->delete();
+        }
+        return redirect('/publicaciones');
     }
 }

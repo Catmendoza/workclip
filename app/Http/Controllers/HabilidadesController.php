@@ -55,7 +55,8 @@ class HabilidadesController extends Controller
         $habilidades->principal_texto2=request('principal_texto2');
         $habilidades->titulo3 = request('titulo3');
         $habilidades->principal_texto3=request('principal_texto3');
-
+        $habilidades->aptitud1 = request('aptitud1');
+        $habilidades->aptitud2 = request('aptitud2');
         $habilidades->save();
 
         return redirect('/edit-habilidades');
@@ -81,10 +82,11 @@ class HabilidadesController extends Controller
     public function edit($id)
     {
         //
-        $aux = Habilidades::all()->where('id_perfil','=',$id);
+
+     
 
 
-        return view('edithabilidades',['datos'=>$aux]);
+        return view('edithabilidades',['datos'=>Habilidades::findOrFail($id)]);
     }
 
     /**
@@ -107,7 +109,8 @@ class HabilidadesController extends Controller
         $habilidades->principal_texto2=$request->get('principal_texto2');
         $habilidades->titulo3 = $request->get('titulo3');
         $habilidades->principal_texto3=$request->get('principal_texto3');
-
+        $habilidades->aptitud1 = $request->get('aptitud1');
+        $habilidades->aptitud2 = $request->get('aptitud2');
         
         $habilidades->update();
         

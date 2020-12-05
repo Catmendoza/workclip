@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('sass/cssindex.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/user.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal-infoproj.css') }}" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('css/edit-profile.css') }}">
+    <link rel="stylesheet" href="{{ asset('sass/edit-profile.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -134,19 +134,50 @@
 
         </section>
 
-
-        <svg class="divider datas-bottom" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1366 112"
-            style="enable-background:new 0 0 1366 112;" xml:space="preserve">
-            <style type="text/css">
-                .st0 {
-                    fill: #1c2347;
-                }
-
-            </style>
-            <polygon class="st0" points="-352,-12 -352,155 1959,155 " />
-        </svg>
     </div>
+
+    <section class="habilities-section">
+        <div class="contenedor2 habilities">
+            <div class="content-habilities">
+
+                <div class="textos-habilities">
+                    <h1>Habilidades</h1>
+                    <div>
+                        @if ($habilidad->count()==0)
+Aún no hay habilidades.
+@endif
+@if ($habilidad->count()!=0)
+<p>Estas son algunas de mis habilidades.</p>
+@endif
+                    </div>
+
+                </div>
+
+                <div class="cards-habilities">
+
+                    @foreach($habilidad as $habilidades)
+                        
+             
+                    <div class="box box1">
+                        <h4>{{$habilidades->titulo1}}</h4>
+                        <p>{{$habilidades->principal_texto1}}</p>
+                    </div>
+                    <div class="box box2">
+                        <h4>{{$habilidades->titulo2}}</h4>
+                        <p>{{$habilidades->principal_texto2}}</p>
+                    </div>
+                    <div class="box box3">
+                        <h4>{{$habilidades->titulo3}}</h4>
+                        <p>{{$habilidades->principal_texto3}}</p>
+                    </div>
+
+@endforeach
+
+
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="projects-section">
         <div class="contenedor2 projects">
@@ -294,24 +325,14 @@
 
     <section class="hobbys-section">
 
-        <svg class="divider hobbys-top" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1366 112"
-            style="enable-background:new 0 0 1366 112;" xml:space="preserve">
-            <style type="text/css">
-                .st0 {
-                    fill: #1c2347;
-                }
-
-            </style>
-            <polygon class="st0" points="-107.9,-7.3 1570.1,-7.3 -107.9,120 " />
-        </svg>
-
-
         <div class="contenedor2 hobbys">
             <div class="content-hobbys">
                 <div class="titulo-hobbys">
                     <h1>HOBBYS </h1>
 
+                    @if ($hobby->count()==0)
+                    Aún no hay hobbys.
+                    @endif
 
                 </div>
 
@@ -364,7 +385,6 @@
             </div>
         </div>
     </section>
-
 
     <section class="habilities-section">
         <div class="contenedor2 habilities">

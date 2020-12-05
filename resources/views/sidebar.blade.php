@@ -33,41 +33,52 @@
                 </button>
             </div>
             <div class="p-4">
-                <h1><a href="{{ url('/proyecto') }}" class="logo">WorkClip </a><span>Editar Perfil</span></h1>
+                <h1><a class="option-sidebar" href="{{ url('/proyecto') }}" class="logo">WorkClip </a><span>Editar Perfil</span></h1>
                 <ul class="list-unstyled components mb-5">
-                    <li class="">
+                    <li class="{{'perfil' == request()->path() ? 'active' : ''}}">
                         <a href="{{url("/perfil")}}"><span class="fa fa-home mr-3"></span> Mi Perfil</a>
                     </li>
-                    <li class="active">
-                        <a href="{{route('perfil.edit',Auth::user()->id)}}"><span class="fa fa-user mr-3"></span> Datos personales</a>
+                     <li class="{{'perfil/'.Auth::user()->id.'/edit' == request()->path() ? 'active' : ''}}">
+                        <a class="option-sidebar" href="{{route('perfil.edit',Auth::user()->id)}}"><span class="fa fa-user mr-3"></span> Datos personales</a>
                     </li>
-                    <li>
+                    <li class="{{'edit-habilidades' == request()->path() ? 'active' : ''}}">
                         @php
+                        $habili  = DB::table('habilidades')->select('id')->where('id_perfil','=',Auth::user()->id)->get();
+                        $hobby = DB::table('hobbys')->select('id')->where('id_perfil','=',Auth::user()->id)->get();
+                        $i =stripos($habili,':');
+                        $k = stripos($hobby,':');
+                        $d = stripos($hobby,'}');
+                        $j =stripos($habili,'}');
+                        $afooo = substr($hobby,$k+1,$d);
+                        $afoo = substr($habili,$i+1,$j);
+                       
+ 
                             $aux=DB::table('habilidades')->where('id_perfil','=',Auth::user()->id)->count();
                             $aux2=DB::table('hobbys')->where('id_perfil','=',Auth::user()->id)->count();
                         @endphp
+         
                         
                         @if ($aux==null)
-                        <a href="{{url("/edit-habilidades")}}"><span class="fa fa-briefcase mr-3"></span>Mis habilidades</a>
+                        <a class="option-sidebar" href="{{url("/edit-habilidades")}}"><span class="fa fa-briefcase mr-3"></span>Mis habilidades</a>
                         
                         @endif
 
                         @if ($aux!=null)
-                        <a href="{{route('edit-habilidades.edit',Auth::user()->id)}}"><span class="fa fa-briefcase mr-3"></span>Mis habilidades</a>
+                        <a class="option-sidebar" href="{{route('edit-habilidades.edit',$afoo)}}"><span class="fa fa-briefcase mr-3"></span>Mis habilidades</a>
 
                         @endif
                     
 
                     </li>
-                    <li>
+                    <li class="{{'edit-hobbys' == request()->path() ? 'active' : ''}}">
 
                         @if ($aux2==null)
-                        <a href="{{url("/edit-hobbys")}}"><span class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
+                        <a class="option-sidebar" href="{{url("/edit-hobbys")}}"><span class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
                         
                         @endif
 
                         @if ($aux2!=null)
-                        <a href="{{route('edit-hobbys.edit',Auth::user()->id)}}"><span class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
+                        <a class="option-sidebar" href="{{route('edit-hobbys.edit',$afooo)}}"><span class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
 
                         @endif
                         

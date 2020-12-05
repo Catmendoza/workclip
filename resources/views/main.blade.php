@@ -94,6 +94,7 @@
               @foreach ($proyectos->reverse() as $proyecto)
                 <div class="col-md-7">
 
+
                     
                     @php
                     $aux = DB::table('users')->find($proyecto->id_perfil);
@@ -156,18 +157,25 @@
 
 
                     <div class="header-box-main">
+                        
                         <div class="img-user-header">
+                            
+                            
+
                             <a href="{{route("perfil.show",$aux->id)}}"><img  src="{{ asset($aux->imagen) }}" alt="" class="rounded-circle float-left imgpeque"></a>
                         </div>
 
                         <div class="name-user-box">
                         <a   href="{{route("perfil.show",$aux->id)}}"style="color:white; cursor: pointer;"class="textWhite">{{$aux->nombre}}</a>
                             <h6 class="textWhite">{{$aux->programa}}</h6>
+                            
                         </div>
 
                         <div class="fecha-box">
                             <label>{{$proyecto->created_at->format('d')}}{{"  ".$mesD}}</label>
+                            
                         </div>
+                        
 
                     </div>
 
@@ -176,6 +184,7 @@
                         <div class="header-box-ppe">
                             <h6 style="color:#979797">{{ $proyecto->nombre_proyecto }}</h6>
                             <hr>
+                            
                         </div>
 
                         <div class="img-box-ppe">
@@ -195,8 +204,14 @@
                    
                          
                         
+@if (Auth::user()->rol==3)
+<form action="{{route('proyecto.destroy',$proyecto->id)}}" method="POST">
+    @csrf
+    @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
 
-                        
+</form>
+                        @endif
                     </div>
                     @php
                     $contComents=DB::table('comentarios')->where('id_proyecto','=',$proyecto->id)->count();
@@ -446,9 +461,18 @@
                    
                          
                         
-
+                        
+                        @if (Auth::user()->rol==3)
+                        <form action="{{route('producto.destroy',$producto->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                        
+                        </form>
+                                                @endif
                         
                     </div>
+                    
                     @php
                     $contComents=DB::table('comentarios')->where('id_producto','=',$producto->id)->count();
                     @endphp
@@ -656,7 +680,14 @@
                    
                          
                         
-
+                        @if (Auth::user()->rol==3)
+                        <form action="{{route('empleo.destroy',$empleo->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                        
+                        </form>
+                                                @endif
                         
                     </div>
                     @php

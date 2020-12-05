@@ -29,6 +29,7 @@
 
 #sidebar h1 .logo {
     color: #fff;
+    text-decoration: none !important;
 }
 
 #sidebar h1 .logo span {
@@ -36,12 +37,18 @@
     color: #44bef1;
     font-weight: normal !important;
     display: block;
+    text-decoration: none !important;
+}
+
+#sidebar .option-sidebar:hover {
+    text-decoration: none !important;
 }
 
 #sidebar h1 span {
     font-size: 14px;
     color: #44bef1;
     font-weight: normal !important;
+    text-decoration: none !important;
     display: block;
 }
 
@@ -66,6 +73,7 @@
     display: block;
     color: rgba(255, 255, 255, 0.6);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none !important;
 }
 
 #sidebar ul li a span {
@@ -74,6 +82,7 @@
 
 #sidebar ul li a:hover {
     color: #fff;
+    text-decoration: none !important;
 }
 
 #sidebar ul li.active>a {

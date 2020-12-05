@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1c2347;
+      }
+
+      .cls-2 {
+        fill: url(#Degradado_sin_nombre_121);
+      }
+
+      .cls-3 {
+        fill: url(#Degradado_sin_nombre_114);
+      }
+    </style>
+    <linearGradient id="Degradado_sin_nombre_121" data-name="Degradado sin nombre 121" x1="778.6" y1="377.45" x2="1823.36" y2="377.45" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a3782"/>
+      <stop offset="0.36" stop-color="#2a377e"/>
+      <stop offset="0.68" stop-color="#2a3573"/>
+      <stop offset="0.99" stop-color="#293361"/>
+      <stop offset="1" stop-color="#293360"/>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_114" data-name="Degradado sin nombre 114" x1="820.9" y1="377.49" x2="1780.88" y2="377.49" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a376b"/>
+      <stop offset="0.6" stop-color="#2a3667"/>
+      <stop offset="1" stop-color="#293360"/>
+    </linearGradient>
+  </defs>
+  <title>Hero</title>
+  <g id="Capa_2" data-name="Capa 2">
+    <rect class="cls-1" x="-16" y="-21" width="1951" height="1125"/>
+  </g>
+  <g id="Capa_3" data-name="Capa 3">
+    <path class="cls-2" d="M1233.84,649.8C1062,699.83,917,742,844.45,651.89S922,538.47,907.17,471s-180.61-168.11-112-300.46c76.68-148,638.62-167.72,868.5-12.92,268.87,181.07,144.09,440.43,18.07,494.92C1541.16,713.35,1410.3,598.43,1233.84,649.8Z"/>
+  </g>
+  <g id="Capa_1" data-name="Capa 1">
+    <path class="cls-3" d="M1239.2,627.73c-157.9,46-291.15,84.73-357.79,1.93S952.66,525.44,939,463.48,773.09,309,836.11,187.41c70.46-135.95,586.8-154.12,798-11.87,247,166.37,132.39,404.69,16.6,454.75C1521.58,686.13,1401.34,580.53,1239.2,627.73Z"/>
+  </g>
+</svg>

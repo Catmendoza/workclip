@@ -228,7 +228,15 @@
                          
                         
 
+                                                
+                        @if (Auth::user()->rol==3)
+                        <form action="{{route('empleo.destroy',$empleo->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
                         
+                        </form>
+                                                @endif
                     </div>
                     @php
                     $contComents=DB::table('comentarios')->where('id_empleo','=',$empleo->id)->count();

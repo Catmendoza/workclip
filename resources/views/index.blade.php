@@ -3,19 +3,25 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('sass/cssindex.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/modal.css') }}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 @endsection
 
 @section('content')
     <section class="about-us-section">
-        <div class="container about-us">
+        <div class="container2 about-us">
             <div class="content-about-us">
 
                 <div class="textos-about-us">
-                    <p>¡Bienvenido a WorkClip!<br> si eres estudiante, ingresa y postea tus proyectos y productos<br>¡y si eres empresario busca estudiantes!</p>
-
+                    <h3>Encuentra tu <span>trabajo</span> adecuado</h3>
+                    <br>
+                    <p>Busca y encuentra oportunidad de trabajo fácil y rápido entre estudiantes y reclutadores expertos.
+                    </p>
+                    <button type="button" class="btn btn-primary btn-lg btnport">Comienza</button>
                 </div>
-                <div class="cont_imagen">
-                    <img class="about-us-img" src=".\img\about-us.svg" alt="">
+                <div class="cont_imagenport">
+                    <img src="../img/imgPortada3.svg" alt="">
                 </div>
 
             </div>
@@ -39,25 +45,38 @@
 
     <section class="select-section">
         <div class="container2 select">
+            <div class="header-select">
+                <h1>¿Qué necesitas?</h1>
+            </div>
             <div class="content-select">
 
-                <div class="box-index box-colaborators">
-                    <div class="cont_titulo">
-                        <h1>¿Buscas colaboradores<br>Para tus proyectos?</h1>
+                <div class="card-select">
+                    <div class="cardsl-header">
+                        <img src="../img/card1.svg" alt="">
                     </div>
-                    <div class="cont_imagen">
-                        <img class="imgC" src=".\img\select-colaborators.svg" alt="">
-                        <a href="./perfiles" class="btn-selects">IR</a>
+                    <div class="cardsl-body">
+                        <h4>Buscar personal para mi proyecto</h4>
+                        <p>Busca entre estudiantes y reclutadores 
+                            personal para tus proyectos 
+                            y negocios de forma fácil y rápida.</p>
+                    </div>
+                    <div class="cardsl-footer">
+                       <a href="{{url('/publicaciones')}}"> <button type="button" class="btn btn-primary btn-lg">Buscar</button></a>
                     </div>
                 </div>
 
-                <div class="box-index box-projects">
-                    <div class="cont_titulo">
-                        <h1>¿Buscas proyectos?</h1>
+                <div class="card-select">
+                    <div class="cardsl-header">
+                        <img src="../img/card2.svg" alt="" >
                     </div>
-                    <div class="cont_imagen">
-                        <img class="imgC" src=".\img\select-projects.svg" alt="">
-                        <a href="./publicaciones" class="btn-selects">IR</a>
+                    <div class="cardsl-body">
+                        <h4>Encuentra proyectos interesantes</h4>
+                        <p>Busca por medio de WorkClip 
+                            interesantes proyectos en los que 
+                            comentar y seguir.</p>
+                    </div>
+                    <div class="cardsl-footer">
+                       <a href="{{url('/perfiles')}}"> <button type="button" class="btn btn-primary btn-lg">Encontrar</button> </a>
                     </div>
                 </div>
 
@@ -66,71 +85,34 @@
     </section>
 
 
-    <section class="destacados-section">
+    <section class="about-section">
 
-        <svg class="divider destacados-top" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 960 90"
-            style="enable-background:new 0 0 960 90;" xml:space="preserve">
-            <style type="text/css">
-                .st0 {
-                    fill: #FFFFFF;
-                }
+        <div style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+                style="height: 100%; width: 100%;">
+                <path d="M0.28,-0.48 C162.24,53.78 325.90,56.73 500.27,0.50 L499.15,0.50 L-0.27,-4.44 Z"
+                    style="stroke: none; fill: #fff;"></path>
+            </svg></div>
+        <div class="container2 about">
+            <div class="content-about">
 
-            </style>
-            <polygon class="st0" points="1118,-11.8 -158,-11.8 1117.8,101.8 " />
-        </svg>
-
-        <div class="container2 destacados">
-            <div class="content-destacados">
-
-                <div class="carrusel-index">
-
-
-
-                    <div class="cont_destacados">
-                        <div class="titulo">
-                            <h1>Destacados</h1>
-                        </div>
-                    </div>
-
-                    <div class="carrusel-index">
-                        <div class="carrusel_container">
-                            <div class="carrusel_items">
-                                <img id="itemImg_1" class="carrusel_items-img" src=".\img\gio.png" alt="">
-                                <div id="itemInfo_1" class="carrusel_items-info">
-                                    <p class="attributes">Giovanni Jaramillo</p>
-                                   
-                                </div>
-                            </div>
-                            <div class="carrusel_items">
-                                <img class="carrusel_items-img" src=".\img\cata.png" alt="">
-                                <div class="carrusel_items-info">
-                                    <p class="attributes">Catalina Alvarez</p>
-                                
-                                </div>
-                            </div>
-                            <div class="carrusel_items">
-                                <img class="carrusel_items-img" src=".\img\juan.png" alt="">
-                                <div class="carrusel_items-info">
-                                    <p class="attributes">Juan Villota</p>
-                                   
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
+                <div class="container-image-about">
+                    <img src="../img/about-us-team.svg" alt="" srcset="">
                 </div>
-
+                <div class="text-sobre">
+                    <h1>Sobre nosotros</h1>
+                    <p>Somos un grupo de estudiantes de la 
+                        Universidad Santiago de Cali, hemos 
+                        realizado este proyecto para la 
+                        materia Programación Web 2020B</p>
+                </div>
+                
             </div>
-
         </div>
+        <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-3.10,151.47 C144.74,75.48 356.37,77.45 506.49,151.47 L500.00,150.00 L-3.10,151.47 Z" style="stroke: none; fill: #1c2347;"></path></svg></div>
     </section>
 @endsection
 
 
 @section('sc')
-<script type="text/javascript" src="{{ asset('js/modal-login.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/modal-login.js') }}"></script>
 @endsection

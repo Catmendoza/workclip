@@ -114,6 +114,78 @@
 
 
 
+        <!-- Modal Edit Aptitud 1 -->
+        <div class="modal" id="EditApt1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Introduce una aptitud</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-bodyEmail">
+                        <div class="box-inputs-modal">
+
+
+                            <label for="" style="text-transform: uppercase;">Selecciona una aptitud</label>
+                            
+                            <select name="aptitud1" id="apt-select">
+                                <option value="{{$datos->aptitud1}}">Ninguna</option>
+                                <option value="Capacidad de iniciativa">Capacidad de iniciativa</option>
+                                <option value="Capacidad para resolver problemas">Capacidad para resolver problemas</option>
+                                <option value="Trabajo en equipo">Trabajo en equipo</option>
+                                <option value="Versatilidad">Versatilidad</option>
+                                <option value="Creatividad">Creatividad</option>
+                                <option value="Liderazgo">Liderazgo</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="saveemail" type="button" class="btn btn-primary" data-dismiss="modal">Listo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+      <!-- Modal Edit Aptitud 2 -->
+      <div class="modal" id="EditApt2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Introduce una aptitud</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-bodyEmail">
+                  <div class="box-inputs-modal">
+
+                      <label for="" style="text-transform: uppercase;">Selecciona una aptitud</label>
+                      <select name="aptitud2" id="apt-select">
+                        <option value="{{$datos->aptitud2}}">Ninguna</option>
+                        <option value="Capacidad de iniciativa">Capacidad de iniciativa</option>
+                        <option value="Capacidad para resolver problemas">Capacidad para resolver problemas</option>
+                        <option value="Trabajo en equipo">Trabajo en equipo</option>
+                        <option value="Versatilidad">Versatilidad</option>
+                        <option value="Creatividad">Creatividad</option>
+                        <option value="Liderazgo">Liderazgo</option>
+                    </select>
+                  </div>
+
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button id="saveemail" type="button" class="btn btn-primary" data-dismiss="modal">Listo</button>
+              </div>
+          </div>
+      </div>
+  </div>
 
 
 
@@ -152,7 +224,30 @@
 
                 </div>
             </div>
+            
+            <div class="datos-user" style="justify-content: flex-end">
+                <div class="box-grid-datos">
+                    <div class="box-content-data">
+                        <label for="">
+                            <h6>Aptitudes</h6>
+                            <h6 id="email2"></h6>
+                        </label>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#EditApt1">Editar</button>
+                    </div>
+                    <div class="box-content-data">
+                        <label for="">
+                            <h6>Aptitudes</h6>
+                            <h6 id="programa2"></h6>
+                        </label>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#EditApt2">Editar</button>
 
+                    </div>
+           
+
+                </div>
+            </div>
             <div class="buttons-submit p-2 d-flex "
                 style=" width: 80%; grid-column-start: 2; justify-content: flex-end; align-items: center">
 
@@ -167,6 +262,8 @@
 
 
         </div>
+
+        
 
 
 

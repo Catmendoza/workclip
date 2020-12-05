@@ -106,5 +106,15 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         //
+
+        
+        $producto = Producto::findOrFail($id);
+        $producto->delete();
+        $comentario = Comentario::all()->where('id_producto','=',$id);
+
+        foreach($comentario as $comentarios){
+            $comentarios->delete();
+        }
+        return redirect('/publicaciones');
     }
 }

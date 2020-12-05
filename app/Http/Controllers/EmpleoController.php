@@ -103,5 +103,18 @@ class EmpleoController extends Controller
     public function destroy($id)
     {
         //
+
+        
+        $empleo = Empleo::findOrFail($id);
+ 
+
+      
+        $empleo->delete();
+        $comentario = Comentario::all()->where('id_empleo','=',$id);
+
+        foreach($comentario as $comentarios){
+            $comentarios->delete();
+        }
+        return redirect('/publicaciones');
     }
 }
