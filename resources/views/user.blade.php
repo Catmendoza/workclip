@@ -13,80 +13,81 @@
 
 
 @section('content')
-<div class="data-section">
+    <div class="data-section">
 
-    <section class="personal contenedor">
+        <section class="personal contenedor">
 
-            
-            @foreach($usuarios  as $usuario)
 
-      @php
-          $auxusu = $usuario;
-      @endphp
-            <div class="container-grid-profile">
-                <div class="card-portada">
-                    <div class="img-box-user">
-                        <img src="{{asset($usuario->imagen)}}" alt="">
+            @foreach ($usuarios as $usuario)
+
+                @php
+                $auxusu = $usuario;
+                @endphp
+                <div class="container-grid-profile">
+                    <div class="card-portada">
+                        <div class="img-box-user">
+                            <img src="{{ asset($usuario->imagen) }}" alt="">
+                        </div>
+                        <div class="texts-box-portada">
+                            <label>¿Quien Soy?</label>
+                            <p>{{ $usuario->texto_quiensoy }}</p>
+                        </div>
+                        <div class="social-media-port">
+                            <a href="{{ $usuario->instagram }}"><i class="fab fa-instagram"></i></a>
+                            <a href="{{ $usuario->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $usuario->github }}"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
-                    <div class="texts-box-portada">
-                        <label>¿Quien Soy?</label>
-                        <p>{{$usuario->texto_quiensoy}}</p>
-                    </div>
-                    <div class="social-media-port">
-                    <a href="{{$usuario->instagram}}"><i class="fab fa-instagram"></i></a>
-                        <a href="{{$usuario->facebook}}"><i class="fab fa-facebook-f"></i></a>
-                        <a href="{{$usuario->github}}"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
 
-                <div class="data-info-user">
+                    <div class="data-info-user">
 
 
-                    <div class="content-margin-profile">
-                        <div class="header-titles-profile">
-                            <label>{{$usuario->nombre }}</label>
-                            @php 
-                            $aux;
-                            
-                            if ($usuario->rol == 0){
+                        <div class="content-margin-profile">
+                            <div class="header-titles-profile">
+                                <label>{{ $usuario->nombre }}</label>
+                                @php
+                                $aux;
+
+                                if ($usuario->rol == 0){
                                 $aux="Empresario";
-                            }else{
+                                }else{
                                 $aux="Estudiante";
-                            }
-                            @endphp
-                                <p>{{$aux}}</p>
-                            <hr>
-                        </div>
-                        <div class="container-data-profile">
-                            <label style="font-weight: bold">Carrera</label>
-                            <label style="grid-row-start: 2; font-weight: bold">Cel</label>
-                            <label style="grid-row-start: 3; font-weight: bold;">Email</label>
-                            <label style="grid-row-start: 4; font-weight: bold">Edad</label>
-                  
+                                }
+                                @endphp
+                                <p>{{ $aux }}</p>
+                                <hr>
+                            </div>
+                            <div class="container-data-profile">
+                                <label style="font-weight: bold">Carrera</label>
+                                <label style="grid-row-start: 2; font-weight: bold">Cel</label>
+                                <label style="grid-row-start: 3; font-weight: bold;">Email</label>
+                                <label style="grid-row-start: 4; font-weight: bold">Edad</label>
 
-                            <label>{{$usuario->programa}}</label>
-                            <label>{{$usuario->contacto}}</label>
-                            <label>{{$usuario->email}}</label>
-                            <label>{{$usuario->edad}}</label>
-         
-                        </div>
-                        <div class="footer-profile">
-                            <button class="btn-footer contact">Contacta me</button>
-                            <button class="btn-footer cv">Descargar CV</button>
 
-                        <a href="{{route('perfil.edit',$usuario->id)}}"style="background:red;" class="btn-footer edit">EDITALO</a>
+                                <label>{{ $usuario->programa }}</label>
+                                <label>{{ $usuario->contacto }}</label>
+                                <label>{{ $usuario->email }}</label>
+                                <label>{{ $usuario->edad }}</label>
+
+                            </div>
+                            <div class="footer-profile">
+                                <button class="btn-footer contact">Contacta me</button>
+                                <button class="btn-footer cv">Descargar CV</button>
+
+                                <a href="{{ route('perfil.edit', $usuario->id) }}" style="background:red;"
+                                    class="btn-footer edit">EDITALO</a>
+                            </div>
                         </div>
+
+
+
+
+
                     </div>
 
-      
-                    
-
-              
                 </div>
-
-            </div>
             @endforeach
-     
+
 
 
             <div class="contenido-data">
@@ -99,7 +100,7 @@
                             <div class="tab-header">
 
                                 <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
-                                    
+
                                     <li class="tab tabs-li"><a class="active" href="#tab2">Actitudes</a></li>
                                     <li class="tab tabs-li"><a href="#tab3">Meta</a></li>
                                 </ul>
@@ -111,10 +112,12 @@
                                 <div class="tab-box" id="tab2">
                                     <i class="fas fa-bolt"></i>
                                     <p>Estas son mis Actitudes como estudiante y trabajador:</p>
-                                    
-                                    @foreach($habilidad as $habilidades)
-                                    <br><p>1.{{$habilidades->aptitud1}}</p>
-                                    <br><p>2.{{$habilidades->aptitud2}}</p>
+
+                                    @foreach ($habilidad as $habilidades)
+                                        <br>
+                                        <p>1.{{ $habilidades->aptitud1 }}</p>
+                                        <br>
+                                        <p>2.{{ $habilidades->aptitud2 }}</p>
                                     @endforeach
                                 </div>
                                 <div class="tab-box" id="tab3">
@@ -139,7 +142,7 @@
 
 
 
-    </section>
+        </section>
     </div>
     <section class="habilities-section">
         <div class="contenedor2 habilities">
@@ -149,41 +152,36 @@
                     <h1>Habilidades</h1>
                     <div>
 
-                        @if ($habilidad->count()==0)
-Aún no hay habilidades.
-@endif
-@if ($habilidad->count()!=0)
-<p>Estas son algunas de mis habilidades.</p>
-@endif
-                       
+                        @if ($habilidad->count() == 0)
+                            Aún no hay habilidades.
+                        @endif
+                        @if ($habilidad->count() != 0)
+                            <p>Estas son algunas de mis habilidades.</p>
+                        @endif
+
                     </div>
 
                 </div>
 
                 <div class="cards-habilities">
 
-                    @foreach($habilidad as $habilidades)
-                        
-             
-                    <div class="box box1">
-                        <h4>{{$habilidades->titulo1}}</h4>
-                        <p>{{$habilidades->principal_texto1}}</p>
-                    </div>
-                    <div class="box box2">
-                        <h4>{{$habilidades->titulo2}}</h4>
-                        <p>{{$habilidades->principal_texto2}}</p>
-                    </div>
-                    <div class="box box3">
-                        <h4>{{$habilidades->titulo3}}</h4>
-                        <p>{{$habilidades->principal_texto3}}</p>
-                    </div>
-
-@endforeach
+                    @foreach ($habilidad as $habilidades)
 
 
+                        <div class="box box1">
+                            <h4>{{ $habilidades->titulo1 }}</h4>
+                            <p>{{ $habilidades->principal_texto1 }}</p>
+                        </div>
+                        <div class="box box2">
+                            <h4>{{ $habilidades->titulo2 }}</h4>
+                            <p>{{ $habilidades->principal_texto2 }}</p>
+                        </div>
+                        <div class="box box3">
+                            <h4>{{ $habilidades->titulo3 }}</h4>
+                            <p>{{ $habilidades->principal_texto3 }}</p>
+                        </div>
 
-
-
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -192,18 +190,24 @@ Aún no hay habilidades.
     <section class="projects-section">
         <div class="contenedor2 projects">
             <div class="content-projects">
-
-
-                @if($auxusu->rol == 1)
-                <h2>Proyectos Productos</h2>
+                @if ($auxusu->rol == 1)
+                    <div class="row">
+                        <div class="col">
+                            <a id="boton1" onclick="boton(1)" style="cursor: pointer;color: grey">
+                                <h2>Proyectos</h2>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a id="boton2" onclick="boton(2)" style="cursor: pointer;color: white">
+                                <h2>Productos</h2>
+                            </a>
+                        </div>
+                    </div>
                 @endif
-                
-                @if($auxusu->rol == 2)
-                <h2>Empleos</h2>
+
+                @if ($auxusu->rol == 2)
+                    <h2>Empleos</h2>
                 @endif
-
-              
-
 
                 <div class="slider-projects">
 
@@ -211,118 +215,79 @@ Aún no hay habilidades.
 
                         <div class="carrusel">
                             <div class="carrusel_container">
-
-                                @foreach($proyectos as $proyecto)
-     
-                             
-                               
-                             
-                                <div class="carrusel_itemsInline">
-                                  
-                                    <div class="carrusel_itemsFlex">
-
-                                        <div class="carrusel_cont_items-img">
-                                            <img class="carrusel_items-img" src="{{asset($proyecto->imagen)}}" alt="">
-                                        </div>
-
-                                        <div class="carrusel_item-content">
-                                            <div class="title-projects">
-                                                <h1>{{$proyecto->nombre_proyecto}}</h1>
+                                <div id="div1">
+                                    @foreach ($proyectos as $proyecto)
+                                        <div class="carrusel_itemsInline">
+                                            <div class="carrusel_itemsFlex">
+                                                <div class="carrusel_cont_items-img">
+                                                    <img class="carrusel_items-img" src="{{ asset($proyecto->imagen) }}"
+                                                        alt="">
+                                                </div>
+                                                <div class="carrusel_item-content">
+                                                    <div class="title-projects">
+                                                        <h1>{{ $proyecto->nombre_proyecto }}</h1>
+                                                    </div>
+                                                    <div class="text-projects">
+                                                        <p>{{ $proyecto->descripcion }}</p>
+                                                    </div>
+                                                </div>
                                             </div>
-
-                                            <div class="text-projects">
-
-                                                <p>{{$proyecto->descripcion}}</p>
-
-                                            </div>
-
-                           
-
                                         </div>
-
-
-                                    </div>
+                                    @endforeach
                                 </div>
 
-                          
-                                
-
-                        
-                        
-
-
-                                @endforeach
-
-                                @foreach($productos as $producto)
-     
-                             
-                               
-                             
-                                <div class="carrusel_itemsInline">
-                                  
-                                    <div class="carrusel_itemsFlex">
-
-                                        <div class="carrusel_cont_items-img">
-                                            <img class="carrusel_items-img" src="{{asset($producto->imagen)}}" alt="">
-                                        </div>
-
-                                        <div class="carrusel_item-content">
-                                            <div class="title-projects">
-                                                <h1>{{$producto->nombre_producto}}</h1>
+                                <div id="div2" style="display: none">
+                                    @foreach ($productos as $producto)
+                                        <div class="carrusel_itemsInline">
+                                            <div class="carrusel_itemsFlex">
+                                                <div class="carrusel_cont_items-img">
+                                                    <img class="carrusel_items-img" src="{{ asset($producto->imagen) }}"
+                                                        alt="">
+                                                </div>
+                                                <div class="carrusel_item-content">
+                                                    <div class="title-projects">
+                                                        <h1>{{ $producto->nombre_producto }}</h1>
+                                                    </div>
+                                                    <div class="text-projects">
+                                                        <p>{{ $producto->descripcion }}</p>
+                                                        <p>{{ $producto->precio }}</p>
+                                                    </div>
+                                                </div>
                                             </div>
-
-                                            <div class="text-projects">
-
-                                                <p>{{$producto->descripcion}}</p>
-                                                <p>{{$producto->precio}}</p>
-
-                                            </div>
-
-
-
                                         </div>
-
-
-                                    </div>
+                                    @endforeach
                                 </div>
 
-                          
-                                
-
-                        
-                        
 
 
-                                @endforeach
+                                @if ($proyectos->count() == 0 || $productos->count() == 0)
+                                    <div class="carrusel_itemsInline">
 
-                                @if($proyectos->count()==0 || $productos->count()==0)
-                                <div class="carrusel_itemsInline">
+                                        <div class="carrusel_itemsFlex">
 
-                                    <div class="carrusel_itemsFlex">
 
-                                 
-                                        <div class="carrusel_item-content">
-                                            <div class="title-projects">
-                                                <h1>Faltan proyectos <br>o productos</h1>
-                                            </div>
+                                            <div class="carrusel_item-content">
+                                                <div class="title-projects">
+                                                    <h1>Faltan proyectos <br>o productos</h1>
+                                                </div>
 
-                                            <div class="text-projects">
+                                                <div class="text-projects">
 
-                                                <p>¿Que esperas para publicar?</p>
+                                                    <p>¿Que esperas para publicar?</p>
+
+                                                </div>
+
+
+
 
                                             </div>
-
-                                           
 
 
                                         </div>
-
-
                                     </div>
-                                </div>
                                 @endif
-       
-                             
+
+
 
 
                             </div>
@@ -360,58 +325,58 @@ Aún no hay habilidades.
                 <div class="titulo-hobbys">
                     <h1>HOBBYS </h1>
 
-                    @if ($hobby->count()==0)
-                    Aún no hay hobbys.
+                    @if ($hobby->count() == 0)
+                        Aún no hay hobbys.
                     @endif
-             
 
 
-                </div>
-
-                @foreach($hobby as $hobbys)
-                    
-               
-                <div class="box-cards-hobbys">
-                    <div class="contenedor_tarjeta">
-                        <a>
-                            <figure id="tarjeta">
-                                <img src="{{asset("./img/mascaras.svg")}}" class="frontal" alt="">
-                                <figcaption class="trasera">
-                                    <h2 class="titulo">Cultura</h2>
-                                    <hr>
-                                <p>{{$hobbys->cultura}}</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-
-                    <div class="contenedor_tarjeta">
-                        <a>
-                            <figure id="tarjeta">
-                                <img src="{{asset("./img/comer.svg")}}" class="frontal" alt="">
-                                <figcaption class="trasera">
-                                    <h2 class="titulo">Comida</h2>
-                                    <hr>
-                                    <p>{{$hobbys->comida}}</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-
-                    <div class="contenedor_tarjeta">
-                        <a>
-                            <figure id="tarjeta">
-                                <img src="{{asset("./img/nadar.svg")}}" class="frontal" alt="">
-                                <figcaption class="trasera">
-                                    <h2 class="titulo">Deporte</h2>
-                                    <hr>
-                                <p>{{$hobbys->deporte}}</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
 
                 </div>
+
+                @foreach ($hobby as $hobbys)
+
+
+                    <div class="box-cards-hobbys">
+                        <div class="contenedor_tarjeta">
+                            <a>
+                                <figure id="tarjeta">
+                                    <img src="{{ asset('./img/mascaras.svg') }}" class="frontal" alt="">
+                                    <figcaption class="trasera">
+                                        <h2 class="titulo">Cultura</h2>
+                                        <hr>
+                                        <p>{{ $hobbys->cultura }}</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+
+                        <div class="contenedor_tarjeta">
+                            <a>
+                                <figure id="tarjeta">
+                                    <img src="{{ asset('./img/comer.svg') }}" class="frontal" alt="">
+                                    <figcaption class="trasera">
+                                        <h2 class="titulo">Comida</h2>
+                                        <hr>
+                                        <p>{{ $hobbys->comida }}</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+
+                        <div class="contenedor_tarjeta">
+                            <a>
+                                <figure id="tarjeta">
+                                    <img src="{{ asset('./img/nadar.svg') }}" class="frontal" alt="">
+                                    <figcaption class="trasera">
+                                        <h2 class="titulo">Deporte</h2>
+                                        <hr>
+                                        <p>{{ $hobbys->deporte }}</p>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </div>
+
+                    </div>
 
                 @endforeach
             </div>
@@ -419,7 +384,7 @@ Aún no hay habilidades.
     </section>
 
 
-  
+
     <div id="proyect-Modal" class="modal-infoproj">
 
         <div class="modal-info-content">
@@ -480,10 +445,32 @@ Aún no hay habilidades.
 
 @section('sc')
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="{{ asset('js/tabs.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/modal-login.js') }}">
-</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ asset('js/tabs.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/modal-login.js') }}">
+    </script>
+    <script>
+        function boton(id) {
+            let contenedor1 = document.getElementById("div1");
+            let contenedor2 = document.getElementById("div2");
+            let boton1 = document.getElementById("boton1");
+            let boton2 = document.getElementById("boton2");
+
+            if (id == 1) {
+                contenedor1.style.display = "block";
+                contenedor2.style.display = "none";
+                boton1.style.color = "grey";
+                boton2.style.color = "white";
+            } else {
+                contenedor1.style.display = "none";
+                contenedor2.style.display = "block";
+                boton1.style.color = "white";
+                boton2.style.color = "grey";
+            }
+
+        }
+
+    </script>
 
 @endsection
