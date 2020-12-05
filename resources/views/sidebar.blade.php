@@ -43,9 +43,20 @@
                     </li>
                     <li class="{{'edit-habilidades' == request()->path() ? 'active' : ''}}">
                         @php
+                        $habili  = DB::table('habilidades')->select('id')->where('id_perfil','=',Auth::user()->id)->get();
+                        $hobby = DB::table('hobbys')->select('id')->where('id_perfil','=',Auth::user()->id)->get();
+                        $i =stripos($habili,':');
+                        $k = stripos($hobby,':');
+                        $d = stripos($hobby,'}');
+                        $j =stripos($habili,'}');
+                        $afooo = substr($hobby,$k+1,$d);
+                        $afoo = substr($habili,$i+1,$j);
+                       
+ 
                             $aux=DB::table('habilidades')->where('id_perfil','=',Auth::user()->id)->count();
                             $aux2=DB::table('hobbys')->where('id_perfil','=',Auth::user()->id)->count();
                         @endphp
+         
                         
                         @if ($aux==null)
                         <a class="option-sidebar" href="{{url("/edit-habilidades")}}"><span class="fa fa-briefcase mr-3"></span>Mis habilidades</a>
@@ -53,7 +64,7 @@
                         @endif
 
                         @if ($aux!=null)
-                        <a class="option-sidebar" href="{{route('edit-habilidades.edit',Auth::user()->id)}}"><span class="fa fa-briefcase mr-3"></span>Mis habilidades</a>
+                        <a class="option-sidebar" href="{{route('edit-habilidades.edit',$afoo)}}"><span class="fa fa-briefcase mr-3"></span>Mis habilidades</a>
 
                         @endif
                     
@@ -67,7 +78,7 @@
                         @endif
 
                         @if ($aux2!=null)
-                        <a class="option-sidebar" href="{{route('edit-hobbys.edit',Auth::user()->id)}}"><span class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
+                        <a class="option-sidebar" href="{{route('edit-hobbys.edit',$afooo)}}"><span class="fa fa-briefcase mr-3"></span>Mis hobbys</a>
 
                         @endif
                         

@@ -195,7 +195,15 @@
                    
                          
                         
-
+                        
+                        @if (Auth::user()->rol==3)
+                        <form action="{{route('proyecto.destroy',$proyecto->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                        
+                        </form>
+                                                @endif
                         
                     </div>
                     @php

@@ -99,25 +99,23 @@
                             <div class="tab-header">
 
                                 <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
-                                    <li class="tab tabs-li"><a href="#tab1">Sueño</a></li>
-                                    <li class="tab tabs-li"><a class="active" href="#tab2">Actitud</a></li>
+                                    
+                                    <li class="tab tabs-li"><a class="active" href="#tab2">Actitudes</a></li>
                                     <li class="tab tabs-li"><a href="#tab3">Meta</a></li>
                                 </ul>
 
                             </div>
 
                             <div class="tab-body">
-                                <div class="tab-box" id="tab1">
-                                    <i class="fas fa-rocket"></i>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde eum error saepe iure
-                                        quasi exercitationem nostrum, explicabo eaque qui doloremque doloribus mollitia
-                                        iusto maiores ducimus.</p>
-                                </div>
+
                                 <div class="tab-box" id="tab2">
                                     <i class="fas fa-bolt"></i>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, cumque! Asperiores
-                                        autem, laboriosam harum atque fugit veniam aut, vel quos ducimus, aspernatur eveniet
-                                        quo sed!</p>
+                                    <p>Estas son mis Actitudes como estudiante y trabajador:</p>
+                                    
+                                    @foreach($habilidad as $habilidades)
+                                    <br><p>1.{{$habilidades->aptitud1}}</p>
+                                    <br><p>2.{{$habilidades->aptitud2}}</p>
+                                    @endforeach
                                 </div>
                                 <div class="tab-box" id="tab3">
                                     <i class="fas fa-meteor center-align"></i>
@@ -150,8 +148,14 @@
                 <div class="textos-habilities">
                     <h1>Habilidades</h1>
                     <div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A magni, tempora sed quae libero
-                            doloribus. Sapiente esse voluptate amet architecto.</p>
+
+                        @if ($habilidad->count()==0)
+Aún no hay habilidades.
+@endif
+@if ($habilidad->count()!=0)
+<p>Estas son algunas de mis habilidades.</p>
+@endif
+                       
                     </div>
 
                 </div>
@@ -175,6 +179,9 @@
                     </div>
 
 @endforeach
+
+
+
 
 
                 </div>
@@ -352,6 +359,11 @@
             <div class="content-hobbys">
                 <div class="titulo-hobbys">
                     <h1>HOBBYS </h1>
+
+                    @if ($hobby->count()==0)
+                    Aún no hay hobbys.
+                    @endif
+             
 
 
                 </div>

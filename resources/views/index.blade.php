@@ -61,7 +61,7 @@
                             y negocios de forma fácil y rápida.</p>
                     </div>
                     <div class="cardsl-footer">
-                        <button type="button" class="btn btn-primary btn-lg">Buscar</button>
+                       <a href="{{url('/publicaciones')}}"> <button type="button" class="btn btn-primary btn-lg">Buscar</button></a>
                     </div>
                 </div>
 
@@ -76,7 +76,7 @@
                             comentar y seguir.</p>
                     </div>
                     <div class="cardsl-footer">
-                        <button type="button" class="btn btn-primary btn-lg">Encontrar</button>
+                       <a href="{{url('/perfiles')}}"> <button type="button" class="btn btn-primary btn-lg">Encontrar</button> </a>
                     </div>
                 </div>
 

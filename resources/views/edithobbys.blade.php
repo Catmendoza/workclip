@@ -39,7 +39,7 @@
                         <div class="box-inputs-modal">
 
                             <label for="" style="text-transform: uppercase;">Cultura</label>
-                            <input id="email" name="cultura" value="">
+                            <input id="email" name="cultura" value="{{$datos->cultura}}">
 
                         </div>
 
@@ -67,7 +67,7 @@
                         <div class="box-inputs-modal">
 
                             <label for="" style="text-transform: uppercase;">DEPORTE</label>
-                            <input id="programa" name="deporte" value="" type="text">
+                            <input id="programa" name="deporte" value="{{$datos->deporte}}" type="text">
 
                         </div>
 
@@ -96,7 +96,7 @@
                         <div class="box-inputs-modal">
 
                             <label for="" style="text-transform: uppercase;">COMIDA</label>
-                            <input id="contacto" name="comida" value="" type="text">
+                        <input id="contacto" name="comida" value="{{$datos->comida}}" type="text">
 
                         </div>
 

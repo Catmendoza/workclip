@@ -114,6 +114,8 @@
                                 <a href="{{route("perfil.show",$usuario->id)}}"><img src="{{$usuario->imagen}}" style="width: 100%; height: 100%; "></a>
                             </div>
                             <div class="name-user-label">
+                                                        
+
                                 <label>nombre</label>
                             </div>
 
@@ -125,7 +127,23 @@
                             </div>
 
                             <div class="links-user-card">
-                                <i class="fas fa-user-circle"></i>
+
+                                @guest
+                                @if (Route::has('register'))
+                          
+
+                                                        @endif
+@else
+@if (Auth::user()->rol==3)
+<form action="{{route('perfil.destroy',$usuario->id)}}" method="POST">
+    @csrf
+    @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+
+</form>
+                        @endif
+
+                                                        @endguest
                             </div>
 
                             <div class="name-user-text">

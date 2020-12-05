@@ -9,6 +9,7 @@ use App\Hobby;
 use App\Producto;
 use App\Empleo;
 use App\Habilidades;
+use App\Comentario;
 use Illuminate\Http\Request;
 
 class PerfilController extends Controller
@@ -166,5 +167,34 @@ class PerfilController extends Controller
     public function destroy($id)
     {
         //
+
+        $usuario = User::findOrFail($id);
+        $hobbys = Hobby::all()->where('id_perfil','=',$id);
+        $habilidades = Habilidades::all()->where('id_perfil','=',$id);
+        $proyecto = Proyecto::all()->where('id_perfil','=',$id);
+        $producto = Producto::all()->where('id_perfil','=',$id);
+        $empleo = Empleo::all()->where('id_perfil','=',$id);
+        $comentario = Comentario::all()->where('id_usuario','=',$id);
+        foreach($hobbys as $hobbys){
+            $hobbys->delete();
+        }
+
+        foreach($habilidades as $habilidades){
+            $habilidades->delete();
+        }
+        foreach($proyecto as $proyectos){
+            $proyectos->delete();
+        }
+        foreach($producto as $productos){
+            $productos->delete();
+        }
+        foreach($empleo as $empleos){
+            $empleos->delete();
+        }
+        foreach($comentario as $comentarios){
+            $comentarios->delete();
+        }
+        $usuario->delete();
+        return redirect('/publicaciones');
     }
 }

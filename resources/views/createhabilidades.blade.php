@@ -126,7 +126,7 @@
 
                             <label for="" style="text-transform: uppercase;">Selecciona una aptitud</label>
                             
-                            <select name="aptitudes" id="apt-select">
+                            <select name="aptitud1" id="apt-select">
                                 <option value="">Ninguna</option>
                                 <option value="Capacidad de iniciativa">Capacidad de iniciativa</option>
                                 <option value="Capacidad para resolver problemas">Capacidad para resolver problemas</option>
@@ -162,7 +162,7 @@
                   <div class="box-inputs-modal">
 
                       <label for="" style="text-transform: uppercase;">Selecciona una aptitud</label>
-                      <select name="aptitudes" id="apt-select">
+                      <select name="aptitud2" id="apt-select">
                         <option value="">Ninguna</option>
                         <option value="Capacidad de iniciativa">Capacidad de iniciativa</option>
                         <option value="Capacidad para resolver problemas">Capacidad para resolver problemas</option>
@@ -283,7 +283,6 @@
 
 
     <script type="text/javascript" src="{{ asset('js/edit-profile.js') }}"></script>
-
 
 
 

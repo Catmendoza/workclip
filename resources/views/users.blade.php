@@ -143,8 +143,12 @@
                 <div class="textos-habilities">
                     <h1>Habilidades</h1>
                     <div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A magni, tempora sed quae libero
-                            doloribus. Sapiente esse voluptate amet architecto.</p>
+                        @if ($habilidad->count()==0)
+Aún no hay habilidades.
+@endif
+@if ($habilidad->count()!=0)
+<p>Estas son algunas de mis habilidades.</p>
+@endif
                     </div>
 
                 </div>
@@ -326,6 +330,9 @@
                 <div class="titulo-hobbys">
                     <h1>HOBBYS </h1>
 
+                    @if ($hobby->count()==0)
+                    Aún no hay hobbys.
+                    @endif
 
                 </div>
 
