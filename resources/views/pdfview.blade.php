@@ -44,7 +44,7 @@
 <body>
     <div id="nav">
         <nav class="navbar navbar-light bg-light">
-            <a class="btn btn-outline-success" type="button" href="{{ url('/perfil') }}">Regresar</a>
+            <a class="btn btn-primary" type="button" href="{{ url('/perfil') }}">Regresar</a>
         </nav>
     </div>
     <div class="container">

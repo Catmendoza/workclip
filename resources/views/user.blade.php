@@ -43,12 +43,7 @@
 
                         <div class="content-margin-profile">
                             <div class="header-titles-profile">
-                                <label>{{ $usuario->nombre }}</label>
-                                @php
-                                $aux;
 
-                        <div class="content-margin-profile">
-                            <div class="header-titles-profile">
                                 <label>{{ $usuario->nombre }}</label>
                                 @php
                                 $aux;
@@ -83,14 +78,9 @@
                                     class="btn-footer edit">EDITALO</a>
                             </div>
                         </div>
-
-
-
-
-
                     </div>
-
                 </div>
+
             @endforeach
 
 
@@ -285,26 +275,26 @@
 
                                             </div>
 
-                                            </div>
-
                                         </div>
+
                                     </div>
-                                @endif
-
-
-
-
                             </div>
+                            @endif
+
+
+
 
                         </div>
 
                     </div>
 
-
                 </div>
 
 
             </div>
+
+
+        </div>
         </div>
     </section>
 
@@ -378,6 +368,7 @@
                             </a>
                         </div>
                     </div>
+                @endforeach
 
                 @foreach ($hobby as $hobbys)
 
