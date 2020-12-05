@@ -8,15 +8,48 @@
     <link rel="stylesheet" href="css/pdf.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <style>
+        .btn-group-fab {
+            position: fixed;
+            width: 50px;
+            height: auto;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .btn-group-fab .btn {
+            position: absolute;
+            bottom: 0;
+            border-radius: 50%;
+            display: block;
+            margin-bottom: 4px;
+            width: 40px;
+            height: 40px;
+            margin: 4px auto;
+        }
+
+        .btn-group-fab .btn-main {
+            width: 50px;
+            height: 50px;
+            right: 50%;
+            margin-right: -25px;
+            z-index: 9;
+        }
+
+    </style>
 </head>
 
 <body>
+    <div id="nav">
+        <nav class="navbar navbar-light bg-light">
+            <a class="btn btn-outline-success" type="button" href="{{ url('/perfil') }}">Regresar</a>
+        </nav>
+    </div>
     <div class="container">
-        <button id="holi" onclick="boton()">Imprimir</button>
-
         <div class="row">
-            <div class="col-2">
+            <div class="col-2 mt-2 ">
                 <img src="{{ $usuario->imagen }}" alt="" class='w-100 rounded-circle'>
             </div>
 
@@ -48,66 +81,67 @@
             </div>
             <div class="col-10">
                 <div class="texto">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                    the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                    type
-                    and
-                    scrambled it to make a type specimen book.
+                    {{ $usuario->texto_quiensoy }}
                 </div>
             </div>
 
-            <div class="w-100"></div>
+            <div class="w-100 mt-5"></div>
 
-            <div class="col-2 mt-5">
+            <div class="col-2">
                 <div class="font-weight-bold textoTitulos">Habilidades</div>
             </div>
             <div class="texto col-10">
-                <div class="row">
-                    <div>
-                        <span>
-                            @foreach ($habilidad as $habilidades)
+                <div class="row text-center">
 
+                    @foreach ($habilidad as $habilidades)
 
-                                <div class="box box1">
-                                    <h4>{{ $habilidades->titulo1 }}</h4>
-                                    <p>{{ $habilidades->principal_texto1 }}</p>
-                                </div>
-                                <div class="box box2">
-                                    <h4>{{ $habilidades->titulo2 }}</h4>
-                                    <p>{{ $habilidades->principal_texto2 }}</p>
-                                </div>
-                                <div class="box box3">
-                                    <h4>{{ $habilidades->titulo3 }}</h4>
-                                    <p>{{ $habilidades->principal_texto3 }}</p>
-                                </div>
+                        <div class="col">
+                            <div class="box box1">
+                                <h4>{{ $habilidades->titulo1 }}</h4>
+                                <p>{{ $habilidades->principal_texto1 }}</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="box box2">
+                                <h4>{{ $habilidades->titulo2 }}</h4>
+                                <p>{{ $habilidades->principal_texto2 }}</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="box box3">
+                                <h4>{{ $habilidades->titulo3 }}</h4>
+                                <p>{{ $habilidades->principal_texto3 }}</p>
+                            </div>
+                        </div>
 
-                            @endforeach
-                        </span>
-                    </div>
-                    <div>
-                        <span></span>
-
-                    </div>
-                    <div>
-                        <span></span>
-
-                    </div>
+                    @endforeach
 
                 </div>
 
+            </div>
+            <div class="btn-group-fab">
+                <button type="button" class="btn btn-main btn-danger" id="holi" onclick="boton()"
+                    title="Descargar hoja de vida">
+                    <i class="material-icons">picture_as_pdf</i> </button>
             </div>
         </div>
 
         <script>
+            $(function() {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
+
             function boton() {
                 let boton = document.getElementById("holi");
+                let nav = document.getElementById("nav");
 
                 boton.style.display = "none";
+                nav.style.display = "none";
 
                 window.print();
 
                 boton.style.display = "block";
+                nav.style.display = "block";
             }
 
         </script>
