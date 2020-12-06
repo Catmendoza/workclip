@@ -23,14 +23,14 @@ class PerfilController extends Controller
     {
         //
 
-        $usuario = Auth::user()->all()->where('id','=',Auth::user()->id);
+        $usuario = Auth::user();
         $hobbys = Hobby::all()->where('id_perfil','=',Auth::user()->id);
         $habilidades = Habilidades::all()->where('id_perfil','=',Auth::user()->id);
         $proyecto = Proyecto::all()->where('id_perfil','=',Auth::user()->id);
         $producto = Producto::all()->where('id_perfil','=',Auth::user()->id);
         $empleo = Empleo::all()->where('id_perfil','=',Auth::user()->id);
 
-        return view("user")->with('usuarios',$usuario)->with('proyectos',$proyecto)->with('habilidad',$habilidades)->with('hobby',$hobbys)
+        return view("user")->with('usuario',$usuario)->with('proyectos',$proyecto)->with('habilidad',$habilidades)->with('hobby',$hobbys)
         ->with('productos',$producto)->with('empleos',$empleo);
     }
 

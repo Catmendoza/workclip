@@ -17,71 +17,67 @@
 
         <section class="personal contenedor">
 
-
-            @foreach ($usuarios as $usuario)
-
-                @php
-                $auxusu = $usuario;
-                @endphp
-                <div class="container-grid-profile">
-                    <div class="card-portada">
-                        <div class="img-box-user">
-                            <img src="{{ asset($usuario->imagen) }}" alt="">
-                        </div>
-                        <div class="texts-box-portada">
-                            <label>¿Quien Soy?</label>
-                            <p>{{ $usuario->texto_quiensoy }}</p>
-                        </div>
-                        <div class="social-media-port">
-                            <a href="{{ $usuario->instagram }}"><i class="fab fa-instagram"></i></a>
-                            <a href="{{ $usuario->facebook }}"><i class="fab fa-facebook-f"></i></a>
-                            <a href="{{ $usuario->github }}"><i class="fab fa-github"></i></a>
-                        </div>
+            @php
+            $auxusu = $usuario;
+            @endphp
+            <div class="container-grid-profile">
+                <div class="card-portada">
+                    <div class="img-box-user">
+                        <img src="{{ asset($usuario->imagen) }}" alt="">
                     </div>
-
-                    <div class="data-info-user">
-
-                        <div class="content-margin-profile">
-                            <div class="header-titles-profile">
-
-                                <label>{{ $usuario->nombre }}</label>
-                                @php
-                                $aux;
-                                if ($usuario->rol == 0){
-                                $aux="Empresario";
-                                }else{
-                                $aux="Estudiante";
-                                }
-                                @endphp
-                                <p>{{ $aux }}</p>
-                                <hr>
-                            </div>
-                            <div class="container-data-profile">
-                                <label style="font-weight: bold">Carrera</label>
-                                <label style="grid-row-start: 2; font-weight: bold">Cel</label>
-                                <label style="grid-row-start: 3; font-weight: bold;">Email</label>
-                                <label style="grid-row-start: 4; font-weight: bold">Edad</label>
-
-                                <label>{{ $usuario->programa }}</label>
-                                <label>{{ $usuario->contacto }}</label>
-                                <label>{{ $usuario->email }}</label>
-                                <label>{{ $usuario->edad }}</label>
-
-                            </div>
-                            <div class="footer-profile">
-                                <button class="btn-footer contact">Contacta me</button>
-
-                                <a class="btn-footer cv" href="{{ route('pdfview') }}">Descargar CV</a>
-
-
-                                <a href="{{ route('perfil.edit', $usuario->id) }}" style="background:red;"
-                                    class="btn-footer edit">EDITALO</a>
-                            </div>
-                        </div>
+                    <div class="texts-box-portada">
+                        <label>¿Quien Soy?</label>
+                        <p>{{ $usuario->texto_quiensoy }}</p>
+                    </div>
+                    <div class="social-media-port">
+                        <a href="{{ $usuario->instagram }}"><i class="fab fa-instagram"></i></a>
+                        <a href="{{ $usuario->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                        <a href="{{ $usuario->github }}"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
 
-            @endforeach
+                <div class="data-info-user">
+
+                    <div class="content-margin-profile">
+                        <div class="header-titles-profile">
+
+                            <label>{{ $usuario->nombre }}</label>
+                            @php
+                            $aux;
+                            if ($usuario->rol == 0){
+                            $aux="Empresario";
+                            }else{
+                            $aux="Estudiante";
+                            }
+                            @endphp
+                            <p>{{ $aux }}</p>
+                            <hr>
+                        </div>
+                        <div class="container-data-profile">
+                            <label style="font-weight: bold">Carrera</label>
+                            <label style="grid-row-start: 2; font-weight: bold">Cel</label>
+                            <label style="grid-row-start: 3; font-weight: bold;">Email</label>
+                            <label style="grid-row-start: 4; font-weight: bold">Edad</label>
+
+                            <label>{{ $usuario->programa }}</label>
+                            <label>{{ $usuario->contacto }}</label>
+                            <label>{{ $usuario->email }}</label>
+                            <label>{{ $usuario->edad }}</label>
+
+                        </div>
+                        <div class="footer-profile">
+                            <button class="btn-footer contact">Contacta me</button>
+
+                            <a class="btn-footer cv" href="{{ route('pdfview') }}">Descargar CV</a>
+
+
+                            <a href="{{ route('perfil.edit', $usuario->id) }}" style="background:red;"
+                                class="btn-footer edit">EDITALO</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
 
 
@@ -212,6 +208,20 @@
                         <div class="carrusel">
                             <div class="carrusel_container">
                                 <div id="div1">
+                                    @if ($proyectos->count() == 0)
+                                        <div class="carrusel_itemsInline">
+                                            <div class="carrusel_itemsFlex">
+                                                <div class="carrusel_item-content">
+                                                    <div class="title-projects">
+                                                        <h1>Faltan proyectos</h1>
+                                                    </div>
+                                                    <div class="text-projects">
+                                                        <p>¿Que esperas para publicar?</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
                                     @foreach ($proyectos as $proyecto)
                                         <div class="carrusel_itemsInline">
                                             <div class="carrusel_itemsFlex">
@@ -233,6 +243,20 @@
                                 </div>
 
                                 <div id="div2" style="display: none">
+                                    @if ($productos->count() == 0)
+                                        <div class="carrusel_itemsInline">
+                                            <div class="carrusel_itemsFlex">
+                                                <div class="carrusel_item-content">
+                                                    <div class="title-projects">
+                                                        <h1>Faltan productos</h1>
+                                                    </div>
+                                                    <div class="text-projects">
+                                                        <p>¿Que esperas para publicar?</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
                                     @foreach ($productos as $producto)
                                         <div class="carrusel_itemsInline">
                                             <div class="carrusel_itemsFlex">
@@ -253,49 +277,11 @@
                                         </div>
                                     @endforeach
                                 </div>
-
-                                @if ($proyectos->count() == 0 || $productos->count() == 0)
-                                    <div class="carrusel_itemsInline">
-
-                                        <div class="carrusel_itemsFlex">
-
-                                            <div class="carrusel_item-content">
-                                                <div class="title-projects">
-                                                    <h1>Faltan proyectos <br>o productos</h1>
-                                                </div>
-
-                                                <div class="text-projects">
-
-                                                    <p>¿Que esperas para publicar?</p>
-
-                                                </div>
-
-
-
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
                             </div>
-                            @endif
-
-
-
-
                         </div>
-
                     </div>
-
                 </div>
-
-
             </div>
-
-
-        </div>
-        </div>
     </section>
 
 
